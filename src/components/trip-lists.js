@@ -4,15 +4,8 @@ import Header from './header';
 import Menu from './menu';
 import ContainerTripLists from './container-trip-lists';
 import Footer from './footer';
-import Modal from './modal';
 
-export default class Dashboard extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-
-      }
-    }
+export default class TripList extends React.Component {
 
     render() {
       return (
@@ -21,7 +14,6 @@ export default class Dashboard extends React.Component {
           <Menu />
           <ContainerTripLists />
           <Footer />
-          <Modal />
         </div>
       );
     }

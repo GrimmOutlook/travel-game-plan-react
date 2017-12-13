@@ -3,7 +3,9 @@ import React from 'react';
 export default function Button(props) {
 
   return (
-    <a href="#" className="btn btn--green">{props.text}</a>
+    <div className="add-trip-button">
+      <a href="#" className={`btn ${props.buttonColor}`}>{props.text}</a>
+    </div>
   );
 
 };

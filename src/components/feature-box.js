@@ -1,21 +1,20 @@
 import React from 'react';
 
 export default function FeatureBox(props) {
-  const feature = props.features.map((feature, index) => (
-    <li key={index}>
-      <div className="image">
+  const featureList = props.features.map((feature, index) => (
+    <li className={`feature-box-${ index + 1 }`} key={ index + 1 }>
+      <div className={`icon-${ index + 1 }`}>
       </div>
-      <div className="feature-description">
-        <h3>{feature.description}</h3>
+      <div className={`feature-text-${ index + 1 }`}>
+        <h3>{ feature.description }</h3>
       </div>
     </li>
   ));
 
   return (
-    <ul>
-      {feature}
+    <ul className="explanations">
+      { featureList }
     </ul>
   );
 };
-
 
