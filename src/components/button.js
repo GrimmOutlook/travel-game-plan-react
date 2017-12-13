@@ -1,8 +1,9 @@
 import React from 'react';
 
+export default function Button(props) {
 
+  return (
+    <a href="#" className="btn btn--green">{props.text}</a>
+  );
 
-
-
-
-<a href="#" class="btn btn--blue">Signup</a>
+};
