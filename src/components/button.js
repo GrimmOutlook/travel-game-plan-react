@@ -4,7 +4,7 @@ export default function Button(props) {
 
   return (
     <div className="add-trip-button">
-      <a href="#" className={`btn ${props.buttonColor}`}>{props.text}</a>
+      <a href="#" className={`btn ${props.buttonColor}`} type={props.type} >{props.text}</a>
     </div>
   );
 

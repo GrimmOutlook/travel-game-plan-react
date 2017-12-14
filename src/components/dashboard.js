@@ -6,6 +6,7 @@ import ContainerDashboard from './container-dashboard';
 import Footer from './footer';
 
 import './css/dashboard.css';
+import './css/button.css';
 
 export default class Dashboard extends React.Component {
 

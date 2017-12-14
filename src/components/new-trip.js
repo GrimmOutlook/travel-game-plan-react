@@ -3,18 +3,19 @@ import React from 'react';
 import Header from './header';
 import Menu from './menu';
 import ContainerNewTrip from './container-new-trip';
-import NewTripForm from './new-trip-form';
 import Footer from './footer';
 
-export default class Dashboard extends React.Component {
+import './css/new-trip.css';
+import './css/button.css';
+
+export default class NewTrip extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className="container__main--grid">
           <Header />
           <Menu />
           <ContainerNewTrip />
-          <NewTripForm />
           <Footer />
         </div>
       );
