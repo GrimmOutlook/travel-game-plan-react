@@ -1,13 +1,17 @@
 import React from 'react';
 
+import Button from './button';
+
 export default function Menu() {
 
   return (
     <div className="menu">
-      <a href="#" className="btn btn--blue">Trip Dashboard</a>
-      <a href="#" className="btn btn--blue">Something Else</a>
-      <a href="#" className="btn btn--blue">Log Out</a>
+      <Button routePath="dashboard" text="Trip Dashboard" buttonColor="btn--blue" />
+      <Button routePath="new-trip" text="Create New Trip" buttonColor="btn--blue" />
+      <Button routePath="homepage" text="Home" buttonColor="btn--blue" />
     </div>
   );
 
 };
+
+

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from './button';
-import Modal from './modal';
+// import Modal from './modal';
 
 export default class NewTripForm extends React.Component {
 
@@ -26,11 +26,11 @@ export default class NewTripForm extends React.Component {
             <textarea type="text" placeholder="Trip Details" name="tripDetails" required />
 
 
-            <Button text="Submit" buttonColor="btn--green" type="submit" />
+            <Button routePath="modal" text="Submit" buttonColor="btn--green" type="submit" />
 
           </form>
 
-          <Modal text="You have successfully created a new trip!" />
+          {/* <Modal text="You have successfully created a new trip!" /> */}
         </div>
       );
     }

@@ -9,7 +9,7 @@ export default class ContainerDashboard extends React.Component {
     render() {
       return (
         <div className="content content__grid">
-          <Button text="Create A New Trip" buttonColor="btn--green" />
+          <Button routePath="new-trip" text="Create A New Trip" buttonColor="btn--green" />
           <TripSummary trips={TRIPS} />
         </div>
       );
