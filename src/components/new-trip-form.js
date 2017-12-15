@@ -7,7 +7,7 @@ export default class NewTripForm extends React.Component {
 
     render() {
       return (
-        <div className="content-grid">
+        <div className="grid-new-trip-content">
           <form id="form__new-trip">
 
             <label htmlFor="tripName">Trip Name</label>

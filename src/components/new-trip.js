@@ -12,7 +12,7 @@ export default class NewTrip extends React.Component {
 
     render() {
       return (
-        <div className="container__main--grid">
+        <div className="grid-new-trip-main">
           <Header />
           <Menu />
           <ContainerNewTrip />

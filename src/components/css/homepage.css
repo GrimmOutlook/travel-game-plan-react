@@ -5,7 +5,7 @@
   font-family: serif;
 }
 
-.header {
+.homepage .header {
   height: 100vh;
   background: url('../../images/map-2-people.jpg') fixed no-repeat;
   background-position: center;
@@ -80,7 +80,7 @@
   /*border: 3px solid red;*/
 }
 
-.btn:link, .btn:visited {
+.homepage .btn:link, .homepage .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1rem 2.5rem;
@@ -93,22 +93,22 @@
   font-size: 1.6rem;
 }
 
-.btn:hover {
+.homepage .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0,0,0, 0.3);
 }
 
-.btn:hover::after {
+.homepage .btn:hover::after {
   transform: scaleX(1.2) scaleY(1.6);
   opacity: 0;
 }
 
-.btn:active {
+.homepage .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 0.5rem 1rem rgba(0,0,0, 0.3);
 }
 
-.btn--blue {
+.homepage .btn--blue {
   background-color: #007dff;
   color: white;
   position: absolute;
@@ -116,11 +116,11 @@
   top: 85%;
 }
 
-.btn--blue::after {
+.homepage .btn--blue::after {
   background-color: #007dff;
 }
 
-.btn--green {
+.homepage .btn--green {
   background-color: #6dfd30;
   color: white;
   position: absolute;
@@ -128,11 +128,11 @@
   top: 85%;
 }
 
-.btn--green::after {
+.homepage .btn--green::after {
   background-color: #6dfd30;
 }
 
-.btn::after {
+.homepage .btn::after {
   content: "";
   display: inline-block;
   height: 100%;
@@ -184,7 +184,7 @@ ul {
 }
 
 @media screen and (max-width: 640px) {
-  .header {
+  .homepage .header {
     max-width: 100%;
   }
 

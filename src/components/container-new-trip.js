@@ -6,7 +6,7 @@ export default class ContainerNewTrip extends React.Component {
 
     render() {
       return (
-        <div className="content">
+        <div className="content-new-trip">
           <h1 className="heading-secondary">Fill in New Trip Details:</h1>
           <NewTripForm />
         </div>

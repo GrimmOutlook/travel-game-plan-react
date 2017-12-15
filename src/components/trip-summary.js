@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function TripSummary(props) {
   const summaries = props.trips.map((trip, index) => (
-    <li className="trip" key={ index + 1 }>
+    <li className={`trip trip-${index + 1}`} key={ index + 1 }>
 
         <h3 className="trip-number">Trip #{ index + 1 }</h3>
         <h2 className="trip-name">{ trip.name }</h2>

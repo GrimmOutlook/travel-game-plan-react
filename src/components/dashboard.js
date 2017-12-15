@@ -12,7 +12,7 @@ export default class Dashboard extends React.Component {
 
     render() {
       return (
-        <div className="container container__main--grid">
+        <div className="grid-dashboard-main">
           <Header />
           <Menu />
           <ContainerDashboard />

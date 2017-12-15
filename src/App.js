@@ -15,7 +15,7 @@ export default class App extends React.Component {
           <div>
             <Switch>
               {/* This is how you comment JSX */}
-              <Route exact path="/homepage" component={Homepage} />
+              <Route exact path="/" component={Homepage} />
               <Route exact path="/modal" component={Modal} />
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/new-trip" component={NewTrip} />

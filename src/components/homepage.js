@@ -9,7 +9,7 @@ export default class Homepage extends React.Component {
 
   render() {
       return (
-        <div className="unnecessary">
+        <div className="homepage">
           <header className="header">
             <div id="homepage-container">
               <h1 className="heading-primary">

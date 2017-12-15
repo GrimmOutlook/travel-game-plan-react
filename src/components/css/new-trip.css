@@ -1,4 +1,4 @@
-.container__main--grid {
+.grid-new-trip-main {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: 0.5fr 1.5fr 1.5fr 1.5fr;
@@ -19,7 +19,7 @@
   background-color: #6dfd9c;
 }
 
-.content {
+.content-new-trip {
   grid-area: c;
   background-color: #007dff;
 }
@@ -29,7 +29,7 @@
   background-color: #6dfd30;
 }
 
-.content__grid {
+.grid-new-trip-content {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr;
@@ -83,7 +83,7 @@ form#form__new-trip input[type="submit"] {
 
 
 @media screen and (max-width: 640px) {
-    .container__main--grid {
+    .grid-new-trip-main {
         grid-template-areas:
           "m h h h"
           "c c c c"
