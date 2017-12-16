@@ -5,7 +5,7 @@ import Dashboard from './components/dashboard';
 import Homepage from './components/homepage';
 import NewTrip from './components/new-trip';
 import TripLists from './components/trip-lists';
-import Modal from './components/modal';
+// import Modal from './components/modal';
 
 export default class App extends React.Component {
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
             <Switch>
               {/* This is how you comment JSX */}
               <Route exact path="/" component={Homepage} />
-              <Route exact path="/modal" component={Modal} />
+              {/* <Route exact path="/modal" component={Modal} /> */}
               <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/new-trip" component={NewTrip} />
               <Route exact path="/trip-lists" component={TripLists} />

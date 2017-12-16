@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Button from './button';
-// import Modal from './modal';
+import Modal from './modal';
 
 export default class NewTripForm extends React.Component {
 
