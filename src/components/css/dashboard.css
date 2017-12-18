@@ -2,7 +2,7 @@
     display: grid;
     grid-gap: 5px;
     grid-template-columns: 0.5fr 1.5fr 1.5fr 1.5fr;
-    grid-template-rows: 80px auto 1fr;
+    /*grid-template-rows: 80px auto 1fr;*/
     grid-template-areas:
       "h h h h"
       "m c c c"

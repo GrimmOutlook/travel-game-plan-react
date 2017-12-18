@@ -8,7 +8,7 @@ export default function Menu() {
     <div className="menu">
       <Button routePath="dashboard" text="Trip Dashboard" buttonColor="btn--blue" />
       <Button routePath="new-trip" text="Create New Trip" buttonColor="btn--blue" />
-      <Button routePath="homepage" text="Home" buttonColor="btn--blue" />
+      <Button routePath="" text="Home" buttonColor="btn--blue" />
     </div>
   );
 

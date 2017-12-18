@@ -1,13 +1,34 @@
 import React from 'react';
 
-export default function Modal(props) {
+import ModalSuccess from './modal-success';
+import ModalForm from './modal-form';
 
-  return (
-    <div className="modal-white">
+const SuccessModalContent = modalContent(
+  ModalSuccess,
+  "Success Text"
+);
 
-     {/* <SuccessModal />
-     <ModifyItemModal /> */}
-    </div>
-  );
+const FormModalContent = modalContent(
+  ModalForm,
+  "Form Text"
+)
 
+
+function modalContent(WrappedComponent, randomText) {
+  return class extends React.Component {
+
+    render() {
+
+      return (
+        <div className="modal-white">
+          <p>Here is an X to close the Modal</p>
+
+          <WrappedComponent text={randomText} />
+
+        </div>
+      );
+    }
+  }
 };
+
+export {SuccessModalContent, FormModalContent}

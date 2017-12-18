@@ -2,8 +2,11 @@ import React from 'react';
 
 import Header from './header';
 import Menu from './menu';
-// import ContainerTripLists from './container-trip-lists';
+import ContainerTripLists from './container-trip-lists';
 import Footer from './footer';
+
+// import './css/lists.css';
+import './css/button.css';
 
 export default class TripLists extends React.Component {
 
@@ -12,7 +15,7 @@ export default class TripLists extends React.Component {
         <div>
           <Header />
           <Menu />
-          {/* <ContainerTripLists /> */}
+          <ContainerTripLists />
           <Footer />
         </div>
       );
