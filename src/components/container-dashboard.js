@@ -17,6 +17,7 @@ export default class ContainerDashboard extends React.Component {
 
 }
 
+// initialState in reducers
 const TRIPS = [
   {trip_id: 1, name: "Cancun", dateStart: "Jan. 14, 2018", dateEnd: "Jan. 21, 2018"},
   {trip_id: 2, name: "Pittsburgh", dateStart: "March 14, 2018", dateEnd: "March 21, 2018"},

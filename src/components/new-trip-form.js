@@ -1,14 +1,21 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {toggleInfoModal} from '../actions/index';
 
 import Button from './button';
-// import Modal from './modal';
+import {SuccessModalContent} from './modal';
 
-export default class NewTripForm extends React.Component {
+export class NewTripForm extends React.Component {
+
+    createTripModal(e){
+      e.preventDefault();
+      this.props.dispatch(toggleInfoModal())
+    }
 
     render() {
       return (
         <div className="grid-new-trip-content">
-          <form id="form__new-trip">
+          <form id="form__new-trip"  onSubmit={e => this.createTripModal(e)}>
 
             <label htmlFor="tripName">Trip Name</label>
             <input type="text" placeholder="Trip Name" name="tripName" required />
@@ -26,15 +33,35 @@ export default class NewTripForm extends React.Component {
             <textarea type="text" placeholder="Trip Details" name="tripDetails" required />
 
 
-            <Button routePath="modal-success" text="Submit" buttonColor="btn--green" type="submit" />
+            <button type="submit" >Submit</button>
 
           </form>
 
-          {/* <Modal text="You have successfully created a new trip!" /> */}
+
+          { this.props.showModal ? <SuccessModalContent text="You have successfully created a new trip!" /> : "" }
         </div>
       );
     }
 
 }
+
+
+const mapStateToProps = state => ({
+    showModal: state.showModal
+});
+
+export default connect(mapStateToProps)(NewTripForm);
+
+
+
+
+
+
+
+
+
+
+
+
 
 

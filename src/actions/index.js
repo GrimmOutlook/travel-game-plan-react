@@ -8,7 +8,6 @@ export const createNewTrip = (tripName, startDate, endDate, address, tripDetails
     tripDetails
 });
 
-// Use 2? - one for each modal?
 export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
 export const toggleInfoModal = () => ({
     type: TOGGLE_INFO_MODAL

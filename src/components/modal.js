@@ -3,6 +3,8 @@ import React from 'react';
 import ModalSuccess from './modal-success';
 import ModalForm from './modal-form';
 
+import './css/modal.css';
+
 const SuccessModalContent = modalContent(
   ModalSuccess,
   "Success Text"
