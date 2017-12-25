@@ -8,16 +8,16 @@ export default class ContainerTripLists extends React.Component {
 
     render() {
       return (
-        <div className="content-dashboard content__grid">
-          <h1>TRIP NAME</h1>
-          <h3>Things Needed:</h3>
-          <Button routePath="modal-form" text="Add an Item" buttonColor="btn--green" />
-          <List items={ITEMS} />
+        <div className="content-trip-lists grid-trip-lists-content">
+          <h1 className="heading-primary">TRIP NAME & Details</h1>
+          <h3 className="heading__needed">Things Needed:</h3>
+          <Button routePath="modal-form" text="Add an Item" buttonColor="btn--green" className="btn-add__needed" />
+          <List classProp="needed__list" items={ITEMS} />
 
-          <h3>Things Accounted For:</h3>
-          <Button routePath="modal-form" text="Add an Item" buttonColor="btn--green" />
-          <Button text="My List" buttonColor="btn--white" />
-          <List items={ITEMSACCOUNTED} />
+          <h3 className="heading__accounted">Things Accounted For:</h3>
+          <Button routePath="modal-form" text="Add an Item" buttonColor="btn--green" className="btn-add__accounted" />
+          <Button text="My List" buttonColor="btn--white" className="btn-item-filter" />
+          <List classProp="accounted__list" items={ITEMSACCOUNTED} />
 
         </div>
       );

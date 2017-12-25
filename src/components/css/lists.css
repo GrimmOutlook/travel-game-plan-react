@@ -1,4 +1,4 @@
-.container__main--grid {
+.grid-trip-lists-main {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: 0.5fr 1.5fr 1.5fr 1.5fr;
@@ -19,7 +19,7 @@
   background-color: #6dfd9c;
 }
 
-.content {
+.content-trip-lists {
   grid-area: c;
   background-color: #007dff;
 }
@@ -29,15 +29,16 @@
   background-color: #6dfd30;
 }
 
-.content__grid {
+.grid-trip-lists-content {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(2, 1fr);
   /*grid-template-rows: 50px 80vh 50px;*/
   grid-template-areas:
     "h1 h1"
-    "h2-need h2-accounted"
+    "h3-need h3-accounted"
     "btn-need btn-accounted"
+    "btn-need btn-filter"
     "list-need list-accounted";
 }
 
@@ -46,7 +47,7 @@
 }
 
 .heading__needed {
-  grid-area: h2-need;
+  grid-area: h3-need;
 }
 
 .btn-add__needed {
@@ -58,11 +59,15 @@
 }
 
 .heading__accounted {
-  grid-area: h2-accounted;
+  grid-area: h3-accounted;
 }
 
 .btn-add__accounted {
   grid-area: btn-accounted;
+}
+
+btn-item-filter {
+  grid-area: btn-filter;
 }
 
 .accounted__list {
@@ -70,7 +75,7 @@
 }
 
 @media screen and (max-width: 640px) {
-    .container__main--grid {
+    .grid-trip-lists-main {
         grid-template-areas:
           "m h h h"
           "c c c c"

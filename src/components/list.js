@@ -12,7 +12,7 @@ export default function List(props) {
   ));
 
   return (
-    <ul className="item-list">
+    <ul className={`item-list ${props.classProp}`}>
       {items}
     </ul>
   );

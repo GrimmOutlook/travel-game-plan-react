@@ -1,10 +1,12 @@
-import {TOGGLE_INFO_MODAL} from '../actions/index'
+import {CREATE_NEW_TRIP} from '../actions/index'
+import tripReducer from './trip-reducer'
+import modalReducer from './modal-reducer'
+import {reducer as formReducer} from 'redux-form'
+import {combineReducers} from 'redux'
 
-const initialState = {showModal: false};
 
-export const modalReducer = (state=initialState, action) => {
-    if (action.type === TOGGLE_INFO_MODAL){
-      return Object.assign({}, state, {showModal: !state.showModal})
-    }
-    return state;
-};
+
+
+
+
+export default combineReducers({form: formReducer, trip: tripReducer, modal: modalReducer})

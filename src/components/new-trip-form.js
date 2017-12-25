@@ -1,36 +1,37 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleInfoModal} from '../actions/index';
+import {toggleInfoModal, createNewTrip} from '../actions/index';
+import {reduxForm, Field} from 'redux-form';
 
 import Button from './button';
 import {SuccessModalContent} from './modal';
 
 export class NewTripForm extends React.Component {
 
-    createTripModal(e){
-      e.preventDefault();
+    createTripModal(values){
       this.props.dispatch(toggleInfoModal())
+
     }
 
     render() {
       return (
         <div className="grid-new-trip-content">
-          <form id="form__new-trip"  onSubmit={e => this.createTripModal(e)}>
+          <form id="form__new-trip" onSubmit={this.props.handleSubmit(values => this.createTripModal(values))}>
 
             <label htmlFor="tripName">Trip Name</label>
-            <input type="text" placeholder="Trip Name" name="tripName" required />
+            <Field type="text" placeholder="Trip Name" name="tripName" component="input" required />
 
             <label htmlFor="startDate">Start Date</label>
-            <input type="text" placeholder="Start Date" name="startDate" required />
+            <Field type="text" placeholder="Start Date" name="startDate" component="input" required />
 
             <label htmlFor="endDate">End Date</label>
-            <input type="text" placeholder="End Date" name="endDate" required />
+            <Field type="text" placeholder="End Date" name="endDate" component="input" required />
 
             <label htmlFor="address">Destination Address</label>
-            <input type="text" placeholder="Destination Address" name="address" required />
+            <Field type="text" placeholder="Destination Address" name="address" component="input" required />
 
             <label htmlFor="tripDetails">Trip Details</label>
-            <textarea type="text" placeholder="Trip Details" name="tripDetails" required />
+            <Field type="text" placeholder="Trip Details" name="tripDetails" component="textarea" required />
 
 
             <button type="submit" >Submit</button>
@@ -47,11 +48,15 @@ export class NewTripForm extends React.Component {
 
 
 const mapStateToProps = state => ({
-    showModal: state.showModal
+    showModal: state.modal.showModal
 });
 
-export default connect(mapStateToProps)(NewTripForm);
+const form = reduxForm({
+  form: 'tripForm'
+})(NewTripForm);
 
+
+export default connect(mapStateToProps)(form);
 
 
 
