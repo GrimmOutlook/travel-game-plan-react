@@ -15,6 +15,11 @@ const FormModalContent = modalContent(
   "Form Text"
 )
 
+// const DeleteItem = modalContent(
+//    DeleteItemComponentName,
+//    "Are you Sure?"
+//   )
+
 
 function modalContent(WrappedComponent, randomText) {
   return class extends React.Component {
