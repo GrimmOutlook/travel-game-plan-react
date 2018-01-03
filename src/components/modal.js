@@ -4,7 +4,7 @@ import ModalSuccess from './modal-success';
 import ModalNewItem from './modal-new-item';
 import ModalUpdateItem from './modal-update-item';
 import ModalDeleteItem from './modal-delete-item';
-import ModalConfirmItem from './modal-confirm-item';
+// import ModalConfirmItem from './modal-confirm-item';
 import {toggleInfoModal} from '../actions/index';
 import {connect} from 'react-redux';
 
@@ -28,6 +28,7 @@ const UpdateModalContent = modalContent(
 const DeleteModalContent = modalContent(
   ModalDeleteItem,
   "Delete Text"
+  // pass
 )
 
 function modalContent(WrappedComponent, randomText) {

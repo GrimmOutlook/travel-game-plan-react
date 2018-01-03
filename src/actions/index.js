@@ -32,6 +32,14 @@ export const updateItem = (item, itemDetails, username) => ({
   username  //use the username captured from login action as placeholder
 })
 
+export const DELETE_ITEM = 'DELETE_ITEM';
+export const deleteItem = (item, itemDetails, username) => ({
+  type: DELETE_ITEM,
+  item,
+  itemDetails,
+  username  //use the username captured from login action as placeholder
+})
+
 
 
 

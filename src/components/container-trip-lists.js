@@ -6,6 +6,8 @@ import List from './list';
 import {NewItemModalContent} from './modal';
 import {toggleInfoModal} from '../actions/index';
 
+import './css/button.css';
+
 
 export class ContainerTripLists extends React.Component {
 
@@ -19,7 +21,7 @@ export class ContainerTripLists extends React.Component {
         <div className="content-trip-lists grid-trip-lists-content">
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
-          <button className="btn-add__needed" onClick={e => this.someFxn(e)}>Add An Item</button>
+          <a className="btn btn--green btn-add__needed" onClick={e => this.someFxn(e)}>Add An Item</a>
           <List classProp="needed__list" items={this.props.items} />
 
           <h3 className="heading__accounted">Things Accounted For:</h3>

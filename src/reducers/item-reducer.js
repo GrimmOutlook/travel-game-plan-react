@@ -1,4 +1,4 @@
-import {ADD_ITEM} from '../actions/index'
+import {ADD_ITEM, UPDATE_ITEM, DELETE_ITEM} from '../actions/index'
 
 const initialStateAddItem = {
   items: [
@@ -17,6 +17,14 @@ export const itemReducer = (state=initialStateAddItem, action) => {
       itemDetails: action.itemDetails,
       username: action.username
     }]});
+  }
+
+  else if (action.type === UPDATE_ITEM){
+
+  }
+
+  else if (action.type === DELETE_ITEM){
+
   }
   return state;
 }

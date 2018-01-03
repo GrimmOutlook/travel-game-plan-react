@@ -1,4 +1,4 @@
-import {CREATE_NEW_TRIP} from '../actions/index'
+// import {CREATE_NEW_TRIP} from '../actions/index'
 import tripReducer from './trip-reducer'
 import modalReducer from './modal-reducer'
 import itemReducer from './item-reducer'

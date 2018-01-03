@@ -38,7 +38,7 @@
     "h1 h1"
     "h3-need h3-accounted"
     "btn-need btn-accounted"
-    "btn-need btn-filter"
+    ". btn-filter"
     "list-need list-accounted";
 }
 
@@ -66,7 +66,7 @@
   grid-area: btn-accounted;
 }
 
-btn-item-filter {
+.btn-item-filter {
   grid-area: btn-filter;
 }
 
