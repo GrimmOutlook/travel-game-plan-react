@@ -24,7 +24,21 @@ export const addItem = (item, itemDetails, username) => ({
   username  //automatically use the username captured from login action
 })
 
-// Do I need a separate toggle action for each modal? - Don't think so.
+export const UPDATE_ITEM = 'UPDATE_ITEM';
+export const updateItem = (item, itemDetails, username) => ({
+  type: UPDATE_ITEM,
+  item,
+  itemDetails,
+  username  //use the username captured from login action as placeholder
+})
+
+
+
+
+
+
+
+
 
 // User clicks on "Add an Item" button ==> modal form pops up ==> user fills out form & clicks "Submit" button ==> The following actions are dispatched: 1. Toggle Modal action  2. Add an Item action ==> state is updated to include that added item.
 

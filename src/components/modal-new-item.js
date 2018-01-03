@@ -5,7 +5,7 @@ import {reduxForm, Field} from 'redux-form';
 
 // import Button from './button';
 
-export class ModalForm extends React.Component {
+export class ModalNewItem extends React.Component {
 
   addItemFxn(values){
     this.props.dispatch(toggleInfoModal());

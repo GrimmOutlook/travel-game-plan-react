@@ -1,7 +1,10 @@
 import React from 'react';
 
 import ModalSuccess from './modal-success';
-import ModalForm from './modal-form';
+import ModalNewItem from './modal-new-item';
+import ModalUpdateItem from './modal-update-item';
+import ModalDeleteItem from './modal-delete-item';
+import ModalConfirmItem from './modal-confirm-item';
 import {toggleInfoModal} from '../actions/index';
 import {connect} from 'react-redux';
 
@@ -12,16 +15,20 @@ const SuccessModalContent = modalContent(
   "Success Text"
 );
 
-const FormModalContent = modalContent(
-  ModalForm,
+const NewItemModalContent = modalContent(
+  ModalNewItem,
   "Form Text"
 )
 
-// const DeleteItem = modalContent(
-//    DeleteItemComponentName,
-//    "Are you Sure?"
-//   )
+const UpdateModalContent = modalContent(
+  ModalUpdateItem,
+  "Update Text"
+);
 
+const DeleteModalContent = modalContent(
+  ModalDeleteItem,
+  "Delete Text"
+)
 
 function modalContent(WrappedComponent, randomText) {
   return class extends React.Component {
@@ -36,7 +43,7 @@ function modalContent(WrappedComponent, randomText) {
 
       return (
         <div className="modal-white">
-          <h1 onClick={e => this.exitModal(e)}>X</h1>
+          <h1 className="modal-close" onClick={e => this.exitModal(e)}>X</h1>
 
           <WrappedComponent text={randomText} />
 
@@ -49,8 +56,8 @@ function modalContent(WrappedComponent, randomText) {
     showModal: state.modal.showModal
   });
 
-  export connect(mapStateToProps)(WrappedComponent);
+  connect(mapStateToProps)(WrappedComponent);
 
 };
 
-export {SuccessModalContent, FormModalContent}
+export {SuccessModalContent, NewItemModalContent, UpdateModalContent, DeleteModalContent}

@@ -24,11 +24,3 @@ export const itemReducer = (state=initialStateAddItem, action) => {
 export default itemReducer;
 
 
-
-
-// const ITEMS = [
-//   {item_id: 1, item: "firewood", itemDetails: "2 bundles"},
-//   {item_id: 2, item: "chips and salsa", itemDetails: ""},
-//   {item_id: 3, item: "kayak", itemDetails: ""},
-//   {item_id: 4, item: "Sunday Dinner", itemDetails: "lasagna, garlic bread, salad"}
-// ];
