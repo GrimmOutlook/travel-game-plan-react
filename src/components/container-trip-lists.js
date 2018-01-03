@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import Button from './button';
 import List from './list';
-import {FormModalContent} from './modal';
+import {NewItemModalContent} from './modal';
 import {toggleInfoModal} from '../actions/index';
 
 
@@ -27,7 +27,7 @@ export class ContainerTripLists extends React.Component {
           <Button text="My List" buttonColor="btn--white" className="btn-item-filter" />
           <List classProp="accounted__list" items={ITEMSACCOUNTED} />
 
-         { this.props.showModal ? <FormModalContent text="Fill out the form below to add a new item to the list" /> : "" }
+         { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
 
         </div>
       );

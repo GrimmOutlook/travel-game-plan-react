@@ -1,20 +1,37 @@
-.modal-white {
+.modal-parent {
   display: block;
   position: fixed;
-  top: 80px;
-  bottom: 80px;
-  left: 80px;
-  right: 80px;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: red;
+  /*border: 1px solid black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 25px;*/
+  /*z-index: 10;*/
+}
+
+.modal-box {
+  height: 50%;
+  width: 50%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid black;
   background-color: white;
   border-radius: 5px;
   padding: 25px;
-  /*z-index: 10;*/
 }
 
 .modal-close {
-  position: fixed;
-  right: 15px;
-  top: 15px;
+  position: absolute;
+  right: 3%;
+  top: 3%;
   color: gray;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 3%;
 }

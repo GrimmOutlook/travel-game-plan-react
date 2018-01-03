@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addItem, toggleInfoModal} from '../actions/index';
+import {updateItem, toggleInfoModal} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
 // import Button from './button';

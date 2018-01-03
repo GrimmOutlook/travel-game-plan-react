@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 
 const form = reduxForm({
   form: 'addItemForm'
-})(ModalForm);
+})(ModalNewItem);
 
 
 export default connect(mapStateToProps)(form);

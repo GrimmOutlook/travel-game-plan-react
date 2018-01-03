@@ -31,7 +31,7 @@ const DeleteModalContent = modalContent(
 )
 
 function modalContent(WrappedComponent, randomText) {
-  return class extends React.Component {
+  class ModalHOC extends React.Component {
 
     exitModal(e){
       e.preventDefault();
@@ -42,11 +42,13 @@ function modalContent(WrappedComponent, randomText) {
     render() {
 
       return (
-        <div className="modal-white">
-          <h1 className="modal-close" onClick={e => this.exitModal(e)}>X</h1>
+        <div className="modal-parent">
+          <div className="modal-box">
+            <div className="modal-close" onClick={e => this.exitModal(e)}>X</div>
 
           <WrappedComponent text={randomText} />
 
+          </div>
         </div>
       );
     }
@@ -56,7 +58,7 @@ function modalContent(WrappedComponent, randomText) {
     showModal: state.modal.showModal
   });
 
-  connect(mapStateToProps)(WrappedComponent);
+  return connect(mapStateToProps)(ModalHOC);
 
 };
 
