@@ -9,8 +9,8 @@ export default function List(props) {
     <li className={`item item-${index + 1}`} key={ index + 1 }>
 
         <h3 className="item-name">{ item.item }</h3>
-        <FontAwesome name="trash" />
-        <FontAwesome name="pencil" />
+        <FontAwesome name="pencil" className="iconUpdate" />
+        <FontAwesome name="trash" className="iconTrash" />
         <h3 className="item-details">{ item.itemDetails }</h3>
         <h3 className="item-username">{ item.username }</h3>
 

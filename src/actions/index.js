@@ -40,7 +40,7 @@ export const deleteItem = (item, itemDetails, username) => ({
   username  //use the username captured from login action as placeholder
 })
 
-
+//****** Need an action/reducer to filter list according to username in trip-lists *********
 
 
 

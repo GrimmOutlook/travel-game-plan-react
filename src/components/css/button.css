@@ -8,6 +8,9 @@
   transition: all .2s;
   position: relative;
   font-size: 1.6rem;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
 }
 
 .btn:hover {

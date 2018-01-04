@@ -28,7 +28,7 @@ export class ModalNewItem extends React.Component {
           <label htmlFor="username">Username:</label>
           <Field type="text" placeholder="Your Username" name="username" component="input" />
 
-          <button type="submit" >Submit</button>
+          <button className="btn btn--green" type="submit" >Submit</button>
 
         </form>
 

@@ -1,0 +1,23 @@
+.menu {
+  position: relative;
+}
+
+.iconDashboard {
+  font-size: 4.5rem;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconCreateTrip {
+  font-size: 4.5rem;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

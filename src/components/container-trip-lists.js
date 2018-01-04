@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import Button from './button';
 import List from './list';
 import {NewItemModalContent} from './modal';
 import {toggleInfoModal} from '../actions/index';
@@ -11,7 +10,7 @@ import './css/button.css';
 
 export class ContainerTripLists extends React.Component {
 
-    someFxn(e){
+    modalAdd(e){
       e.preventDefault();
       this.props.dispatch(toggleInfoModal());
     }
@@ -21,12 +20,15 @@ export class ContainerTripLists extends React.Component {
         <div className="content-trip-lists grid-trip-lists-content">
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
-          <a className="btn btn--green btn-add__needed" onClick={e => this.someFxn(e)}>Add An Item</a>
+          <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
           <List classProp="needed__list" items={this.props.items} />
 
           <h3 className="heading__accounted">Things Accounted For:</h3>
-          <Button routePath="modal-form" text="Add an Item" buttonColor="btn--green" className="btn-add__accounted" />
-          <Button text="My List" buttonColor="btn--white" className="btn-item-filter" />
+
+          <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
+
+          {/* Need an onClick event to trigger filter by username */}
+          <a className="btn btn--white btn-item-filter">My List</a>
           <List classProp="accounted__list" items={ITEMSACCOUNTED} />
 
          { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
@@ -44,12 +46,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps)(ContainerTripLists);
 
-// const ITEMS = [
-//   {item_id: 1, item: "firewood", itemDetails: "2 bundles"},
-//   {item_id: 2, item: "chips and salsa", itemDetails: ""},
-//   {item_id: 3, item: "kayak", itemDetails: ""},
-//   {item_id: 4, item: "Sunday Dinner", itemDetails: "lasagna, garlic bread, salad"}
-// ];
 
 const ITEMSACCOUNTED = [
   {item_id: 1, item: "paper towels", itemDetails: "6-pack", username: "Dave"},
