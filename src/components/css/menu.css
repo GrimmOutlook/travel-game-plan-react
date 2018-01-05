@@ -5,19 +5,39 @@
 .iconDashboard {
   font-size: 4.5rem;
   height: 50%;
-  width: 50%;
-  position: absolute;
-  top: 28%;
+  width: 100%;
+  /*position: absolute;*/
+  /*top: 28%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);*/
+}
+
+.linkDashboard {
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
 .iconCreateTrip {
   font-size: 4.5rem;
   height: 50%;
-  width: 50%;
-  position: absolute;
+  width: 100%;
+  /*position: absolute;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);*/
+}
+
+.linkCreateTrip {
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }

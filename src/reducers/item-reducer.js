@@ -1,12 +1,20 @@
-import {ADD_ITEM, UPDATE_ITEM, DELETE_ITEM} from '../actions/index'
+import {ADD_ITEM, UPDATE_ITEM, DELETE_ITEM, MY_LIST_FILTER} from '../actions/index';
 
 const initialStateAddItem = {
   items: [
-    {item: "firewood", itemDetails: "2 bundles"},
-    {item: "chips and salsa", itemDetails: ""},
-    {item: "kayak", itemDetails: ""},
-    {item: "Sunday Dinner", itemDetails: "lasagna, garlic bread, salad"}
-  ]
+    {item_id: 8, item: "firewood", itemDetails: "2 bundles", username: null},
+    {item_id: 8, item: "chips and salsa", itemDetails: "", username: null},
+    {item_id: 10, item: "kayak", itemDetails: "", username: null},
+    {item_id: 11, item: "Sunday Dinner", itemDetails: "lasagna, garlic bread, salad", username: null},
+    {item_id: 1, item: "paper towels", itemDetails: "6-pack", username: "Dave"},
+    {item_id: 2, item: "toilet paper", itemDetails: "12-pack", username: "Dave"},
+    {item_id: 3, item: "bottled water", itemDetails: "2 cases", username: "Vincent"},
+    {item_id: 4, item: "Saturday Dinner", itemDetails: "turkey, mashed potatoes, green beans, corn", username: "Scott"},
+    {item_id: 5, item: "crock pot", itemDetails: "", username: "Vincent"},
+    {item_id: 6, item: "turkey fryer", itemDetails: "", username: "Scott"},
+    {item_id: 7, item: "Sunday Lunch", itemDetails: "chili, french fries, meatball subs", username: "Dave"}
+  ],
+  userFilter: false
 };
 
 
@@ -20,11 +28,15 @@ export const itemReducer = (state=initialStateAddItem, action) => {
   }
 
   else if (action.type === UPDATE_ITEM){
-
+    // Same as ADD_ITEM????????
   }
 
   else if (action.type === DELETE_ITEM){
+    // Same as ADD_ITEM????????
+  }
 
+  else if (action.type === MY_LIST_FILTER){
+      return Object.assign({}, state, {userFilter: !state.userFilter})
   }
   return state;
 }

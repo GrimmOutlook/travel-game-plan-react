@@ -11,12 +11,12 @@ export default function Menu() {
 
       <Link to="/dashboard" className="linkDashboard">
         <FontAwesome name="home" className="iconDashboard" />
-          <span>Trip Dashboard</span>
+          <div>Trip Dashboard</div>
       </Link>
 
       <Link to="/new-trip" className="linkCreateTrip">
         <FontAwesome name="plus-square-o" className="iconCreateTrip" />
-          <span>Create New Trip</span>
+          <div>Create New Trip</div>
       </Link>
 
     </div>

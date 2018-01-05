@@ -22,7 +22,7 @@ export const addItem = (item, itemDetails, username) => ({
   item,
   itemDetails,
   username  //automatically use the username captured from login action
-})
+});
 
 export const UPDATE_ITEM = 'UPDATE_ITEM';
 export const updateItem = (item, itemDetails, username) => ({
@@ -30,7 +30,7 @@ export const updateItem = (item, itemDetails, username) => ({
   item,
   itemDetails,
   username  //use the username captured from login action as placeholder
-})
+});
 
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const deleteItem = (item, itemDetails, username) => ({
@@ -38,11 +38,19 @@ export const deleteItem = (item, itemDetails, username) => ({
   item,
   itemDetails,
   username  //use the username captured from login action as placeholder
-})
+});
 
 //****** Need an action/reducer to filter list according to username in trip-lists *********
+export const MY_LIST_FILTER = 'MY_LIST_FILTER';
+export const myListFilter = () => ({
+  type: MY_LIST_FILTER
+});
 
-
+export const DELETE_LIST_ITEM = 'DELETE_LIST_ITEM';
+export const deleteListItem = (item_id) => ({
+  type: DELETE_LIST_ITEM,
+  item_id
+})
 
 
 

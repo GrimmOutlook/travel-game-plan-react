@@ -1,4 +1,4 @@
-import {TOGGLE_INFO_MODAL} from '../actions/index'
+import {TOGGLE_INFO_MODAL} from '../actions/index';
 
 const initialStateModal = {showModal: false};
 
