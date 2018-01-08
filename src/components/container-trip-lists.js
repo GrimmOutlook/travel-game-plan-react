@@ -20,11 +20,7 @@ export class ContainerTripLists extends React.Component {
       this.props.dispatch(myListFilter());
     }
 
-    deleteNeededFxn(){
-
-    }
-
-    deleteAccountedFxn(){
+    deleteItemFxn(){
 
     }
 

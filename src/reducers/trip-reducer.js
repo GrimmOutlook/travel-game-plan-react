@@ -12,7 +12,13 @@ const initialStateCreateTrip = {
 
 export const tripReducer = (state=initialStateCreateTrip, action) => {
   if (action.type === CREATE_NEW_TRIP){
-    return state;
+    return Object.assign({}, state, {trips: [...state.trips, {
+      tripName: action.tripName,
+      dateStart: action.dateStart,
+      dateEnd: action.dateEnd,
+      address: action.address,
+      tripDetails: action.tripDetails
+    }]});
   }
   return state;
 }

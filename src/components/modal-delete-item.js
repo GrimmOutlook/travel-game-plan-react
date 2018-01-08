@@ -1,9 +1,7 @@
 import React from 'react';
 
-// import Button from './button';
-
 export default function ModalDeleteItem(props) {
-
+  // button toggles next modal popup?
   return (
     <div className="delete-item-container">
       <h1 className="delete-question">Are you sure you want to delete this item?</h1>

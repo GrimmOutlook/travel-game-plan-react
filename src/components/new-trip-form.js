@@ -1,16 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {toggleInfoModal} from '../actions/index';
+import {toggleInfoModal, createNewTrip} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
-// import Button from './button';
 import {SuccessModalContent} from './modal';
 
 export class NewTripForm extends React.Component {
 
     createTripModal(values){
-      this.props.dispatch(toggleInfoModal())
-
+      this.props.dispatch(toggleInfoModal());
+      this.props.dispatch(createNewTrip(values.tripName, values.startDate, values.endDate, values.address, values.tripDetails));
     }
 
     render() {
