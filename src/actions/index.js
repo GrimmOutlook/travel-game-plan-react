@@ -16,6 +16,16 @@ export const toggleInfoModal = () => ({
     type: TOGGLE_INFO_MODAL
 });
 
+export const TOGGLE_DELETE_MODAL = 'TOGGLE_DELETE_MODAL';
+export const toggleDeleteModal = () => ({
+    type: TOGGLE_DELETE_MODAL
+});
+
+export const TOGGLE_UPDATE_MODAL = 'TOGGLE_UPDATE_MODAL';
+export const toggleUpdateModal = () => ({
+    type: TOGGLE_UPDATE_MODAL
+});
+
 export const ADD_ITEM = 'ADD_ITEM';
 export const addItem = (item, itemDetails, username) => ({
   type: ADD_ITEM,
