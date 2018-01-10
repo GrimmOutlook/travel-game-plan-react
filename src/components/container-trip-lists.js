@@ -3,18 +3,14 @@ import {connect} from 'react-redux';
 
 import List from './list';
 import ModalDeleteItem from './modal-delete-item';
-import {NewItemModalContent, UpdateModalContent, modalContent} from './modal';
-import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter} from '../actions/index';
+import ModalUpdateItem from './modal-update-item';
+import {NewItemModalContent, modalContent} from './modal';
+import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter, deleteItem, updateItem} from '../actions/index';
 
 import './css/button.css';
 
-let DeleteModalContent = modalContent(
-  ModalDeleteItem,
-  "Delete This Item",
-  // pass which modal to close
-  toggleDeleteModal(),
-  8
-)
+let DeleteModalContent;
+let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
 
@@ -28,19 +24,38 @@ export class ContainerTripLists extends React.Component {
       this.props.dispatch(myListFilter());
     }
 
-    deleteItemFxn(item_id){
+    deleteItemFxn(item_id, item){
       this.props.dispatch(toggleDeleteModal(item_id));
       DeleteModalContent = modalContent(
         ModalDeleteItem,
-        "Delete This Item",
+        "Delete This Item:",
         // pass which modal to close
-        toggleDeleteModal(),
-        item_id
+        toggleDeleteModal,
+        {
+          id: item_id,
+          itemToDelete: item,
+          doDelete: () => {
+            this.props.dispatch(deleteItem(item_id, item));
+            this.props.dispatch(toggleDeleteModal(item_id));
+          }
+        }
       )
     }
 
-    updateItemFxn(item_id){
-       this.props.dispatch(toggleUpdateModal());
+    updateItemFxn(item_id, item, itemDetails, username){
+      this.props.dispatch(toggleUpdateModal());
+      UpdateModalContent = modalContent(
+        ModalUpdateItem,
+        "Fill in Any Changes to this Item:",
+        toggleUpdateModal,
+        {
+          id: item_id,
+          doUpdate: () => {
+            this.props.dispatch(updateItem(item_id, item, itemDetails, username));
+            this.props.dispatch(toggleUpdateModal(item_id));
+          }
+        }
+      )
     }
 
     render() {
@@ -56,14 +71,14 @@ export class ContainerTripLists extends React.Component {
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
           <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
-          <List classProp="needed__list" items={neededList} deleteStuff={(item_id) => this.deleteItemFxn(item_id)} updateStuff={() => this.updateItemFxn()} />
+          <List classProp="needed__list" items={neededList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn()} />
 
           <h3 className="heading__accounted">Things Accounted For:</h3>
 
           <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
           <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
-          <List classProp="accounted__list" items={filteredList} deleteStuff={(item_id) => this.deleteItemFxn(item_id)} updateStuff={() => this.updateItemFxn()} />
+          <List classProp="accounted__list" items={filteredList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn()} />
 
          { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
 

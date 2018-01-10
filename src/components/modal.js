@@ -2,10 +2,10 @@ import React from 'react';
 
 import ModalSuccess from './modal-success';
 import ModalNewItem from './modal-new-item';
-import ModalUpdateItem from './modal-update-item';
-import ModalDeleteItem from './modal-delete-item';
+// import ModalUpdateItem from './modal-update-item';
+// import ModalDeleteItem from './modal-delete-item';
 // import ModalConfirmItem from './modal-confirm-item';
-import {toggleInfoModal, toggleUpdateModal, toggleDeleteModal} from '../actions/index';
+import {toggleInfoModal} from '../actions/index';
 import {connect} from 'react-redux';
 
 import './css/modal.css';
@@ -13,20 +13,20 @@ import './css/modal.css';
 const SuccessModalContent = modalContent(
   ModalSuccess,
   "Success Text",
-  toggleInfoModal()
+  toggleInfoModal
 );
 
 const NewItemModalContent = modalContent(
   ModalNewItem,
   "Form Text",
-  toggleInfoModal()
+  toggleInfoModal
 )
 
-const UpdateModalContent = modalContent(
-  ModalUpdateItem,
-  "Update Item",
-  toggleUpdateModal()
-);
+// const UpdateModalContent = modalContent(
+//   ModalUpdateItem,
+//   "Update Item",
+//   toggleUpdateModal
+// );
 
 // const DeleteModalContent = modalContent(
 //   ModalDeleteItem,
@@ -35,12 +35,12 @@ const UpdateModalContent = modalContent(
 //   toggleDeleteModal()
 // )
 
-function modalContent(WrappedComponent, randomText, closeModal) {
+function modalContent(WrappedComponent, randomText, closeModal, props) {
   class ModalHOC extends React.Component {
 
     exitModal(e){
       e.preventDefault();
-      this.props.dispatch(closeModal);
+      this.props.dispatch(closeModal());
 
     }
 
@@ -51,7 +51,7 @@ function modalContent(WrappedComponent, randomText, closeModal) {
           <div className="modal-box">
             <div className="modal-close" onClick={e => this.exitModal(e)}>X</div>
 
-          <WrappedComponent text={randomText} />
+          <WrappedComponent text={randomText} {...props} />
 
           </div>
         </div>
@@ -67,4 +67,4 @@ function modalContent(WrappedComponent, randomText, closeModal) {
 
 };
 
-export {SuccessModalContent, NewItemModalContent, UpdateModalContent, modalContent} //, DeleteModalContent}
+export {SuccessModalContent, NewItemModalContent, modalContent} //, UpdateModalContent, DeleteModalContent}

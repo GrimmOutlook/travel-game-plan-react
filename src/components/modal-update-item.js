@@ -28,7 +28,7 @@ export class ModalUpdateItem extends React.Component {
           <label htmlFor="username">Username:</label>
           <Field type="text" placeholder="Your Username" name="username" component="input" />
 
-          <button className="btn btn--blue" type="submit" >Submit</button>
+          <button className="btn btn--blue" type="submit" onClick={() => this.props.doUpdate()}>Submit</button>
 
         </form>
 

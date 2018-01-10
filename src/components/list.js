@@ -11,8 +11,8 @@ export default function List(props) {
     <li className={`item item-${index + 1}`} key={ index + 1 }>
 
         <h3 className="item-name">{ item.item }</h3>
-        <FontAwesome onClick={() => props.updateStuff(item.item_id)} name="pencil" className="iconUpdate" />
-        <FontAwesome onClick={() => props.deleteStuff(item.item_id)} name="trash" className="iconTrash" />
+        <FontAwesome onClick={() => props.updateStuff(item.item_id, item.item, item.itemDetails, item.username)} name="pencil" className="iconUpdate" />
+        <FontAwesome onClick={() => props.deleteStuff(item.item_id, item.item)} name="trash" className="iconTrash" />
         <h3 className="item-details">{ item.itemDetails }</h3>
         <h3 className="item-username">{ item.username }</h3>
 
