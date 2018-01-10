@@ -3,13 +3,15 @@ import {connect} from 'react-redux';
 // import {updateItem, toggleInfoModal} from '../actions/index';
 import {updateItem} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
+import {toggleUpdateModal} from '../actions/index';
 
 export class ModalUpdateItem extends React.Component {
 
   updateItemFxn(values){
     // this.props.dispatch(toggleInfoModal());
-    this.props.dispatch(updateItem(values.item, values.itemDetails, values.username));
+    this.props.dispatch(updateItem(this.props.id, values.item, values.itemDetails, values.username));
     console.log('values: ', values);
+    this.props.dispatch(toggleUpdateModal());
   }
 
 
@@ -28,7 +30,7 @@ export class ModalUpdateItem extends React.Component {
           <label htmlFor="username">Username:</label>
           <Field type="text" placeholder="Your Username" name="username" component="input" />
 
-          <button className="btn btn--blue" type="submit" onClick={() => this.props.doUpdate()}>Submit</button>
+          <button className="btn btn--blue" type="submit">Submit</button>
 
         </form>
 
@@ -51,3 +53,5 @@ const form = reduxForm({
 export default connect(mapStateToProps)(form);
 
 // export default form;
+// onClick={() => this.props.doUpdate()}
+

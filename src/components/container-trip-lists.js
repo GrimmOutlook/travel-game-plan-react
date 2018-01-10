@@ -71,14 +71,14 @@ export class ContainerTripLists extends React.Component {
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
           <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
-          <List classProp="needed__list" items={neededList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn()} />
+          <List classProp="needed__list" items={neededList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)} />
 
           <h3 className="heading__accounted">Things Accounted For:</h3>
 
           <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
           <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
-          <List classProp="accounted__list" items={filteredList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn()} />
+          <List classProp="accounted__list" items={filteredList} deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)} updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)} />
 
          { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
 

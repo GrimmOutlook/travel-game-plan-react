@@ -35,8 +35,9 @@ export const addItem = (item, itemDetails, username) => ({
 });
 
 export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const updateItem = (item, itemDetails, username) => ({
+export const updateItem = (item_id, item, itemDetails, username) => ({
   type: UPDATE_ITEM,
+  item_id,
   item,
   itemDetails,
   username  //use the username captured from login action as placeholder
