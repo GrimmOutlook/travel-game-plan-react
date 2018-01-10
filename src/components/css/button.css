@@ -55,6 +55,15 @@
   background-color: white;
 }
 
+.btn--red {
+  background-color: red;
+  color: white;
+}
+
+.btn--red::after {
+  background-color: red;
+}
+
 .btn::after {
   content: "";
   display: inline-block;

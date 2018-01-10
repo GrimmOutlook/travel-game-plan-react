@@ -21,7 +21,7 @@ export class ContainerTripLists extends React.Component {
     }
 
     deleteItemFxn(item_id){
-       this.props.dispatch(toggleDeleteModal());
+       this.props.dispatch(toggleDeleteModal(item_id));
     }
 
     updateItemFxn(item_id){
@@ -47,7 +47,6 @@ export class ContainerTripLists extends React.Component {
 
           <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
-          {/* Need an onClick event to trigger filter by username */}
           <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
           <List classProp="accounted__list" items={filteredList} deleteStuff={(item_id) => this.deleteItemFxn(item_id)} updateStuff={() => this.updateItemFxn()} />
 

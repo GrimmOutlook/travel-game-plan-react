@@ -42,20 +42,6 @@ export const updateItem = (item, itemDetails, username) => ({
   username  //use the username captured from login action as placeholder
 });
 
-        // export const DELETE_ITEM = 'DELETE_ITEM';
-        // export const deleteItem = (item, itemDetails, username) => ({
-        //   type: DELETE_ITEM,
-        //   item,
-        //   itemDetails,
-        //   username  //use the username captured from login action as placeholder
-        // });
-
-        // export const DELETE_LIST_ITEM = 'DELETE_LIST_ITEM';
-        // export const deleteListItem = (item_id) => ({
-        //   type: DELETE_LIST_ITEM,
-        //   item_id
-        // })
-
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const deleteItem = (item_id) => ({
   type: DELETE_ITEM,
@@ -68,15 +54,6 @@ export const myListFilter = () => ({
   type: MY_LIST_FILTER
 });
 
-
-
-
-
-
-
-// User clicks on "Add an Item" button ==> modal form pops up ==> user fills out form & clicks "Submit" button ==> The following actions are dispatched: 1. Toggle Modal action  2. Add an Item action ==> state is updated to include that added item.
-
-// User clicks on "My List" button ==> state is updated to include only items belonging to the user.  filterMyList() action?
 
 // User clicks on individual item ==> modal form pops up ==> user has 3 different choices:
 //   1. Delete item ==> user clicks button ==> modal changes to "Are you sure?":
