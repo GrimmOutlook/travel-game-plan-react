@@ -1,8 +1,11 @@
 import React from 'react';
 
+import {Link} from 'react-router-dom';
+
 export default function TripSummary(props) {
   const summaries = props.trips.map((trip, index) => (
-    <li className={`trip trip-${index + 1}`} key={ index + 1 }>
+    <Link to="trip-lists" key={ index + 1 }>
+      <li className={`trip trip-${index + 1}`} key={ index + 1 }>
 
         <h3 className="trip-number">Trip #{ index + 1 }</h3>
         <h2 className="trip-name">{ trip.tripName }</h2>
@@ -10,7 +13,8 @@ export default function TripSummary(props) {
         <h3 className="trip-date-label">Dates:</h3>
         <h2 className="trip-dates">{ trip.dateStart } to { trip.dateEnd }</h2>
 
-    </li>
+      </li>
+    </Link>
   ));
 
   return (

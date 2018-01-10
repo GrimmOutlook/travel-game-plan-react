@@ -1,14 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addItem, toggleInfoModal} from '../actions/index';
+// import {addItem, toggleInfoModal} from '../actions/index';
+import {addItem} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
-
-// import Button from './button';
 
 export class ModalNewItem extends React.Component {
 
   addItemFxn(values){
-    this.props.dispatch(toggleInfoModal());
+    // this.props.dispatch(toggleInfoModal());
     this.props.dispatch(addItem(values.item, values.itemDetails, values.username));
     console.log('values: ', values);
   }

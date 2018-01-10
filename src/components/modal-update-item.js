@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {updateItem, toggleInfoModal} from '../actions/index';
+// import {updateItem, toggleInfoModal} from '../actions/index';
+import {updateItem} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
 export class ModalUpdateItem extends React.Component {
@@ -15,6 +16,7 @@ export class ModalUpdateItem extends React.Component {
   render() {
     return (
       <div className="update-item-container">
+        <h3>{this.props.text}</h3>
         <form id="form__update-item" onSubmit={this.props.handleSubmit(values => this.updateItemFxn(values))}>
 
           <label htmlFor="item">Item Name:</label>

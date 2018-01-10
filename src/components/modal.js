@@ -24,13 +24,13 @@ const NewItemModalContent = modalContent(
 
 const UpdateModalContent = modalContent(
   ModalUpdateItem,
-  "Update Text",
+  "Update Item",
   toggleUpdateModal()
 );
 
 const DeleteModalContent = modalContent(
   ModalDeleteItem,
-  "Delete Text",
+  "Delete This Item",
   // pass which modal to close
   toggleDeleteModal()
 )
