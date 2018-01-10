@@ -2,11 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import List from './list';
-import {NewItemModalContent, DeleteModalContent, UpdateModalContent} from './modal';
+import ModalDeleteItem from './modal-delete-item';
+import {NewItemModalContent, UpdateModalContent, modalContent} from './modal';
 import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter} from '../actions/index';
 
 import './css/button.css';
 
+let DeleteModalContent = modalContent(
+  ModalDeleteItem,
+  "Delete This Item",
+  // pass which modal to close
+  toggleDeleteModal(),
+  8
+)
 
 export class ContainerTripLists extends React.Component {
 
@@ -21,7 +29,14 @@ export class ContainerTripLists extends React.Component {
     }
 
     deleteItemFxn(item_id){
-       this.props.dispatch(toggleDeleteModal(item_id));
+      this.props.dispatch(toggleDeleteModal(item_id));
+      DeleteModalContent = modalContent(
+        ModalDeleteItem,
+        "Delete This Item",
+        // pass which modal to close
+        toggleDeleteModal(),
+        item_id
+      )
     }
 
     updateItemFxn(item_id){

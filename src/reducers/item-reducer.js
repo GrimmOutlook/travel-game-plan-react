@@ -49,10 +49,7 @@ export const itemReducer = (state=initialStateAddItem, action) => {
   else if (action.type === DELETE_ITEM){
     return Object.assign({}, state, {
       items: state.items.filter((item) => {
-        if(item.item_id !== action.item_id){
-          return item;
-        }
-        return null;  // Correct?
+        return item.item_id !== action.item_id;
       })
     })
   }

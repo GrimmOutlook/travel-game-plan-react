@@ -28,12 +28,12 @@ const UpdateModalContent = modalContent(
   toggleUpdateModal()
 );
 
-const DeleteModalContent = modalContent(
-  ModalDeleteItem,
-  "Delete This Item",
-  // pass which modal to close
-  toggleDeleteModal()
-)
+// const DeleteModalContent = modalContent(
+//   ModalDeleteItem,
+//   "Delete This Item",
+//   // pass which modal to close
+//   toggleDeleteModal()
+// )
 
 function modalContent(WrappedComponent, randomText, closeModal) {
   class ModalHOC extends React.Component {
@@ -67,4 +67,4 @@ function modalContent(WrappedComponent, randomText, closeModal) {
 
 };
 
-export {SuccessModalContent, NewItemModalContent, UpdateModalContent, DeleteModalContent}
+export {SuccessModalContent, NewItemModalContent, UpdateModalContent, modalContent} //, DeleteModalContent}
