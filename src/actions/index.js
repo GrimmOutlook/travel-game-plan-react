@@ -56,9 +56,3 @@ export const myListFilter = () => ({
 });
 
 
-// User clicks on individual item ==> modal form pops up ==> user has 3 different choices:
-//   1. Delete item ==> user clicks button ==> modal changes to "Are you sure?":
-//        - User clicks "Yes" ==> deleteItem action dispatched
-//        - User clicks "No" ==> toggleModal action dispatched
-//   2. Claim item as their own ==> user clicks button ==> modal goes away ==> action to switch item from "Things Needed" list to "Things Accounted For" list
-//   3. Modify item name and/or details ==> modal changes to form that modifies items ==> user clicks "Submit" button ==> action to update item information.

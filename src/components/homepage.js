@@ -17,8 +17,8 @@ export default class Homepage extends React.Component {
                 <span className="heading-primary--sub">Get Yourselves Together</span>
               </h1>
 
-              <Button text="Signup" buttonColor="btn--blue"/>
-              <Button text="Login" buttonColor="btn--green"/>
+              <Button routePath="register" text="Signup" buttonColor="btn--blue"/>
+              <Button routePath="login" text="Login" buttonColor="btn--green"/>
             </div>
           </header>
           <FeatureBox features={FEATURES} />
