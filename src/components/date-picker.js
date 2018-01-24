@@ -18,6 +18,7 @@ export class DatePicker extends React.Component {
       selectedDay,
       isDisabled: modifiers.disabled === true,
     });
+    this.props.input.onChange(selectedDay);
   }
   render() {
     const { selectedDay, isDisabled } = this.state;

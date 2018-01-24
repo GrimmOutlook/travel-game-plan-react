@@ -6,6 +6,7 @@ import Dashboard from './components/dashboard';
 import Homepage from './components/homepage';
 import NewTrip from './components/new-trip';
 import TripLists from './components/trip-lists';
+import TripInvite from './components/trip-invite';
 import LoginPage from './components/login-page';
 import RegistrationPage from './components/registration-page';
 import {refreshAuthToken} from './actions/auth';
@@ -51,7 +52,7 @@ export class App extends React.Component {
           <Route exact path="/register" component={RegistrationPage} />
           {/* <Route exact path="/modal-success" component={SuccessModalContent} /> */}
           {/* <Route exact path="/modal-form" component={FormModalContent} /> */}
-          {/*<Route path="/trip-invite/:tripUUID" component={TripInvite} />*/}
+          <Route path="/trip-invite/:tripUUID" component={TripInvite} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/new-trip" component={NewTrip} />
           <Route exact path="/trip-lists" component={TripLists} />

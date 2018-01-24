@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {toggleInfoModal, createNewTrip} from '../actions/index';
-import {reduxForm, Field} from 'redux-form';
+import {reduxForm, Field, change} from 'redux-form';
 
 import {SuccessModalContent} from './modal';
 import {DatePicker} from './date-picker';
@@ -10,7 +10,7 @@ export class NewTripForm extends React.Component {
 
     createTripModal(values){
       this.props.dispatch(toggleInfoModal());
-      this.props.dispatch(createNewTrip(values.tripName, values.startDate, values.endDate, values.address, values.tripDetails));
+      this.props.dispatch(createNewTrip(values.tripName, values.startDate.toString(), values.endDate.toString(), values.address, values.tripDetails));
     }
 
     render() {
@@ -22,10 +22,10 @@ export class NewTripForm extends React.Component {
             <Field type="text" placeholder="Trip Name" name="tripName" component="input" required />
 
             <label htmlFor="startDate">Start Date</label>
-            <Field type="text" placeholder="Start Date" name="startDate" component={DatePicker} required />
+            <Field type="text" placeholder="Start Date" name="startDate" component={DatePicker} change={change} required />
 
             <label htmlFor="endDate">End Date</label>
-            <Field type="text" placeholder="End Date" name="endDate" component={DatePicker} required />
+            <Field type="text" placeholder="End Date" name="endDate" component={DatePicker} change={change} required />
 
             <label htmlFor="address">Destination Address</label>
             <Field type="text" placeholder="Destination Address" name="address" component="input" required />
