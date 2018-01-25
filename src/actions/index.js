@@ -47,12 +47,33 @@ export const DELETE_ITEM = 'DELETE_ITEM';
 export const deleteItem = (item_id) => ({
   type: DELETE_ITEM,
   item_id
-})
+});
 
-//****** Need an action/reducer to filter list according to username in trip-lists *********
 export const MY_LIST_FILTER = 'MY_LIST_FILTER';
 export const myListFilter = () => ({
   type: MY_LIST_FILTER
 });
+
+export const STORE_INVITE_UUID = 'STORE_INVITE_UUID';
+export const storeInviteUUID = (inviteUUID) => ({
+  type: STORE_INVITE_UUID,
+  inviteUUID
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

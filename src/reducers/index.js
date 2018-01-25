@@ -1,6 +1,7 @@
 import tripReducer from './trip-reducer';
 import modalReducer from './modal-reducer';
 import itemReducer from './item-reducer';
+import uuidReducer from './uuid-reducer';
 import authReducer from './auth';
 import protectedDataReducer from './protected-data';
 
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     protectedData: protectedDataReducer,
     trip: tripReducer,
     modal: modalReducer,
-    item: itemReducer
+    item: itemReducer,
+    inviteUUID: uuidReducer
 });
 
 export default rootReducer;

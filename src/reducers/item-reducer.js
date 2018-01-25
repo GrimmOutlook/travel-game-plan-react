@@ -58,7 +58,7 @@ export const itemReducer = (state=initialStateAddItem, action) => {
     return Object.assign({}, state, {userFilter: !state.userFilter})
   }
   return state;
-}
+};
 
 export default itemReducer;
 
