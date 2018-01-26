@@ -8,17 +8,26 @@ import {clearAuthToken} from '../local-storage';
 import './css/menu.css';
 
 export class Menu extends React.Component {
+
   logOut() {
+    console.log('In the logOut fxn in the Menu component.  Should print everytime button is clicked dammit!');
     this.props.dispatch(clearAuth());
     clearAuthToken();
   }
 
+  // shouldComponentUpdate(){
+  //   this.logOut();
+  // }
+
   render() {
-    // Only render the log out button if we are logged in
+    // Only render the log out button if user is logged in
     let logOutButton;
     if (this.props.loggedIn) {
+      console.log('if statement in Menu comp. loggedIn is true');
       logOutButton = (
-        <button onClick={() => this.logOut()}>Log out</button>
+        <Link to="/">
+          <button onClick={() => this.logOut()}>Log out</button>
+        </Link>
       );
     }
 

@@ -17,7 +17,7 @@ export class ContainerTripLists extends React.Component {
       super(props);
       console.log("this.props.tripId: ", this.props.tripId);
       const tripId = this.props.tripId;
-      this.trip = this.props.trips.find(trip => tripId == trip._id);
+      this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
       console.log("this.trip: ", this.trip);
     }
 

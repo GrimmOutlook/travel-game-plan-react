@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom';
+// import {Redirect} from 'react-router-dom';
 // import Dashboard from './components/dashboard';
 // import LoginPage from './components/login-page';
 import {storeInviteUUID} from '../actions/index';
@@ -10,7 +10,7 @@ export class TripInvite extends React.Component {
 
   changeUUIDState(e, inviteUUID){
     e.preventDefault();
-    console.log('TripInvite inviteUUID before dispatch: ', inviteUUID); //undefined - why?
+    console.log('TripInvite inviteUUID before dispatch: ', inviteUUID);
     this.props.dispatch(storeInviteUUID(inviteUUID));
   }
 

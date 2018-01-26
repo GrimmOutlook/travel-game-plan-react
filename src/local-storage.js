@@ -9,6 +9,7 @@ export const saveAuthToken = authToken => {
 };
 
 export const clearAuthToken = () => {
+  console.log('Does it make it here to localStorage, clearAuthToken?')
     try {
         localStorage.removeItem('authToken');
     } catch (e) {}
