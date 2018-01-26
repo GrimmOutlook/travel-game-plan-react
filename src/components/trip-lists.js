@@ -15,7 +15,7 @@ export default class TripLists extends React.Component {
         <div className="grid-trip-lists-main">
           <Header />
           <Menu />
-          <ContainerTripLists />
+          <ContainerTripLists tripId={this.props.match.params.tripId}/>
           <Footer />
         </div>
       );

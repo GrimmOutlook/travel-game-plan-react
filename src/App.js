@@ -55,7 +55,7 @@ export class App extends React.Component {
           <Route path="/trip-invite/:tripUUID" component={TripInvite} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/new-trip" component={NewTrip} />
-          <Route exact path="/trip-lists" component={TripLists} />
+          <Route path="/trip-lists/:tripId" component={TripLists} />
         </Switch>
       </div>
     );

@@ -13,6 +13,13 @@ let DeleteModalContent;
 let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
+    constructor(props){
+      super(props);
+      console.log("this.props.tripId: ", this.props.tripId);
+      const tripId = this.props.tripId;
+      this.trip = this.props.trips.find(trip => tripId == trip._id);
+      console.log("this.trip: ", this.trip);
+    }
 
     modalAdd(e){
       e.preventDefault();
@@ -59,8 +66,8 @@ export class ContainerTripLists extends React.Component {
     }
 
     render() {
-      const neededList = this.props.items.filter((item) => {return !item.username});
-      const accountedList = this.props.items.filter((item) => {return item.username});
+      const neededList = this.trip.items.filter((item) => {return !item.username});
+      const accountedList = this.trip.items.filter((item) => {return item.username});
 
       const filteredList = this.props.filter ? accountedList.filter((item) => {
         return item.username === "Dave";
@@ -68,6 +75,9 @@ export class ContainerTripLists extends React.Component {
 
       return (
         <div className="content-trip-lists grid-trip-lists-content">
+
+          <h1>{this.trip.tripName} and {this.trip.items}</h1>
+
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
           <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
@@ -100,7 +110,8 @@ export class ContainerTripLists extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  items: state.item.items,
+  // items: state.item.items,
+  trips: state.trip.trips,
   showModal: state.modal.showModal,
   showModalDelete: state.modal.showModalDelete,
   showModalUpdate: state.modal.showModalUpdate,

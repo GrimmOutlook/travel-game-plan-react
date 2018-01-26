@@ -10,6 +10,7 @@ import TripSummary from './trip-summary';
 export class ContainerDashboard extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
+    // this.props.dispatch(fetchTripData());
   }
 
   render() {

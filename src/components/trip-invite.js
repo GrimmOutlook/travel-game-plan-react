@@ -1,5 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
+// import Dashboard from './components/dashboard';
+// import LoginPage from './components/login-page';
 import {storeInviteUUID} from '../actions/index';
 
 
@@ -23,6 +26,8 @@ export class TripInvite extends React.Component {
         <h2>Click button below to add to your dashboard:</h2>
         <button onClick={(e) => this.changeUUIDState(e, inviteUUID)}>Dummy button for updating inviteUUID state</button>
         <h3>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h3>
+
+        {/* { authToken ? <Redirect exact path="/dashboard" component={Dashboard} /> : <Redirect exact path="/login" component={LoginPage} /> } */}
       </div>
 
     )
