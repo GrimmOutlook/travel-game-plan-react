@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Route, Redirect, withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 // import Dashboard from './components/dashboard';
 // import LoginPage from './components/login-page';
 import {storeInviteUUID} from '../actions/index';
@@ -8,55 +8,39 @@ import {storeInviteUUID} from '../actions/index';
 
 export class TripInvite extends React.Component {
 
-  // redirectToDashboard(){
-  //   return (<Redirect to="/dashboard" />);
-  // }
+constructor(props){
+  super(props);
 
-  // redirectToLogin(){
-  //   return (<Redirect to="/login" />);
-  // }
+  this.state = {
+    redirect: ""
+  };
+}
 
-  changeUUIDState(e, inviteUUID){
+componentWillMount(){
+  const inviteUUID = this.props.match.params.tripUUID;
+  this.props.dispatch(storeInviteUUID(inviteUUID));
+  //server call to validate UUID + Basic trip info. - just trip name to render on "welcome" page.
+}
+
+  changeUUIDState(e){
     e.preventDefault();
-    console.log('TripInvite inviteUUID before dispatch: ', inviteUUID);
-    this.props.dispatch(storeInviteUUID(inviteUUID));
-
-    // return (
-    //     <Route exact path="/" render={() => (
-    //       this.props.loggedIn ? (
-    //         <Redirect to="/dashboard"/>
-    //       ) : (
-    //         <Redirect to="/login"/>
-    //       )
-    //     )}/>
-    // )
-
-    // { this.props.loggedIn ? (<Redirect to="/dashboard" />) : (<Redirect to="/login" />) }
-
-    // { this.props.loggedIn ? this.redirectToDashboard() : this.redirectToLogin() }
+    this.setState({
+      redirect: this.props.loggedIn ? (<Redirect to="/dashboard" />) : (<Redirect to="/login" />)
+    })
 
   }
 
   render() {
-    const inviteUUID = this.props.match.params.tripUUID;
 
     return (
 
       <div>
-        {/* <Route exact path="/" render={() => (
-          this.props.loggedIn ? (
-            <Redirect to="/dashboard"/>
-          ) : (
-            <Redirect to="/login"/>
-          )
-        )}/> */}
+        {this.state.redirect}
 
-        <h1>Welcome!  You have received an invite for trip code {inviteUUID}</h1>
+        <h1>Welcome!  You have received an invite for trip name: {this.props.inviteUUIDInStore}</h1>
         <h2>Click button below to add to your dashboard:</h2>
-        <button onClick={(e) => this.changeUUIDState(e, inviteUUID)}>Dummy button for updating inviteUUID state</button>
+        <button onClick={(e) => this.changeUUIDState(e)}>Dummy button for updating inviteUUID state</button>
         <h3>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h3>
-
-        {/* { this.props.loggedIn ? this.redirectToDashboard() : this.redirectToLogin() } */}
       </div>
 
     )
@@ -69,5 +53,4 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null
 })
 
-// export default withRouter(connect(mapStateToProps)(TripInvite));
 export default connect(mapStateToProps)(TripInvite);
