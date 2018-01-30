@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-// import {reducer as formReducer} from 'redux-form';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 
 const store = createStore(
   rootReducer,
-  compose(applyMiddleware(thunk),
+  compose(applyMiddleware(thunk, logger),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 );

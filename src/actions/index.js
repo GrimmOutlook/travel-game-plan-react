@@ -1,4 +1,4 @@
-import {API_BASE_URL} from '../config';
+import {API_BASE_URL} from '../config';   // = 'http://localhost:8080/api'
 
 
 export const CREATE_NEW_TRIP = 'CREATE_NEW_TRIP';
@@ -88,7 +88,7 @@ export const deleteItemSuccess = (item_id) => ({
 });
 
 export const deleteItem = (trip_id, item_id, authToken) => dispatch => {
-  fetch(`${API_BASE_URL}/trip_id/item_id`, {
+  fetch(`${API_BASE_URL}/trip/${trip_id}/${item_id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${authToken}`,
@@ -118,6 +118,36 @@ export const storeInviteUUID = (inviteUUID) => ({
   type: STORE_INVITE_UUID,
   inviteUUID
 });
+
+
+export const FETCH_TRIP_NAME_SUCCESS = 'FETCH_TRIP_NAME_SUCCESS';
+export const fetchTripNameSuccess = (inviteUUID, tripName) => ({
+  type: FETCH_TRIP_NAME_SUCCESS,
+  inviteUUID,
+  tripName
+});
+
+export const fetchTripName = (inviteUUID) => dispatch => {
+  fetch(`/${API_BASE_URL}/trip/trip-invite/${inviteUUID}`, {
+    method: 'GET',
+    headers : {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    }
+  })
+  .then(res => {
+    if (!res.ok){
+      console.log('res: ', res);
+      return Promise.reject(res.statusText);
+    }
+    console.log('res.json: ', res.json());
+    return res.json();
+  })
+  .then(trip => {
+    dispatch(fetchTripNameSuccess(trip.inviteUUID, trip.tripName));
+  })
+
+};
 
 
 
