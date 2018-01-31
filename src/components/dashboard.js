@@ -10,15 +10,17 @@ import './css/button.css';
 
 export default class Dashboard extends React.Component {
 
-    render() {
-      return (
-        <div className="grid-dashboard-main">
-          <Header />
-          <Menu />
-          <ContainerDashboard />
-          <Footer />
-        </div>
-      );
-    }
+
+
+  render() {
+    return (
+      <div className="grid-dashboard-main">
+        <Header />
+        <Menu />
+        <ContainerDashboard />
+        <Footer />
+      </div>
+    );
+  }
 
 }

@@ -46,7 +46,8 @@ export class App extends React.Component {
 
   render() {
     return (
-      <div>
+
+        <div>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/login" component={LoginPage} />
@@ -59,7 +60,9 @@ export class App extends React.Component {
           <Route exact path="/new-trip" component={NewTrip} />
           <Route path="/trip-lists/:tripId" component={TripLists} />
         </Switch>
-      </div>
+        </div>
+
+
     );
   }
 

@@ -2,14 +2,20 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
+import {getTrips} from '../actions/index';
 
 import Button from './button';
 import TripSummary from './trip-summary';
 
 
 export class ContainerDashboard extends React.Component {
+  // componentWillMount(){
+  //   this.props.dispatch(getTrips());
+  // }
+
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
+    this.props.dispatch(getTrips());
     // this.props.dispatch(fetchTripData());
   }
 

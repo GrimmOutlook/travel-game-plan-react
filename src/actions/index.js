@@ -1,15 +1,8 @@
 import {API_BASE_URL} from '../config';   // = 'http://localhost:8080/api'
+import {normalizeResponseErrors} from './utils';
 
 
-export const CREATE_NEW_TRIP = 'CREATE_NEW_TRIP';
-export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails) => ({
-    type: CREATE_NEW_TRIP,
-    tripName,
-    dateStart,
-    dateEnd,
-    address,
-    tripDetails
-});
+// -------------------------- Modal Actions ------------------------------------------------
 
 export const TOGGLE_INFO_MODAL = 'TOGGLE_INFO_MODAL';
 export const toggleInfoModal = () => ({
@@ -24,6 +17,47 @@ export const toggleDeleteModal = () => ({
 export const TOGGLE_UPDATE_MODAL = 'TOGGLE_UPDATE_MODAL';
 export const toggleUpdateModal = () => ({
     type: TOGGLE_UPDATE_MODAL
+});
+
+
+// ------------------------------- Trip Actions -----------------------------------------------
+
+  //  GET all trips for a given user:
+export const GET_TRIPS_SUCCESS = 'GET_TRIPS_SUCCESS';
+export const getTripsSuccess = (trip) => ({
+  type: GET_TRIPS_SUCCESS,
+  trip
+})
+
+
+export const getTrips = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/users/me`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data: ', data);
+    dispatch(getTripsSuccess(data.trip))
+  });
+}
+
+
+
+
+
+export const CREATE_NEW_TRIP = 'CREATE_NEW_TRIP';
+export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails) => ({
+    type: CREATE_NEW_TRIP,
+    tripName,
+    dateStart,
+    dateEnd,
+    address,
+    tripDetails
 });
 
 
@@ -113,6 +147,9 @@ export const myListFilter = () => ({
   type: MY_LIST_FILTER
 });
 
+
+// --------------- Actions for Initial welcome screen upon arriving. ----------------------------
+
 export const STORE_INVITE_UUID = 'STORE_INVITE_UUID';
 export const storeInviteUUID = (inviteUUID) => ({
   type: STORE_INVITE_UUID,
@@ -128,24 +165,34 @@ export const fetchTripNameSuccess = (inviteUUID, tripName) => ({
 });
 
 export const fetchTripName = (inviteUUID) => dispatch => {
-  fetch(`/${API_BASE_URL}/trip/trip-invite/${inviteUUID}`, {
+  fetch(`${API_BASE_URL}/trip/trip-invite/${inviteUUID}`, {
     method: 'GET',
     headers : {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     }
   })
-  .then(res => {
-    if (!res.ok){
-      console.log('res: ', res);
-      return Promise.reject(res.statusText);
-    }
-    console.log('res.json: ', res.json());
-    return res.json();
-  })
-  .then(trip => {
-    dispatch(fetchTripNameSuccess(trip.inviteUUID, trip.tripName));
-  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('{data}: ', data);
+    dispatch(fetchTripNameSuccess(data.tripUUID, data.tripName))
+  });
+  // .catch(err => {
+  //     dispatch(fetchProtectedDataError(err));
+  // });
+
+  // .then(res => {
+  //   if (!res.ok){
+  //     console.log('res: ', res);
+  //     return Promise.reject(res.statusText);
+  //   }
+  //   console.log('res.json: ', res.json());
+  //   return res.json();
+  // })
+  // .then(trip => {
+  //   dispatch(fetchTripNameSuccess(trip.inviteUUID, trip.tripName));
+  // })
 
 };
 

@@ -1,12 +1,7 @@
-import {CREATE_NEW_TRIP} from '../actions/index'
+import {CREATE_NEW_TRIP, GET_TRIPS_SUCCESS} from '../actions/index'
 
 const initialStateCreateTrip = {
-  trips: [
-    {_id: 1, tripUUID: null, tripName: "Cancun", dateStart: "Jan. 14, 2018", dateEnd: "Jan. 21, 2018", address: "1 Street, Town", items: []},
-    {_id: 2, tripUUID: null, tripName: "Pittsburgh", dateStart: "March 14, 2018", dateEnd: "March 21, 2018", address: "1 Street, Town", items: []},
-    {_id: 3, tripUUID: null, tripName: "Las Vegas", dateStart: "July 14, 2018", dateEnd: "July 21, 2018", address: "1 Street, Town", items: []},
-    {_id: 4, tripUUID: null, tripName: "Deep Creek Lake", dateStart: "Nov. 14, 2018", dateEnd: "Nov. 21, 2018", address: "1 Street, Town", items: []}
-  ]
+  trips: []
 };
 
 // Add a GET reducer for all of a users trips
@@ -22,6 +17,9 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
       tripDetails: action.tripDetails,
       items: action.items
     }]});
+  }
+  else if (action.type === GET_TRIPS_SUCCESS){
+    return Object.assign({}, state, {trips: action.trip});
   }
   return state;
 }
