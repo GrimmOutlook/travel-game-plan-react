@@ -1,8 +1,15 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import Button from './button';
 
-export default class ModalSuccess extends React.Component {
+export class ModalSuccess extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      tripMostRecent: this.props.allTrips.slice((this.props.allTrips-1), this.props.allTrips)
+    };
+  }
 
   render(props) {
     return (
@@ -14,7 +21,7 @@ export default class ModalSuccess extends React.Component {
 
           <div className="success-message">You have successfully created a new trip!</div>
           <div className="trip-detail-message">
-            Your trip to <span>_______</span> starts on <span>___________</span>.
+            Your trip to <span>{this.state.tripMostRecent[0].tripName}</span> starts on <span>___________</span>.
           </div>
           <div className="invite-section">
             <p className="invite-message">
@@ -33,3 +40,9 @@ export default class ModalSuccess extends React.Component {
     );
   }
 };
+
+const mapStateToProps = state => ({
+  allTrips: state.trip.trips  !== null
+})
+
+export default connect(mapStateToProps)(ModalSuccess);

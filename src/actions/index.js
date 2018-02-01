@@ -47,19 +47,43 @@ export const getTrips = () => (dispatch, getState) => {
 }
 
 
+// -------------------- CREATE A NEW TRIP ACTIONS ------------------------------------------
 
-
-
-export const CREATE_NEW_TRIP = 'CREATE_NEW_TRIP';
-export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails) => ({
-    type: CREATE_NEW_TRIP,
+// Rename this CREATE_NEW_TRIP_SUCCESS:
+export const CREATE_NEW_TRIP_SUCCESS = 'CREATE_NEW_TRIP_SUCCESS';
+export const createNewTripSuccess = (tripName, dateStart, dateEnd, address, tripDetails, tripUUID) => ({
+    type: CREATE_NEW_TRIP_SUCCESS,
     tripName,
     dateStart,
     dateEnd,
     address,
-    tripDetails
+    tripDetails,
+    tripUUID
 });
 
+export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/trip`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      tripName,
+      dateStart,
+      dateEnd,
+      address,
+      tripDetails
+    })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data: ', data);
+    dispatch(createNewTripSuccess(data.tripName, data.dateStart, data.dateEnd, data.address, data.tripDetails, data.tripUUID))
+  });
+}
 
 // --------------------- Items -----------------------------------------
    // Add:
@@ -189,20 +213,9 @@ export const fetchTripName = (inviteUUID) => dispatch => {
       // : dispatch(fetchTripNameError({message: 'Not a valid trip link.'}))
   })
   .catch(err => {
+      console.log('err: ', err);
       dispatch(fetchTripNameError(err));
   });
-
-  // .then(res => {
-  //   if (!res.ok){
-  //     console.log('res: ', res);
-  //     return Promise.reject(res.statusText);
-  //   }
-  //   console.log('res.json: ', res.json());
-  //   return res.json();
-  // })
-  // .then(trip => {
-  //   dispatch(fetchTripNameSuccess(trip.inviteUUID, trip.tripName));
-  // })
 
 };
 

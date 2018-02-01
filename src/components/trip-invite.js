@@ -43,7 +43,7 @@ export class TripInvite extends React.Component {
                 <button onClick={(e) => this.changeUUIDState(e)}>Continue</button>
               </div>
           {/*  : <h2> {this.props.inviteError.toString()} </h2> }   */}
-          <h2> {this.props.inviteError.message} </h2>
+          {/*<h2> {this.props.inviteError.message} </h2>*/}
 
         {<h5>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h5>}
       </div>

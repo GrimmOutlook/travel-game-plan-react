@@ -17,4 +17,5 @@ it('renders without crashing', () => {
       </Router>
     </Provider>
   );
+  registerServiceWorker();
 });
