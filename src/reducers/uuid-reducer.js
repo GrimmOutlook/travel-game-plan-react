@@ -20,7 +20,7 @@ export const uuidReducer = (state=initialState, action) => {
   }
   else if (action.type === FETCH_TRIP_NAME_ERROR){
     return Object.assign({}, state, {
-      error: action.message
+      error: action.error
     });
   }
   return state;

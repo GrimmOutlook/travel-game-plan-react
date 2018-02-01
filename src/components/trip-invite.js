@@ -34,11 +34,18 @@ export class TripInvite extends React.Component {
 
       <div>
         {this.state.redirect}
-        {/*ternary operator that renders conditionally if UUID was correct or if error occurred.*/}
-        <h1>Welcome!  You have received an invite for trip name: {this.props.inviteTripName}</h1>
-        <h2>Click button below to add to your dashboard:</h2>
-        <button onClick={(e) => this.changeUUIDState(e)}>Dummy button for updating inviteUUID state</button>
-        <h3>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h3>
+
+          {/*ternary operator that renders conditionally if UUID was correct or if error occurred.*/}
+          {/* { this.props.inviteTripName ? */}
+              <div>
+                <h2>Welcome!  You have received an invite for trip name: <span> {this.props.inviteTripName} </span></h2>
+                <h3>Click button below to add this trip to your dashboard:</h3>
+                <button onClick={(e) => this.changeUUIDState(e)}>Continue</button>
+              </div>
+          {/*  : <h2> {this.props.inviteError.toString()} </h2> }   */}
+          <h2> {this.props.inviteError.message} </h2>
+
+        {<h5>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h5>}
       </div>
 
     )
@@ -49,6 +56,7 @@ export class TripInvite extends React.Component {
 const mapStateToProps = state => ({
   inviteUUIDInStore: state.inviteUUID.inviteUUID,
   inviteTripName: state.inviteUUID.tripName,
+  inviteError: state.inviteUUID.error,
   loggedIn: state.auth.currentUser !== null
 })
 

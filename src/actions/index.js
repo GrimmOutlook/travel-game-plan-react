@@ -165,9 +165,9 @@ export const fetchTripNameSuccess = (inviteUUID, tripName) => ({
 });
 
 export const FETCH_TRIP_NAME_ERROR = 'FETCH_TRIP_NAME_ERROR';
-export const fetchTripNameError = (message) => ({
+export const fetchTripNameError = (error) => ({
   type: FETCH_TRIP_NAME_ERROR,
-  message
+  error
 });
 
 export const fetchTripName = (inviteUUID) => dispatch => {
@@ -183,13 +183,14 @@ export const fetchTripName = (inviteUUID) => dispatch => {
   .then(data => {
     console.log('data.tripUUID: ', data.tripUUID);
     console.log('parameter inviteUUID: ', inviteUUID);
-    data.tripUUID === inviteUUID ?
-      dispatch(fetchTripNameSuccess(data.tripUUID, data.tripName)) :
-      dispatch(fetchTripNameError({message: 'Not a valid trip link.'}))
+    if (data.tripUUID === inviteUUID){
+      dispatch(fetchTripNameSuccess(data.tripUUID, data.tripName))
+    }
+      // : dispatch(fetchTripNameError({message: 'Not a valid trip link.'}))
+  })
+  .catch(err => {
+      dispatch(fetchTripNameError(err));
   });
-  // .catch(err => {
-  //     dispatch(fetchProtectedDataError(err));
-  // });
 
   // .then(res => {
   //   if (!res.ok){

@@ -5,12 +5,14 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import store from './store';
 import App from './App';
 
+import registerServiceWorker from './registerServiceWorker';
+
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <Provider store={store}>
       <Router>
-        <App />
+        <App />,
         div
       </Router>
     </Provider>
