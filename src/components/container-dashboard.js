@@ -9,13 +9,14 @@ import TripSummary from './trip-summary';
 
 
 export class ContainerDashboard extends React.Component {
-  // componentWillMount(){
-  //   this.props.dispatch(getTrips());
-  // }
+  componentWillMount(){
+    this.props.dispatch(getTrips());
+    console.log('the invite prop: ', this.props.inviteUUIDInStore);
+  }
 
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    this.props.dispatch(getTrips());
+    // this.props.dispatch(getTrips());
     // this.props.dispatch(fetchTripData());
   }
 
@@ -43,6 +44,7 @@ const mapStateToProps = state => {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
     protectedData: state.protectedData.data,
+    inviteUUIDInStore: state.inviteUUID.inviteUUID,
     trips: state.trip.trips
   };
 };

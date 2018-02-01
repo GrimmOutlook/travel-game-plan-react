@@ -164,6 +164,12 @@ export const fetchTripNameSuccess = (inviteUUID, tripName) => ({
   tripName
 });
 
+export const FETCH_TRIP_NAME_ERROR = 'FETCH_TRIP_NAME_ERROR';
+export const fetchTripNameError = (message) => ({
+  type: FETCH_TRIP_NAME_ERROR,
+  message
+});
+
 export const fetchTripName = (inviteUUID) => dispatch => {
   fetch(`${API_BASE_URL}/trip/trip-invite/${inviteUUID}`, {
     method: 'GET',
@@ -175,8 +181,11 @@ export const fetchTripName = (inviteUUID) => dispatch => {
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(data => {
-    console.log('{data}: ', data);
-    dispatch(fetchTripNameSuccess(data.tripUUID, data.tripName))
+    console.log('data.tripUUID: ', data.tripUUID);
+    console.log('parameter inviteUUID: ', inviteUUID);
+    data.tripUUID === inviteUUID ?
+      dispatch(fetchTripNameSuccess(data.tripUUID, data.tripName)) :
+      dispatch(fetchTripNameError({message: 'Not a valid trip link.'}))
   });
   // .catch(err => {
   //     dispatch(fetchProtectedDataError(err));

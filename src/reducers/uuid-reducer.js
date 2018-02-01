@@ -1,8 +1,9 @@
-import {STORE_INVITE_UUID, FETCH_TRIP_NAME_SUCCESS} from '../actions/index';
+import {STORE_INVITE_UUID, FETCH_TRIP_NAME_SUCCESS, FETCH_TRIP_NAME_ERROR} from '../actions/index';
 
 const initialState = {
   inviteUUID: null,
-  tripName: null
+  tripName: null,
+  error: null
 };
 
 export const uuidReducer = (state=initialState, action) => {
@@ -15,6 +16,11 @@ export const uuidReducer = (state=initialState, action) => {
     return Object.assign({}, state, {
       inviteUUID: action.inviteUUID,
       tripName: action.tripName
+    });
+  }
+  else if (action.type === FETCH_TRIP_NAME_ERROR){
+    return Object.assign({}, state, {
+      error: action.message
     });
   }
   return state;

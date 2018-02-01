@@ -21,10 +21,6 @@ export class TripInvite extends React.Component {
     this.props.dispatch(fetchTripName(inviteUUID));
   }
 
-  // componentDidMount(){
-  //   this.props.dispatch(fetchTripName(this.props.inviteUUIDInStore));
-  // }
-
   changeUUIDState(e){
     e.preventDefault();
     this.setState({
@@ -34,7 +30,6 @@ export class TripInvite extends React.Component {
   }
 
   render() {
-
     return (
 
       <div>
