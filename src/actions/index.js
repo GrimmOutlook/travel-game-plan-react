@@ -49,7 +49,6 @@ export const getTrips = () => (dispatch, getState) => {
 
 // -------------------- CREATE A NEW TRIP ACTIONS ------------------------------------------
 
-// Rename this CREATE_NEW_TRIP_SUCCESS:
 export const CREATE_NEW_TRIP_SUCCESS = 'CREATE_NEW_TRIP_SUCCESS';
 export const createNewTripSuccess = (tripName, dateStart, dateEnd, address, tripDetails, tripUUID) => ({
     type: CREATE_NEW_TRIP_SUCCESS,
@@ -86,19 +85,24 @@ export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails
 }
 
 // --------------------- Items -----------------------------------------
-   // Add:
+   // Create New Item:
 
-export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
-export const addItemSuccess = (trip) => ({
-  type: ADD_ITEM_SUCCESS,
-  trip  //automatically use the username captured from login action
+export const CREATE_NEW_ITEM_SUCCESS = 'CREATE_NEW_ITEM_SUCCESS';
+export const createNewItemSuccess = (_id, item, itemDetails, username) => ({
+  type: CREATE_NEW_ITEM_SUCCESS,
+  _id,
+  item,
+  itemDetails,
+  username
 });
 
-export const addItem = (trip_id, item, itemDetails, username, authToken) => dispatch => {
-  console.log(`trip_id: ${trip_id}`);
-  // console.log(`item_id: ${item_id}`);
-  console.log(`authToken: ${authToken}`);
+export const createNewItem = (item, itemDetails, username) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  const allTrips = getState().trip;
+  //Not correct.  what to compare it to?
+  this.trip = allTrips.find(trip => tripId === trip._id.toString());
 
+  console.log('getState trip_id in createNewItem: ', getState().trip);
   fetch(`${API_BASE_URL}/trip/${trip_id}`, {
     method: 'POST',
     headers: {
@@ -111,15 +115,13 @@ export const addItem = (trip_id, item, itemDetails, username, authToken) => disp
       username
     })
   })
-  .then(res => {
-    if (!res.ok){
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-  })
-  .then(trip => {
-    dispatch(addItemSuccess(trip));
-  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data in createNewItem action creator: ', data);
+    // return data._id as well??????
+    dispatch(createNewItemSuccess(data.items._id, data.items.item, data.items.itemDetails, data.items.username))
+  });
 };
 
 

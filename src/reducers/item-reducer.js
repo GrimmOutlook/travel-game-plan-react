@@ -1,4 +1,4 @@
-import {ADD_ITEM_SUCCESS, UPDATE_ITEM, DELETE_ITEM_SUCCESS, MY_LIST_FILTER} from '../actions/index';
+import {CREATE_NEW_ITEM_SUCCESS, UPDATE_ITEM, DELETE_ITEM_SUCCESS, MY_LIST_FILTER} from '../actions/index';
 
 const initialStateAddItem = {
   items: [
@@ -19,7 +19,7 @@ const initialStateAddItem = {
 
 
 export const itemReducer = (state=initialStateAddItem, action) => {
-  if (action.type === ADD_ITEM_SUCCESS){
+  if (action.type === CREATE_NEW_ITEM_SUCCESS){
     return Object.assign({}, state, {items: [...state.items, {
       item_id: action.item_id,
       item: action.item,

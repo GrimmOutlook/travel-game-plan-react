@@ -7,7 +7,7 @@ export class ModalSuccess extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      tripMostRecent: this.props.allTrips.slice((this.props.allTrips-1), this.props.allTrips)
+      tripMostRecent: this.props.allTrips.slice(-1)[0]
     };
   }
 
@@ -21,13 +21,13 @@ export class ModalSuccess extends React.Component {
 
           <div className="success-message">You have successfully created a new trip!</div>
           <div className="trip-detail-message">
-            Your trip to <span>{this.state.tripMostRecent[0].tripName}</span> starts on <span>___________</span>.
+            Your trip to <span>{this.state.tripMostRecent.tripName}</span> starts on <span>{this.state.tripMostRecent.dateStart}</span>.
           </div>
           <div className="invite-section">
             <p className="invite-message">
               Invite your friends!  Share the link below with your friends to help coordinate your trip:
             </p>
-            <p className="invite-link">www.travelgameplan.com/uuid</p>
+            <p className="invite-link">www.travelgameplan.com/trip-invite/{this.state.tripMostRecent.tripUUID}</p>
           </div>
           <div className="nav">
             <Button routePath="dashboard" text="Back to Trip Dashboard" buttonColor="btn--green" />
@@ -42,7 +42,7 @@ export class ModalSuccess extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  allTrips: state.trip.trips  !== null
+  allTrips: state.trip.trips !== null
 })
 
 export default connect(mapStateToProps)(ModalSuccess);

@@ -1,14 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
 // import {addItem, toggleInfoModal} from '../actions/index';
-import {addItem} from '../actions/index';
+import {createNewItem} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
 export class ModalNewItem extends React.Component {
 
   addItemFxn(values){
     // this.props.dispatch(toggleInfoModal());
-    this.props.dispatch(addItem(values.item, values.itemDetails, values.username));
+    // console.log('this.props.trips: ', this.props.trips);
+    // this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
+    this.props.dispatch(createNewItem(values.item, values.itemDetails, values.username));
     console.log('values: ', values);
   }
 
@@ -38,8 +40,8 @@ export class ModalNewItem extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  showModal: state.modal.showModal
-
+  showModal: state.modal.showModal  //,
+  // trips: state.trip.trips
 });
 
 const form = reduxForm({

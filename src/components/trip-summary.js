@@ -14,6 +14,8 @@ export default function TripSummary(props) {
         <h3 className="trip-date-label">Dates:</h3>
         <h2 className="trip-dates">{ trip.dateStart } to { trip.dateEnd }</h2>
 
+        <h4 className="trip-invite-link">www.travelgameplan.com/trip-invite/{ trip.tripUUID }</h4>
+
       </li>
     </Link>
   ));
