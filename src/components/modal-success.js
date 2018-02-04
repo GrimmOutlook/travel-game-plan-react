@@ -42,7 +42,7 @@ export class ModalSuccess extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  allTrips: state.trip.trips !== null
+  allTrips: state.trip.trips
 })
 
 export default connect(mapStateToProps)(ModalSuccess);
