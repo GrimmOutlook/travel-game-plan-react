@@ -84,25 +84,27 @@ export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails
   });
 }
 
+// --------------------- Current Trip -----------------------------------------
+   // Set Current Trip:
+export const SET_CURRENT_TRIP = 'SET_CURRENT_TRIP';
+export const setCurrentTrip = (currentTrip) => ({
+  type: SET_CURRENT_TRIP,
+  currentTrip
+});
+
+
+
 // --------------------- Items -----------------------------------------
    // Create New Item:
 
 export const CREATE_NEW_ITEM_SUCCESS = 'CREATE_NEW_ITEM_SUCCESS';
-export const createNewItemSuccess = (_id, item, itemDetails, username) => ({
+export const createNewItemSuccess = (trip) => ({
   type: CREATE_NEW_ITEM_SUCCESS,
-  _id,
-  item,
-  itemDetails,
-  username
+  trip
 });
 
-export const createNewItem = (item, itemDetails, username) => (dispatch, getState) => {
+export const createNewItem = (item, itemDetails, username, trip_id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
-  const allTrips = getState().trip;
-  //Not correct.  what to compare it to?
-  this.trip = allTrips.find(trip => tripId === trip._id.toString());
-
-  console.log('getState trip_id in createNewItem: ', getState().trip);
   fetch(`${API_BASE_URL}/trip/${trip_id}`, {
     method: 'POST',
     headers: {
@@ -120,50 +122,73 @@ export const createNewItem = (item, itemDetails, username) => (dispatch, getStat
   .then(data => {
     console.log('data in createNewItem action creator: ', data);
     // return data._id as well??????
-    dispatch(createNewItemSuccess(data.items._id, data.items.item, data.items.itemDetails, data.items.username))
+    dispatch(createNewItemSuccess(data))
+  });
+};
+
+
+export const UPDATE_ITEM_SUCCESS = 'UPDATE_ITEM_SUCCESS';
+export const updateItemSuccess = (trip) => ({
+  type: UPDATE_ITEM_SUCCESS,
+  trip
+})
+
+
+export const updateItem = (item_id, item, itemDetails, username, trip_id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/trip/${trip_id}/${item_id}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      trip_id,
+      item_id,
+      item,
+      itemDetails,
+      username
+    })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data in updateItem action creator: ', data);
+    // What do I dispatch????  There's no item left
+    dispatch(updateItemSuccess(data))
   });
 };
 
 
 
-
-
-
-
-export const UPDATE_ITEM = 'UPDATE_ITEM';
-export const updateItem = (item_id, item, itemDetails, username) => ({
-  type: UPDATE_ITEM,
-  item_id,
-  item,
-  itemDetails,
-  username  //use the username captured from login action as placeholder
-});
-
-
-
 export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
-export const deleteItemSuccess = (item_id) => ({
+export const deleteItemSuccess = (message, item_id, trip_id) => ({
   type: DELETE_ITEM_SUCCESS,
-  item_id
+  message,
+  item_id,
+  trip_id
 });
 
-export const deleteItem = (trip_id, item_id, authToken) => dispatch => {
+export const deleteItem = (trip_id, item_id) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/trip/${trip_id}/${item_id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'
-    }
+    },
+    body: JSON.stringify({
+      trip_id,
+      item_id
+    })
   })
-  .then(res => {
-    if (!res.ok){
-      return Promise.reject(res.statusText);
-    }
-    return res.json();
-  })
-  .then(item => {
-    dispatch(deleteItemSuccess(item.item_id));
-  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data in deleteItem action creator: ', data);
+    // What do I dispatch????  There's no item left
+    dispatch(deleteItemSuccess(data.message, item_id, trip_id))
+  });
 };
 
 

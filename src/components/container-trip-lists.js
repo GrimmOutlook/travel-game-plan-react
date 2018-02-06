@@ -5,7 +5,7 @@ import List from './list';
 import ModalDeleteItem from './modal-delete-item';
 import ModalUpdateItem from './modal-update-item';
 import {NewItemModalContent, modalContent} from './modal';
-import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter, deleteItem, updateItem} from '../actions/index';
+import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter, deleteItem, updateItem, setCurrentTrip} from '../actions/index';
 
 import './css/button.css';
 
@@ -18,6 +18,8 @@ export class ContainerTripLists extends React.Component {
       console.log("this.props.tripId: ", this.props.tripId);
       const tripId = this.props.tripId;
       this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
+      const currentTrip = this.trip
+      this.props.dispatch(setCurrentTrip(currentTrip));
       console.log("this.trip: ", this.trip);
     }
 
@@ -115,7 +117,7 @@ const mapStateToProps = state => ({
   showModal: state.modal.showModal,
   showModalDelete: state.modal.showModalDelete,
   showModalUpdate: state.modal.showModalUpdate,
-  filter: state.item.userFilter
+  filter: state.trips.userFilter
 });
 
 export default connect(mapStateToProps)(ContainerTripLists);

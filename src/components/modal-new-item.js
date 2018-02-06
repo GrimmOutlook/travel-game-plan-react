@@ -10,7 +10,7 @@ export class ModalNewItem extends React.Component {
     // this.props.dispatch(toggleInfoModal());
     // console.log('this.props.trips: ', this.props.trips);
     // this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
-    this.props.dispatch(createNewItem(values.item, values.itemDetails, values.username));
+    this.props.dispatch(createNewItem(values.item, values.itemDetails, values.username, this.props.currentTrip._id));
     console.log('values: ', values);
   }
 
@@ -40,8 +40,8 @@ export class ModalNewItem extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  showModal: state.modal.showModal  //,
-  // trips: state.trip.trips
+  showModal: state.modal.showModal,
+  currentTrip: state.trip.currentTrip
 });
 
 const form = reduxForm({
