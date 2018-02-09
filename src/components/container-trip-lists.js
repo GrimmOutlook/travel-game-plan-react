@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+// import requiresLogin from './requires-login';
 
 import List from './list';
 import ModalDeleteItem from './modal-delete-item';
@@ -16,11 +17,13 @@ export class ContainerTripLists extends React.Component {
     constructor(props){
       super(props);
       console.log("this.props.tripId: ", this.props.tripId);
+      console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
       const tripId = this.props.tripId;
-      this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
-      const currentTrip = this.trip
-      this.props.dispatch(setCurrentTrip(currentTrip));
+      this.trip = this.props.trips.find(trip => tripId === trip._id);
+      const theOnlyTripIWant = this.trip
+      this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
       console.log("this.trip: ", this.trip);
+
     }
 
     modalAdd(e){
@@ -68,11 +71,11 @@ export class ContainerTripLists extends React.Component {
     }
 
     render() {
-      const neededList = this.trip.items.filter((item) => {return !item.username});
-      const accountedList = this.trip.items.filter((item) => {return item.username});
+      const neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
+      const accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
 
       const filteredList = this.props.filter ? accountedList.filter((item) => {
-        return item.username === "Dave";
+        return item.username === this.props.username;
       }) : accountedList;
 
       return (
@@ -111,14 +114,20 @@ export class ContainerTripLists extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-  // items: state.item.items,
-  trips: state.trip.trips,
-  showModal: state.modal.showModal,
-  showModalDelete: state.modal.showModalDelete,
-  showModalUpdate: state.modal.showModalUpdate,
-  filter: state.trips.userFilter
-});
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+    username: state.auth.currentUser.username,
+    trips: state.trip.trips,
+    showModal: state.modal.showModal,
+    showModalDelete: state.modal.showModalDelete,
+    showModalUpdate: state.modal.showModalUpdate,
+    filter: state.trip.userFilter,
+    currentTrip: state.trip.currentTrip
+  }
+};
+
+// export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
 
 export default connect(mapStateToProps)(ContainerTripLists);
 

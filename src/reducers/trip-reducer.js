@@ -24,6 +24,7 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
     return Object.assign({}, state, {trips: action.trip});
   }
   else if (action.type === SET_CURRENT_TRIP){
+    console.log('SET_CURRENT_TRIP Reducer: ', action.currentTrip);
     return Object.assign({}, state, {currentTrip: action.currentTrip})
   }
   else if (action.type === CREATE_NEW_ITEM_SUCCESS){

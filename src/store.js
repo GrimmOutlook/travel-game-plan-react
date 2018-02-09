@@ -22,4 +22,6 @@ if (authToken) {
     store.dispatch(refreshAuthToken());
 }
 
+// console.log('store.getState(): ', store.getState());
+
 export default store;
