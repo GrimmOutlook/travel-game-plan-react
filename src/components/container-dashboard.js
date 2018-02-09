@@ -10,7 +10,7 @@ import TripSummary from './trip-summary';
 
 export class ContainerDashboard extends React.Component {
   componentWillMount(){
-    this.props.dispatch(getTrips());
+    this.props.dispatch(getTrips());   //if user not logged in, calling getTrips here may be a problem
     console.log('the invite prop: ', this.props.inviteUUIDInStore);
   }
 

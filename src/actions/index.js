@@ -24,9 +24,9 @@ export const toggleUpdateModal = () => ({
 
   //  GET all trips for a given user:
 export const GET_TRIPS_SUCCESS = 'GET_TRIPS_SUCCESS';
-export const getTripsSuccess = (trip) => ({
+export const getTripsSuccess = (trips) => ({
   type: GET_TRIPS_SUCCESS,
-  trip
+  trips
 })
 
 
@@ -42,7 +42,7 @@ export const getTrips = () => (dispatch, getState) => {
   .then(res => res.json())
   .then(data => {
     console.log('data: ', data);
-    dispatch(getTripsSuccess(data.trip))
+    dispatch(getTripsSuccess(data.trips))
   });
 }
 

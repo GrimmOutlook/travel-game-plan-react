@@ -1,4 +1,6 @@
-import {CREATE_NEW_TRIP_SUCCESS, GET_TRIPS_SUCCESS, SET_CURRENT_TRIP, CREATE_NEW_ITEM_SUCCESS, UPDATE_ITEM_SUCCESS, DELETE_ITEM_SUCCESS, MY_LIST_FILTER} from '../actions/index'
+import {CREATE_NEW_TRIP_SUCCESS, GET_TRIPS_SUCCESS, SET_CURRENT_TRIP, CREATE_NEW_ITEM_SUCCESS, UPDATE_ITEM_SUCCESS, DELETE_ITEM_SUCCESS, MY_LIST_FILTER} from '../actions/index';
+
+import {AUTH_SUCCESS} from '../actions/auth';
 
 const initialStateCreateTrip = {
   trips: [],
@@ -21,7 +23,7 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
     }]});
   }
   else if (action.type === GET_TRIPS_SUCCESS){
-    return Object.assign({}, state, {trips: action.trip});
+    return Object.assign({}, state, {trips: action.trips});
   }
   else if (action.type === SET_CURRENT_TRIP){
     console.log('SET_CURRENT_TRIP Reducer: ', action.currentTrip);
