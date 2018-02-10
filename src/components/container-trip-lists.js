@@ -14,28 +14,27 @@ let DeleteModalContent;
 let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
-    // constructor(props){
-    //   super(props);
-    //   console.log("this.props.tripId: ", this.props.tripId);
-    //   console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
-    //   const tripId = this.props.tripId;
-    //   this.trip = this.props.trips.find(trip => tripId == trip._id);
-    //   const theOnlyTripIWant = this.trip
-    //   this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-    //   console.log('this.props.children: ', this.props.children);
-    //   console.log("this.trip: ", this.trip);
-
-    // }
-
-    componentDidMount() {
+    constructor(props){
+      super(props);
       console.log("this.props.tripId: ", this.props.tripId);
       console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
       const tripId = this.props.tripId;
       this.trip = this.props.trips.find(trip => tripId == trip._id);
       const theOnlyTripIWant = this.trip
       this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
+      console.log('this.props.children: ', this.props.children);
       console.log("this.trip: ", this.trip);
     }
+
+    // componentDidMount() {
+    //   console.log("this.props.tripId: ", this.props.tripId);
+    //   console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
+    //   const tripId = this.props.tripId;
+    //   this.trip = this.props.trips.find(trip => tripId == trip._id);
+    //   const theOnlyTripIWant = this.trip
+    //   this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
+    //   console.log("this.trip: ", this.trip);
+    // }
 
     modalAdd(e){
       e.preventDefault();
@@ -86,8 +85,8 @@ export class ContainerTripLists extends React.Component {
       let neededList = [];
       let accountedList = [];
       if(this.props.currentTrip){
-          const neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
-          const accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
+          neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
+          accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
 
           filteredList = this.props.filter ? accountedList.filter((item) => {
             return item.username === this.props.username;
