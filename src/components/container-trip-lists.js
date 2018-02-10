@@ -14,17 +14,18 @@ let DeleteModalContent;
 let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
-    constructor(props){
-      super(props);
-      // console.log("this.props.tripId: ", this.props.tripId);
-      // console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
-      // const tripId = this.props.tripId;
-      // this.trip = this.props.trips.find(trip => tripId == trip._id);
-      // const theOnlyTripIWant = this.trip
-      // this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-      // console.log("this.trip: ", this.trip);
+    // constructor(props){
+    //   super(props);
+    //   console.log("this.props.tripId: ", this.props.tripId);
+    //   console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
+    //   const tripId = this.props.tripId;
+    //   this.trip = this.props.trips.find(trip => tripId == trip._id);
+    //   const theOnlyTripIWant = this.trip
+    //   this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
+    //   console.log('this.props.children: ', this.props.children);
+    //   console.log("this.trip: ", this.trip);
 
-    }
+    // }
 
     componentDidMount() {
       console.log("this.props.tripId: ", this.props.tripId);
@@ -81,23 +82,36 @@ export class ContainerTripLists extends React.Component {
     }
 
     render() {
-
-      { !this.props.currentTrip
-        ?
-         <h1>"Please wait, system processing."</h1>
-        :
+      let filteredList = [];
+      let neededList = [];
+      let accountedList = [];
+      if(this.props.currentTrip){
           const neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
           const accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
 
-          const filteredList = this.props.filter ? accountedList.filter((item) => {
+          filteredList = this.props.filter ? accountedList.filter((item) => {
             return item.username === this.props.username;
           }) : accountedList;
       }
 
+
+
+      // { !this.props.currentTrip
+      //   ?
+      //    <h1>"Please wait, system processing."</h1>
+      //   :
+      //     const neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
+      //     const accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
+
+      //     const filteredList = this.props.filter ? accountedList.filter((item) => {
+      //       return item.username === this.props.username;
+      //     }) : accountedList;
+      // }
+
       return (
         <div className="content-trip-lists grid-trip-lists-content">
 
-          <h1>{this.trip.tripName} and {this.trip.items}</h1>
+          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.items}</h1>
 
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
@@ -130,18 +144,18 @@ export class ContainerTripLists extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-  // const {currentUser} = state.auth;
-  // return {
-    // username: state.auth.currentUser.username,
+const mapStateToProps = state => {
+  const {currentUser} = state.auth;
+  return {
+    username: state.auth.currentUser.username,
     trips: state.trip.trips,
     showModal: state.modal.showModal,
     showModalDelete: state.modal.showModalDelete,
     showModalUpdate: state.modal.showModalUpdate,
     filter: state.trip.userFilter,
     currentTrip: state.trip.currentTrip
-  // }
-});
+  }
+};
 
 // export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
 
