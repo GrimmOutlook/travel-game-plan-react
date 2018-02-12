@@ -11,8 +11,7 @@ import LoginPage from './components/login-page';
 import Menu from './components/menu';
 import RegistrationPage from './components/registration-page';
 import {refreshAuthToken} from './actions/auth';
-// import Modal from './components/modal';
-// import {SuccessModalContent, FormModalContent} from './components/modal';
+
 
 export class App extends React.Component {
   componentWillReceiveProps(nextProps) {
@@ -46,23 +45,18 @@ export class App extends React.Component {
 
   render() {
     return (
-
-        <div>
+      <div>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/register" component={RegistrationPage} />
-          {/* <Route exact path="/modal-success" component={SuccessModalContent} /> */}
-          {/* <Route exact path="/modal-form" component={FormModalContent} /> */}
           <Route path="/trip-invite/:tripUUID" component={TripInvite} />
           <Route exact path="/menu" component={Menu} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/new-trip" component={NewTrip} />
           <Route path="/trip-lists/:tripId" component={TripLists} />
         </Switch>
-        </div>
-
-
+      </div>
     );
   }
 

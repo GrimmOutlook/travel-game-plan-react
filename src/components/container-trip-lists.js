@@ -17,12 +17,12 @@ export class ContainerTripLists extends React.Component {
     constructor(props){
       super(props);
       console.log("this.props.tripId: ", this.props.tripId);
-      console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
+
       const tripId = this.props.tripId;
       this.trip = this.props.trips.find(trip => tripId == trip._id);
       const theOnlyTripIWant = this.trip
       this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-      console.log('this.props.children: ', this.props.children);
+
       console.log("this.trip: ", this.trip);
     }
 
