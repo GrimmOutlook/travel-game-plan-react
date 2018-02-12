@@ -103,7 +103,7 @@ export const createNewItemSuccess = (trip) => ({
   trip
 });
 
-export const createNewItem = (item, itemDetails, username, trip_id) => (dispatch, getState) => {
+export const createNewItem = (item, itemDetails, claimOrNot, trip_id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/trip/${trip_id}`, {
     method: 'POST',
@@ -114,7 +114,7 @@ export const createNewItem = (item, itemDetails, username, trip_id) => (dispatch
     body: JSON.stringify({
       item,
       itemDetails,
-      username
+      claimOrNot
     })
   })
   .then(res => normalizeResponseErrors(res))

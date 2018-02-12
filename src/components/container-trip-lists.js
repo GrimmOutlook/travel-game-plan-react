@@ -14,27 +14,27 @@ let DeleteModalContent;
 let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
-    constructor(props){
-      super(props);
-      console.log("this.props.tripId: ", this.props.tripId);
+    // constructor(props){
+    //   super(props);
+      // console.log("this.props.tripId: ", this.props.tripId);
 
+      // const tripId = this.props.tripId;
+      // this.trip = this.props.trips.find(trip => tripId == trip._id);
+      // const theOnlyTripIWant = this.trip
+      // this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
+
+      // console.log("this.trip: ", this.trip);
+    // }
+
+    componentDidMount() {
+      console.log("this.props.tripId: ", this.props.tripId);
+      console.log("this.props.trips: ", this.props.trips);
       const tripId = this.props.tripId;
       this.trip = this.props.trips.find(trip => tripId == trip._id);
       const theOnlyTripIWant = this.trip
       this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-
       console.log("this.trip: ", this.trip);
     }
-
-    // componentDidMount() {
-    //   console.log("this.props.tripId: ", this.props.tripId);
-    //   console.log("this.props.trips: ", this.props.trips);  // why an array of zero?
-    //   const tripId = this.props.tripId;
-    //   this.trip = this.props.trips.find(trip => tripId == trip._id);
-    //   const theOnlyTripIWant = this.trip
-    //   this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-    //   console.log("this.trip: ", this.trip);
-    // }
 
     modalAdd(e){
       e.preventDefault();
@@ -84,33 +84,17 @@ export class ContainerTripLists extends React.Component {
       let filteredList = [];
       let neededList = [];
       let accountedList = [];
+      let display = "Loading ...";
       if(this.props.currentTrip){
-          neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
-          accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
+          neededList = this.props.currentTrip.items.filter((item) => {return !item.userClaim});
+          accountedList = this.props.currentTrip.items.filter((item) => {return item.userClaim});
 
           filteredList = this.props.filter ? accountedList.filter((item) => {
             return item.username === this.props.username;
           }) : accountedList;
-      }
 
-
-
-      // { !this.props.currentTrip
-      //   ?
-      //    <h1>"Please wait, system processing."</h1>
-      //   :
-      //     const neededList = this.props.currentTrip.items.filter((item) => {return !item.username});
-      //     const accountedList = this.props.currentTrip.items.filter((item) => {return item.username});
-
-      //     const filteredList = this.props.filter ? accountedList.filter((item) => {
-      //       return item.username === this.props.username;
-      //     }) : accountedList;
-      // }
-
-      return (
-        <div className="content-trip-lists grid-trip-lists-content">
-
-          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.items}</h1>
+        display = (<div>
+          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.itemDetails}</h1>
 
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
@@ -130,12 +114,21 @@ export class ContainerTripLists extends React.Component {
             deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
             updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
           />
+        </div>)
+      }
 
-         { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
 
-         { this.props.showModalDelete ? <DeleteModalContent text="Delete stuff" /> : "" }
 
-         { this.props.showModalUpdate ? <UpdateModalContent text="Update stuff" /> : "" }
+      return (
+        <div className="content-trip-lists grid-trip-lists-content">
+
+          {display}
+
+           { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
+
+           { this.props.showModalDelete ? <DeleteModalContent text="Delete stuff" /> : "" }
+
+           { this.props.showModalUpdate ? <UpdateModalContent text="Update stuff" /> : "" }
 
         </div>
       );

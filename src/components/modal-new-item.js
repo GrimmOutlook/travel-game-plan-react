@@ -10,7 +10,7 @@ export class ModalNewItem extends React.Component {
     // this.props.dispatch(toggleInfoModal());
     // console.log('this.props.trips: ', this.props.trips);
     // this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
-    this.props.dispatch(createNewItem(values.item, values.itemDetails, values.username, this.props.currentTrip._id));
+    this.props.dispatch(createNewItem(values.item, values.itemDetails, values.claimOrNot, this.props.currentTrip._id));
     console.log('values: ', values);
   }
 
@@ -26,9 +26,10 @@ export class ModalNewItem extends React.Component {
           <label htmlFor="itemDetails">Item Details:</label>
           <Field type="text" placeholder="Item Details" name="itemDetails" component="input" />
 
-          <label htmlFor="username">Username:</label>
-          <Field type="text" placeholder="Your Username" name="username" component="input" />
-
+          <label htmlFor="claimOrNot">Are you bringing this item?</label>
+          <div>
+            <label><Field type="checkbox" value="Yes" name="claimOrNot" component="input" />Yes</label>
+          </div>
           <button className="btn btn--green" type="submit" >Submit</button>
 
         </form>

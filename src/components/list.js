@@ -23,7 +23,7 @@ export default function List(props) {
         />
 
         <h3 className="item-details">{ item.itemDetails }</h3>
-        <h3 className="item-username">{ item.username }</h3>
+        <h3 className="item-username">{ item.userClaim ? item.userClaim.username : '' }</h3>
 
     </li>
   ));
