@@ -57,8 +57,8 @@ export class ContainerTripLists extends React.Component {
           id: item_id,
           itemToDelete: item,
           doDelete: () => {
-            this.props.dispatch(deleteItem(item_id, item));
-            this.props.dispatch(toggleDeleteModal(item_id));
+            this.props.dispatch(deleteItem(this.props.currentTrip._id, item_id));
+            this.props.dispatch(toggleDeleteModal());
           }
         }
       )
@@ -73,8 +73,8 @@ export class ContainerTripLists extends React.Component {
         {
           id: item_id,
           doUpdate: () => {
-            this.props.dispatch(updateItem(item_id, item, itemDetails, username));
-            this.props.dispatch(toggleUpdateModal(item_id));
+            this.props.dispatch(updateItem(item_id, item, itemDetails, username, this.props.currentTrip._id));
+            this.props.dispatch(toggleUpdateModal());
           }
         }
       )
@@ -90,11 +90,11 @@ export class ContainerTripLists extends React.Component {
           accountedList = this.props.currentTrip.items.filter((item) => {return item.userClaim});
 
           filteredList = this.props.filter ? accountedList.filter((item) => {
-            return item.username === this.props.username;
+            return item.userClaim.username === this.props.username;
           }) : accountedList;
 
         display = (<div>
-          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.itemDetails}</h1>
+          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.tripDetails}</h1>
 
           <h1 className="heading-primary">TRIP NAME & Details</h1>
           <h3 className="heading__needed">Things Needed:</h3>
