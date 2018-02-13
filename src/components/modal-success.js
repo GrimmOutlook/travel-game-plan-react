@@ -8,8 +8,20 @@ export class ModalSuccess extends React.Component {
     super(props);
     this.state = {
       tripMostRecent: this.props.allTrips.slice(-1)[0]
+
     };
+    console.log('this.state.tripMostRecent._id: ', this.state.tripMostRecent._id);
+    console.log('this.props.allTrips: ', this.props.allTrips);
   }
+
+  // componentWillMount(){
+  //   this.setState = {
+  //     tripMostRecent: this.props.allTrips.slice(-1)[0]
+
+  //   };
+  //   console.log('this.state.tripMostRecent._id: ', this.state.tripMostRecent._id);
+  //   console.log('this.props.allTrips: ', this.props.allTrips);
+  // }
 
   render(props) {
     return (

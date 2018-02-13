@@ -1,17 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {addItem, toggleInfoModal} from '../actions/index';
-import {createNewItem} from '../actions/index';
+import {createNewItem, toggleInfoModal} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
 export class ModalNewItem extends React.Component {
 
   addItemFxn(values){
-    // this.props.dispatch(toggleInfoModal());
-    // console.log('this.props.trips: ', this.props.trips);
-    // this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
     this.props.dispatch(createNewItem(values.item, values.itemDetails, values.claimOrNot, this.props.currentTrip._id));
     console.log('values: ', values);
+    this.props.dispatch(toggleInfoModal());
   }
 
 

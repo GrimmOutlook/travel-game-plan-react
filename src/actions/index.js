@@ -50,8 +50,9 @@ export const getTrips = () => (dispatch, getState) => {
 // -------------------- CREATE A NEW TRIP ACTIONS ------------------------------------------
 
 export const CREATE_NEW_TRIP_SUCCESS = 'CREATE_NEW_TRIP_SUCCESS';
-export const createNewTripSuccess = (tripName, dateStart, dateEnd, address, tripDetails, tripUUID) => ({
+export const createNewTripSuccess = (id, tripName, dateStart, dateEnd, address, tripDetails, tripUUID) => ({
     type: CREATE_NEW_TRIP_SUCCESS,
+    id,
     tripName,
     dateStart,
     dateEnd,
@@ -80,7 +81,7 @@ export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails
   .then(res => res.json())
   .then(data => {
     console.log('data: ', data);
-    dispatch(createNewTripSuccess(data.tripName, data.dateStart, data.dateEnd, data.address, data.tripDetails, data.tripUUID))
+    dispatch(createNewTripSuccess(data._id, data.tripName, data.dateStart, data.dateEnd, data.address, data.tripDetails, data.tripUUID))
   });
 }
 
