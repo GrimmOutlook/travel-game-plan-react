@@ -1,11 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome';
 
-
-// connect to state and pass delete fxn / action to delete an update modal components.
-
-// Add key to FontAwesome tags???
-
 export default function List(props) {
   const items = props.items.map((item, index) => (
     <li className={`item item-${index + 1}`} key={ index + 1 }>

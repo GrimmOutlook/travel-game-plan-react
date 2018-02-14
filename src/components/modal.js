@@ -2,9 +2,6 @@ import React from 'react';
 
 import ModalSuccess from './modal-success';
 import ModalNewItem from './modal-new-item';
-// import ModalUpdateItem from './modal-update-item';
-// import ModalDeleteItem from './modal-delete-item';
-// import ModalConfirmItem from './modal-confirm-item';
 import {toggleInfoModal} from '../actions/index';
 import {connect} from 'react-redux';
 
@@ -21,19 +18,6 @@ const NewItemModalContent = modalContent(
   "Form Text",
   toggleInfoModal
 )
-
-// const UpdateModalContent = modalContent(
-//   ModalUpdateItem,
-//   "Update Item",
-//   toggleUpdateModal
-// );
-
-// const DeleteModalContent = modalContent(
-//   ModalDeleteItem,
-//   "Delete This Item",
-//   // pass which modal to close
-//   toggleDeleteModal()
-// )
 
 function modalContent(WrappedComponent, randomText, closeModal, props) {
   class ModalHOC extends React.Component {
@@ -67,4 +51,4 @@ function modalContent(WrappedComponent, randomText, closeModal, props) {
 
 };
 
-export {SuccessModalContent, NewItemModalContent, modalContent} //, UpdateModalContent, DeleteModalContent}
+export {SuccessModalContent, NewItemModalContent, modalContent}

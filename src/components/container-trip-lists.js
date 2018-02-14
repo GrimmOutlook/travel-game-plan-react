@@ -56,8 +56,12 @@ export class ContainerTripLists extends React.Component {
         {
           id: item_id,
           itemToDelete: item,
+          tripLink: this.props.currentTrip._id,
           doDelete: () => {
             this.props.dispatch(deleteItem(this.props.currentTrip._id, item_id));
+            this.props.dispatch(toggleDeleteModal());
+          },
+          doNotDelete: () => {
             this.props.dispatch(toggleDeleteModal());
           }
         }
@@ -115,7 +119,8 @@ export class ContainerTripLists extends React.Component {
             updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
           />
         </div>)
-      } else {return(
+      }
+      else {return (
           <Redirect to='/dashboard' />
         )}
 
@@ -124,13 +129,13 @@ export class ContainerTripLists extends React.Component {
       return (
         <div className="content-trip-lists grid-trip-lists-content">
 
-          {display}
+          { display }
 
-           { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
+          { this.props.showModal ? <NewItemModalContent text="Fill out the form below to add a new item to the list" /> : "" }
 
-           { this.props.showModalDelete ? <DeleteModalContent text="Delete stuff" /> : "" }
+          { this.props.showModalDelete ? <DeleteModalContent text="Delete stuff" /> : "" }
 
-           { this.props.showModalUpdate ? <UpdateModalContent text="Update stuff" /> : "" }
+          { this.props.showModalUpdate ? <UpdateModalContent text="Update stuff" /> : "" }
 
         </div>
       );
@@ -151,7 +156,7 @@ const mapStateToProps = state => {
   }
 };
 
-// export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
+// export default connect(mapStateToProps)(ContainerTripLists);
 
 export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
 

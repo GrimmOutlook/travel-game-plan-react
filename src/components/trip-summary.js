@@ -3,7 +3,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default function TripSummary(props) {
-  // Need to put an onClick on this?  When clicked, it updates state of currentTrip to trip._id?
   const summaries = props.trips.map((trip, index) => (
     <Link to={`/trip-lists/${trip._id}`} key={ index + 1 }>
       <li className={`trip trip-${index + 1}`} key={ index + 1 }>
