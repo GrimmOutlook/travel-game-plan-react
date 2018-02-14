@@ -9,8 +9,8 @@ import {DatePicker} from './date-picker';
 export class NewTripForm extends React.Component {
 
     createTripModal(values){
-      this.props.dispatch(toggleInfoModal());
       this.props.dispatch(createNewTrip(values.tripName, values.startDate.toString(), values.endDate.toString(), values.address, values.tripDetails));
+      this.props.dispatch(toggleInfoModal());
     }
 
     render() {
@@ -40,6 +40,7 @@ export class NewTripForm extends React.Component {
 
 
           { this.props.showModal ? <SuccessModalContent text="You have successfully created a new trip!" /> : "" }
+
         </div>
       );
     }

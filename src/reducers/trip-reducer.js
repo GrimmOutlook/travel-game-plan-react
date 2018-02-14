@@ -12,16 +12,17 @@ const initialStateCreateTrip = {
 
 export const tripReducer = (state=initialStateCreateTrip, action) => {
   if (action.type === CREATE_NEW_TRIP_SUCCESS){
-    return Object.assign({}, state, {trips: [...state.trips, {
+    const newTrip = {
       _id: action.id,
       tripName: action.tripName,
       dateStart: action.dateStart,
       dateEnd: action.dateEnd,
       address: action.address,
       tripDetails: action.tripDetails,
-      tripUUID: action.tripUUID   //,
-      // items: action.items
-    }]});
+      tripUUID: action.tripUUID,
+      items: []
+    }
+    return Object.assign({}, state, {trips: [...state.trips, newTrip], currentTrip: newTrip});
   }
   else if (action.type === GET_TRIPS_SUCCESS){
     return Object.assign({}, state, {trips: action.trips});
@@ -45,10 +46,15 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
   }
 
   else if (action.type === DELETE_ITEM_SUCCESS){
+    // cycle thru all trips to find the one where the _id === to the id passed into the action
     const trip = state.trips.find(trip => trip._id === action.trip_id);
-    trip.items.filter((item) => {
-        return item.item_id !== action.item_id;
+    // Once that trip is found, cycle thru all the items in that trip & return all of those that do not match the item _id of the item_id passed into the action
+
+    trip.items = trip.items.filter((item) => {
+        console.log('action.item_id: ', action.item_id);
+        return item._id !== action.item_id;
       })
+    console.log('trip in DELETE_ITEM_SUCCESS #2: ', trip);
     return Object.assign({}, state, {
       trips: [...state.trips], currentTrip: trip
     })

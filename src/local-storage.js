@@ -8,6 +8,8 @@ export const saveAuthToken = authToken => {
     } catch (e) {}
 };
 
+//check first if currentTrip is in localStorage, if not, set it
+
 export const clearAuthToken = () => {
   console.log('Does it make it here to localStorage, clearAuthToken?')
     try {

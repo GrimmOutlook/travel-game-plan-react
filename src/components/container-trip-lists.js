@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import requiresLogin from './requires-login';
-
+import requiresLogin from './requires-login';
+import {Redirect} from 'react-router-dom';
 import List from './list';
 import ModalDeleteItem from './modal-delete-item';
 import ModalUpdateItem from './modal-update-item';
@@ -115,7 +115,9 @@ export class ContainerTripLists extends React.Component {
             updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
           />
         </div>)
-      }
+      } else {return(
+          <Redirect to='/dashboard' />
+        )}
 
 
 
@@ -151,6 +153,6 @@ const mapStateToProps = state => {
 
 // export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
 
-export default connect(mapStateToProps)(ContainerTripLists);
+export default requiresLogin()(connect(mapStateToProps)(ContainerTripLists));
 
 

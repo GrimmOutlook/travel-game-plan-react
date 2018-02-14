@@ -136,6 +136,8 @@ export const updateItemSuccess = (trip) => ({
 
 
 export const updateItem = (item_id, item, itemDetails, username, trip_id) => (dispatch, getState) => {
+  console.log('item_id in updateItem action: ', item_id);
+  console.log('trip_id in updateItem action: ', trip_id);
   const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/trip/${trip_id}/${item_id}`, {
     method: 'PUT',
@@ -163,12 +165,14 @@ export const updateItem = (item_id, item, itemDetails, username, trip_id) => (di
 
 
 export const DELETE_ITEM_SUCCESS = 'DELETE_ITEM_SUCCESS';
-export const deleteItemSuccess = (message, item_id, trip_id) => ({
-  type: DELETE_ITEM_SUCCESS,
+export const deleteItemSuccess = (message, item_id, trip_id) => {
+  console.log('item_id in action: ', item_id);
+  console.log('trip_id in action: ', trip_id);
+  return { type: DELETE_ITEM_SUCCESS,
   message,
   item_id,
-  trip_id
-});
+  trip_id}
+};
 
 export const deleteItem = (trip_id, item_id) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
@@ -177,11 +181,11 @@ export const deleteItem = (trip_id, item_id) => (dispatch, getState) => {
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      trip_id,
-      item_id
-    })
+    }  //,
+    // body: JSON.stringify({
+    //   trip_id,
+    //   item_id
+    // })
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
