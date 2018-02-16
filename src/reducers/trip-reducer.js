@@ -1,6 +1,6 @@
 import {CREATE_NEW_TRIP_SUCCESS, GET_TRIPS_SUCCESS, SET_CURRENT_TRIP, CREATE_NEW_ITEM_SUCCESS, UPDATE_ITEM_SUCCESS, DELETE_ITEM_SUCCESS, MY_LIST_FILTER} from '../actions/index';
 
-import {AUTH_SUCCESS} from '../actions/auth';
+// import {AUTH_SUCCESS} from '../actions/auth';
 
 const initialStateCreateTrip = {
   trips: [],

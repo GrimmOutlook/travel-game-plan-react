@@ -70,12 +70,14 @@ export class ContainerTripLists extends React.Component {
 
     updateItemFxn(item_id, item, itemDetails, username){
       this.props.dispatch(toggleUpdateModal());
+      console.log('currentTrip._id in updateItemFxn in ContainerTripLists: ', this.props.currentTrip._id);
       UpdateModalContent = modalContent(
         ModalUpdateItem,
         "Fill in Any Changes to this Item:",
         toggleUpdateModal,
         {
           id: item_id,
+          tripLink: this.props.currentTrip._id,
           doUpdate: () => {
             this.props.dispatch(updateItem(item_id, item, itemDetails, username, this.props.currentTrip._id));
             this.props.dispatch(toggleUpdateModal());

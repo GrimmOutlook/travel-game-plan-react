@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import {updateItem, toggleInfoModal} from '../actions/index';
+
 import {updateItem} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 import {toggleUpdateModal} from '../actions/index';
@@ -9,7 +9,7 @@ export class ModalUpdateItem extends React.Component {
 
   updateItemFxn(values){
     // this.props.dispatch(toggleInfoModal());
-    this.props.dispatch(updateItem(this.props.id, values.item, values.itemDetails, values.username));
+    this.props.dispatch(updateItem(this.props.id, values.item, values.itemDetails, values.claimOrNot, this.props.tripLink));
     console.log('values: ', values);
     this.props.dispatch(toggleUpdateModal());
   }
@@ -41,8 +41,8 @@ export class ModalUpdateItem extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  showModal: state.modal.showModal
-
+  showModal: state.modal.showModal,
+  showModalUpdate: state.modal.showModalUpdate
 });
 
 const form = reduxForm({
