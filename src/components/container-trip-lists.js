@@ -30,7 +30,7 @@ export class ContainerTripLists extends React.Component {
       console.log("this.props.tripId: ", this.props.tripId);
       console.log("this.props.trips: ", this.props.trips);
       const tripId = this.props.tripId;
-      this.trip = this.props.trips.find(trip => tripId == trip._id);
+      this.trip = this.props.trips.find(trip => tripId === trip._id.toString());
       const theOnlyTripIWant = this.trip
       this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
       console.log("this.trip: ", this.trip);
@@ -146,7 +146,7 @@ export class ContainerTripLists extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const {currentUser} = state.auth;
+  // const {currentUser} = state.auth;
   return {
     username: state.auth.currentUser.username,
     trips: state.trip.trips,

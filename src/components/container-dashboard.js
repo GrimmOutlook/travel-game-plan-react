@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
-import {getTrips} from '../actions/index';
+import {getTrips, addInviteTrip} from '../actions/index';
 
 import Button from './button';
 import TripSummary from './trip-summary';
@@ -16,11 +16,13 @@ export class ContainerDashboard extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchProtectedData());
-    // this.props.dispatch(getTrips());
-    // this.props.dispatch(fetchTripData());
+    if (this.props.inviteUUIDInStore){
+      this.props.dispatch(addInviteTrip(this.props.inviteUUIDInStore));
+    }
   }
 
   render() {
+
     return (
       <div className="content-dashboard content__grid">
         <div className="dashboard-username">

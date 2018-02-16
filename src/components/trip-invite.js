@@ -24,7 +24,11 @@ export class TripInvite extends React.Component {
   changeUUIDState(e){
     e.preventDefault();
     this.setState({
-      redirect: this.props.loggedIn ? (<Redirect to="/dashboard" />) : (<Redirect to="/login" />)
+      redirect: this.props.loggedIn
+      ? ( // some action that saves the trip to a user's trips array
+        <Redirect to="/dashboard" />
+        )
+      : (<Redirect to="/login" />)
     })
 
   }
@@ -36,14 +40,13 @@ export class TripInvite extends React.Component {
         {this.state.redirect}
 
           {/*ternary operator that renders conditionally if UUID was correct or if error occurred.*/}
-          {/* { this.props.inviteTripName ? */}
+          { this.props.inviteTripName ?
               <div>
                 <h2>Welcome!  You have received an invite for trip name: <span> {this.props.inviteTripName} </span></h2>
                 <h3>Click button below to add this trip to your dashboard:</h3>
                 <button onClick={(e) => this.changeUUIDState(e)}>Continue</button>
               </div>
-          {/*  : <h2> {this.props.inviteError.toString()} </h2> }   */}
-          {/*<h2> {this.props.inviteError.message} </h2>*/}
+            : <h2> {this.props.inviteError.message} Check Link and Try Again.</h2> }
 
         {<h5>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h5>}
       </div>

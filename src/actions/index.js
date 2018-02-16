@@ -251,7 +251,38 @@ export const fetchTripName = (inviteUUID) => dispatch => {
 
 };
 
+export const ADD_INVITE_TRIP_SUCCESS = 'ADD_INVITE_TRIP_SUCCESS';
+export const addInviteTripSuccess = (trip) => ({
+  type: ADD_INVITE_TRIP_SUCCESS,
+  trip
+})
 
+export const addInviteTrip = (inviteUUID) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  fetch(`${API_BASE_URL}/users/me`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({inviteUUID})
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(res => res.json())
+  .then(data => {
+    console.log('data.tripUUID: ', data);
+    // console.log('parameter inviteUUID: ', inviteUUID);
+    if (data.tripUUID === inviteUUID){
+      dispatch(addInviteTripSuccess(data))
+    }
+  })
+  .catch(err => {
+      console.log('err: ', err);
+      dispatch(fetchTripNameError(err));
+  });
+
+};
 
 
 
