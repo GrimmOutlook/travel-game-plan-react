@@ -51,8 +51,4 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapStateToProps = state => ({
-//   trips: state.trip.trips
-// });
-
 export default requiresLogin()(connect(mapStateToProps)(ContainerDashboard));

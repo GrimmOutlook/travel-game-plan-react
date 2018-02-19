@@ -77,6 +77,9 @@ export class ContainerTripLists extends React.Component {
         toggleUpdateModal,
         {
           id: item_id,
+          item: item,
+          itemDetails: itemDetails,
+          username: username,
           tripLink: this.props.currentTrip._id,
           doUpdate: () => {
             this.props.dispatch(updateItem(item_id, item, itemDetails, username, this.props.currentTrip._id));
@@ -87,6 +90,11 @@ export class ContainerTripLists extends React.Component {
     }
 
     render() {
+
+      if(!this.props.trips.length){
+       return <Redirect to='/dashboard' />
+      }
+
       let filteredList = [];
       let neededList = [];
       let accountedList = [];
@@ -122,11 +130,6 @@ export class ContainerTripLists extends React.Component {
           />
         </div>)
       }
-      else {return (
-          <Redirect to='/dashboard' />
-        )}
-
-
 
       return (
         <div className="content-trip-lists grid-trip-lists-content">

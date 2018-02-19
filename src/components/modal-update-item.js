@@ -22,13 +22,13 @@ export class ModalUpdateItem extends React.Component {
         <form id="form__update-item" onSubmit={this.props.handleSubmit(values => this.updateItemFxn(values))}>
 
           <label htmlFor="item">Item Name:</label>
-          <Field type="text" placeholder="Item Name" name="item" component="input" required />
+          <Field type="text" placeholder={this.props.item} name="item" component="input" required />
 
           <label htmlFor="itemDetails">Item Details:</label>
-          <Field type="text" placeholder="Item Details" name="itemDetails" component="input" />
+          <Field type="text" placeholder={this.props.itemDetails} name="itemDetails" component="input" />
 
           <label htmlFor="username">Username:</label>
-          <Field type="text" placeholder="Your Username" name="username" component="input" />
+          <Field type="text" placeholder={this.props.username} name="username" component="input" />
 
           <button className="btn btn--blue" type="submit">Submit</button>
 
