@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
 import {Redirect} from 'react-router-dom';
+import {Tabs, TabLink, TabContent} from 'react-tabs-redux';
 import List from './list';
 import ModalDeleteItem from './modal-delete-item';
 import ModalUpdateItem from './modal-update-item';
@@ -9,6 +10,7 @@ import {NewItemModalContent, modalContent} from './modal';
 import {toggleInfoModal, toggleDeleteModal, toggleUpdateModal, myListFilter, deleteItem, updateItem, setCurrentTrip} from '../actions/index';
 
 import './css/button.css';
+import './css/container-trip-lists.css';
 
 let DeleteModalContent;
 let UpdateModalContent;
@@ -108,26 +110,35 @@ export class ContainerTripLists extends React.Component {
           }) : accountedList;
 
         display = (<div>
+          <h3 className="heading-primary">TRIP NAME & DETAILS</h3>
           <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.tripDetails}</h1>
 
-          <h1 className="heading-primary">TRIP NAME & Details</h1>
-          <h3 className="heading__needed">Things Needed:</h3>
-          <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
+          <Tabs>
+            <TabLink to='tab-needed'>Things Needed</TabLink>
+            <TabLink to='tab-accounted'>Things Accounted For</TabLink>
 
-          <List classProp="needed__list" items={neededList}
-            deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-            updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
-          />
+            <TabContent for='tab-needed'>
+              <h3 className="heading__needed">Things Needed:</h3>
+              <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
-          <h3 className="heading__accounted">Things Accounted For:</h3>
-          <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
+              <List classProp="needed__list" items={neededList}
+                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
+                updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
+              />
+            </TabContent>
 
-          <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
-          <List classProp="accounted__list"
-            items={filteredList}
-            deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-            updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
-          />
+            <TabContent for='tab-accounted'>
+              <h3 className="heading__accounted">Things Accounted For:</h3>
+              <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
+
+              <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
+              <List classProp="accounted__list"
+                items={filteredList}
+                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
+                updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
+              />
+            </TabContent>
+          </Tabs>
         </div>)
       }
 
