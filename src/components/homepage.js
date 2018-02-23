@@ -21,6 +21,8 @@ export default class Homepage extends React.Component {
               <Button routePath="login" text="Login" buttonColor="btn--green"/>
             </div>
           </header>
+          <img src="../images/travel-svgrepo-com.svg" alt="logo" className="logo"/>
+          <h6>TGP</h6>
           <FeatureBox features={FEATURES} />
         </div>
       );

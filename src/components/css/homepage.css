@@ -7,7 +7,7 @@
 
 .homepage .header {
   height: 100vh;
-  background: url('../../images/map-2-people.jpg') fixed no-repeat;
+  background: url('../../images/map-2-people-min.jpg') fixed no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -143,6 +143,10 @@
   left: 0;
   z-index: -1;
   transition: all 1s;
+}
+
+.logo {
+  height: 50px;
 }
 
 ul {
