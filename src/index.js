@@ -8,7 +8,7 @@ import store from './store';
 import './index.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,4 +18,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker();
+// registerServiceWorker();

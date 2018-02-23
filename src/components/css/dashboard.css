@@ -35,47 +35,6 @@
   padding-top: 1rem;
 }
 
-ul {
-  list-style: none;
-}
-
-li.trip {
-  position: relative;
-  border: 1px solid black;
-  height: 8rem;
-  margin-bottom: 2rem;
-}
-
-.trip-1 {
-  margin-top: 1rem;
-}
-
-.trip-number {
-  position: absolute;
-  top: 0.5rem;
-  left: 1rem;
-}
-
-.trip-name {
-  position: absolute;
-  top: 2.5rem;
-  left: 1rem;
-}
-
-.trip-date-label {
-  position: absolute;
-  top: 0.5rem;
-  right: 1rem;
-}
-
-.trip-dates {
-  position: absolute;
-  top: 2.5rem;
-  right: 1rem;
-}
-
-
-
 @media screen and (max-width: 640px) {
     .grid-dashboard-main {
         grid-template-areas:

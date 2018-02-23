@@ -1,0 +1,76 @@
+ul {
+  list-style: none;
+  padding: 1rem;
+}
+
+li.trip {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid black;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  height: 8rem;
+  overflow: ;
+  margin-bottom: 2rem;
+}
+
+.trip-1 {
+  margin-top: 1rem;
+}
+
+.trip-number {
+  position: absolute;
+  top: 0.5rem;
+  left: 1rem;
+}
+
+.trip-name {
+  position: absolute;
+  top: 2.5rem;
+  left: 1rem;
+  flex-basis: auto;
+}
+
+.trip-address {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  flex-basis: auto;
+}
+
+.trip-details {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  flex-basis: auto;
+}
+
+.trip-invite-link {
+  position: absolute;
+  top: 6rem;
+  left: 1rem;
+  flex-basis: auto;
+  padding-bottom: 2rem;
+}
+
+.icon-invite-caret {
+  font-size: 112.5rem;
+  position: absolute;
+  top: 6rem;
+  left: 0.75rem;
+}
+
+.trip-date-label {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
+
+.trip-dates {
+  position: absolute;
+  font-size: 1.25rem;
+  top: 2.5rem;
+  right: 1rem;
+}
+

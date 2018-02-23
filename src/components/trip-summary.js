@@ -1,6 +1,8 @@
 import React from 'react';
-
 import {Link} from 'react-router-dom';
+import FontAwesome from 'react-fontawesome';
+
+import './css/trip-summary.css';
 
 const date = dateFromServer => new Date(dateFromServer);
 
@@ -15,9 +17,16 @@ export default function TripSummary(props) {
         <h3 className="trip-date-label">Dates:</h3>
         <h2 className="trip-dates">{ date(trip.dateStart).toLocaleDateString() } to { date(trip.dateEnd).toLocaleDateString() }</h2>
 
+        <h4 className="trip-address">{ trip.address }</h4>
+        <h4 className="trip-details">{ trip.tripDetails }</h4>
+
+        <FontAwesome
+          name="caret-square-down"
+          className="icon-invite-caret"
+          aria-hidden="false"
+        />
         <h4 className="trip-invite-link">www.travelgameplan.com/trip-invite/{ trip.tripUUID }</h4>
-        <h4 className="trip-invite-link">{ trip.address }</h4>
-        <h4 className="trip-invite-link">{ trip.tripDetails }</h4>
+
 
       </li>
     </Link>
