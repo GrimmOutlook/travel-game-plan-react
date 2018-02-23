@@ -10,8 +10,8 @@ li.trip {
   background: white;
   border: 1px solid black;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  height: 8rem;
-  overflow: ;
+  min-height: 8rem;
+  overflow: auto;
   margin-bottom: 2rem;
 }
 
@@ -20,45 +20,45 @@ li.trip {
 }
 
 .trip-number {
-  position: absolute;
+  /*position: absolute;
   top: 0.5rem;
-  left: 1rem;
+  left: 1rem;*/
 }
 
 .trip-name {
-  position: absolute;
+  /*position: absolute;
   top: 2.5rem;
-  left: 1rem;
+  left: 1rem;*/
   flex-basis: auto;
 }
 
 .trip-address {
-  position: absolute;
+  /*position: absolute;
   top: 4rem;
-  left: 1rem;
+  left: 1rem;*/
   flex-basis: auto;
 }
 
 .trip-details {
-  position: absolute;
+  /*position: absolute;
   top: 5rem;
-  left: 1rem;
+  left: 1rem;*/
   flex-basis: auto;
 }
 
 .trip-invite-link {
-  position: absolute;
+  /*position: absolute;
   top: 6rem;
-  left: 1rem;
+  left: 1rem;*/
   flex-basis: auto;
   padding-bottom: 2rem;
 }
 
 .icon-invite-caret {
   font-size: 112.5rem;
-  position: absolute;
+  /*position: absolute;
   top: 6rem;
-  left: 0.75rem;
+  left: 0.75rem;*/
 }
 
 .trip-date-label {

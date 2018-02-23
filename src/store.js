@@ -7,12 +7,17 @@ import {setAuthToken, refreshAuthToken} from './actions/auth';
 import rootReducer from './reducers/index';
 
 
-const store = createStore(
-  rootReducer,
-  compose(applyMiddleware(thunk, logger),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(thunk, logger)
+));
+
+// const store = createStore(
+//   rootReducer,
+//   compose(applyMiddleware(thunk, logger),
+//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+//   )
+// );
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
