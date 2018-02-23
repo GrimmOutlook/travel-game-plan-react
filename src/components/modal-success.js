@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {toggleInfoModal} from '../actions/index';
 
+import './css/modal-success.css';
+
 export class ModalSuccess extends React.Component {
 
   closeTheModal(){
@@ -13,7 +15,7 @@ export class ModalSuccess extends React.Component {
     let display = 'Loading...';
 
     if(this.props.currentTrip){
-      display = (<div className="content content__grid">
+      display = (<div className="flex-success">
 
         <p>This is the prop from the HOC: {this.props.text}</p>
 
