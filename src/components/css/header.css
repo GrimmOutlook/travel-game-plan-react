@@ -1,0 +1,18 @@
+.header {
+  background-color: var(--blue);
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo {
+  padding: 0.5rem 1rem 0.5rem 0;
+  height: 65px;
+}
+
+.header-site-names {
+  padding: 0.5rem 0 0.5rem;
+}
+
+.header-site-names h1, .header-site-names h2 {
+  color: white;
+}

@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--blue);
+  display: flex;
+  justify-content: center;
+}
+
+.footer-name {
+  color: white;
+}
+
+.footer-copy {
+  color: white;
+}

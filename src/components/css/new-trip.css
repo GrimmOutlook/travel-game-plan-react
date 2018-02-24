@@ -11,76 +11,19 @@
 
 .header {
   grid-area: h;
-  background-color: #6dfd30;
 }
 
 .menu {
   grid-area: m;
-  background-color: #6dfd9c;
 }
 
 .content-new-trip {
   grid-area: c;
-  background-color: #007dff;
 }
 
 .footer {
   grid-area: f;
-  background-color: #6dfd30;
 }
-
-.grid-new-trip-content {
-  display: grid;
-  grid-gap: 5px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px 80px 50px 50px 50px 50px 50px;
-  grid-template-areas:
-    "h2"
-    "trip-name"
-    "start-date"
-    "end-date"
-    "destination"
-    "details"
-    "button";
-}
-
-
-input {
-  display: block;
-}
-
-textarea {
-  display: block;
-}
-
-.heading-secondary {
-  grid-area: h2;
-}
-
-form#form__new-trip input[name="tripName"] {
-  grid-area: trip-name;
-}
-
-form#form__new-trip input[name="startDate"] {
-  grid-area: start-date;
-}
-
-form#form__new-trip input[name="endDate"] {
-  grid-area: start-date;
-}
-
-form#form__new-trip input[name="address"] {
-  grid-area: destination;
-}
-
-form#form__new-trip textarea[name="tripDetails"] {
-  grid-area: details;
-}
-
-form#form__new-trip input[type="submit"] {
-  grid-area: button;
-}
-
 
 @media screen and (max-width: 640px) {
     .grid-new-trip-main {

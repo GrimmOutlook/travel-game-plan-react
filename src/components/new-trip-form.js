@@ -2,9 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {toggleInfoModal, createNewTrip} from '../actions/index';
 import {reduxForm, Field, change} from 'redux-form';
-
 import {SuccessModalContent} from './modal';
 import {DatePicker} from './date-picker';
+
+import './css/new-trip-form.css';
 
 export class NewTripForm extends React.Component {
 

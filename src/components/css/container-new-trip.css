@@ -1,0 +1,8 @@
+.content-new-trip {
+  background-color: var(--green);
+}
+
+.heading-new-trip {
+  color: white;
+  text-align: center;
+}

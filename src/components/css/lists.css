@@ -38,22 +38,18 @@ li.item {
 
 .header {
   grid-area: h;
-  background-color: #6dfd30;
 }
 
 .menu {
   grid-area: m;
-  background-color: #6dfd9c;
 }
 
 .content-trip-lists {
   grid-area: c;
-  background-color: #007dff;
 }
 
 .footer {
   grid-area: f;
-  background-color: #6dfd30;
 }
 
 .grid-trip-lists-content {
