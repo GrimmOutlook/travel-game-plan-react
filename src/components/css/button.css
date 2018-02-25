@@ -29,21 +29,21 @@
 }
 
 .btn--blue {
-  background-color: #007dff;
+  background-color: var(--blue);
   color: white;
 }
 
 .btn--blue::after {
-  background-color: #007dff;
+  background-color: var(--blue);
 }
 
 .btn--green {
-  background-color: #6dfd30;
+  background-color: var(--green);
   color: white;
 }
 
 .btn--green::after {
-  background-color: #6dfd30;
+  background-color: var(--green);
 }
 
 .btn--white {
@@ -56,12 +56,12 @@
 }
 
 .btn--red {
-  background-color: red;
+  background-color: var(--red);
   color: white;
 }
 
 .btn--red::after {
-  background-color: red;
+  background-color: var(--red);
 }
 
 .btn::after {

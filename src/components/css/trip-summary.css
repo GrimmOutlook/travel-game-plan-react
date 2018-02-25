@@ -3,16 +3,23 @@ ul {
   padding: 1rem;
 }
 
+.trip-list a {
+  text-decoration: none;
+  color: var(--blue);
+  /*color: black;*/
+}
+
 li.trip {
+  padding: 5px;
   position: relative;
   display: flex;
   flex-direction: column;
   background: white;
-  border: 1px solid black;
+  border: 2px solid var(--blue);
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   min-height: 8rem;
   overflow: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .trip-1 {
@@ -51,7 +58,7 @@ li.trip {
   top: 6rem;
   left: 1rem;*/
   flex-basis: auto;
-  padding-bottom: 2rem;
+  padding-bottom: 0.5rem;
 }
 
 .icon-invite-caret {

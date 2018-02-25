@@ -35,7 +35,7 @@ export class NewTripForm extends React.Component {
             <Field type="text" placeholder="Trip Details" name="tripDetails" component="textarea" required />
 
 
-            <button type="submit" >Submit</button>
+            <button type="submit" className="btn btn--blue">Submit</button>
 
           </form>
 

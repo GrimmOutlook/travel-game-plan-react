@@ -1,0 +1,13 @@
+.content-dashboard {
+  background-color: var(--green);
+}
+
+.dashboard-username {
+  font-size: 2.25rem;
+  color: var(--blue);
+}
+
+.dashboard-name {
+  font-size: 1.5rem;
+  color: var(--blue);
+}

@@ -5,8 +5,10 @@
 }
 
 .header-logo {
-  padding: 0.5rem 1rem 0.5rem 0;
-  height: 65px;
+  padding: 0.7rem 0.95rem 0 0;
+  height: 56px;
+  transform: scale(1.55);
+  /*border: 1px solid white;*/
 }
 
 .header-site-names {

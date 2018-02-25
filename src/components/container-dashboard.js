@@ -7,6 +7,7 @@ import {getTrips, addInviteTrip} from '../actions/index';
 import Button from './button';
 import TripSummary from './trip-summary';
 
+import './css/container-dashboard.css';
 
 export class ContainerDashboard extends React.Component {
   componentWillMount(){
@@ -26,13 +27,13 @@ export class ContainerDashboard extends React.Component {
     return (
       <div className="content-dashboard content__grid">
         <div className="dashboard-username">
-          Username: {this.props.username}
+          {this.props.username}
         </div>
-        <div className="dashboard-name">Name: {this.props.name}</div>
+        <div className="dashboard-name">{this.props.name}</div>
         <div className="dashboard-protected-data">
           Protected data: {this.props.protectedData}
         </div>
-        <Button routePath="new-trip" text="Create A New Trip" buttonColor="btn--green" />
+        <Button routePath="new-trip" text="Create A New Trip" buttonColor="btn btn--blue" />
         <TripSummary trips={this.props.trips} />
       </div>
     );
