@@ -26,29 +26,59 @@ export class Menu extends React.Component {
       console.log('if statement in Menu comp. loggedIn is true');
       logOutButton = (
         <Link to="/">
-          <button onClick={() => this.logOut()}>Log out</button>
+          <button onClick={() => this.logOut()} className="btn btn--green">Log out</button>
         </Link>
       );
     }
 
     return (
-      <div className="menu">
+      <nav className="menu">
+        <ul className="menu-list">
 
-        <Link to="/dashboard" className="linkDashboard">
-          <FontAwesome name="home" className="iconDashboard" />
-            <div>Trip Dashboard</div>
-        </Link>
+          <li>
+            <input id="button" type="checkbox" />
+            <label for="button" onclick="">
+              <div className="burger"><span className="burger-line"></span><span className="burger-line"></span><span className="burger-line"></span></div>
+            </label>
+            <nav className="menu-mobile">
+              <ul>
+                <li className="mobile-one mobile hide-mobile">{logOutButton}</li>
+                <li className="mobile-two mobile">
+                  <Link to="/dashboard" className="linkDashboard">
+                    <FontAwesome name="home" className="iconDashboard" />
+                      <div>Trip Dashboard</div>
+                  </Link>
+                </li>
+                <li className="mobile-three mobile">
+                  <Link to="/new-trip" className="linkCreateTrip">
+                    <FontAwesome name="plus-square-o" className="iconCreateTrip hide" />
+                      <div>Create New Trip</div>
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </li>
 
-        <Link to="/new-trip" className="linkCreateTrip">
-          <FontAwesome name="plus-square-o" className="iconCreateTrip" />
-            <div>Create New Trip</div>
-        </Link>
+          <li className="logout-button hide">
+            {logOutButton}
+          </li>
 
-        <div className="logout-button">
-          {logOutButton}
-        </div>
+          <li>
+            <Link to="/dashboard" className="linkDashboard hide">
+              <FontAwesome name="home" className="iconDashboard hide" />
+                <div>Trip Dashboard</div>
+            </Link>
+          </li>
 
-      </div>
+          <li>
+            <Link to="/new-trip" className="linkCreateTrip hide">
+              <FontAwesome name="plus-square-o" className="iconCreateTrip hide" />
+                <div>Create New Trip</div>
+            </Link>
+          </li>
+
+        </ul>
+      </nav>
     );
   }
 };
