@@ -5,9 +5,16 @@
 .dashboard-username {
   font-size: 2.25rem;
   color: var(--blue);
+  padding: 1rem 0 0.25rem 1rem;
 }
 
 .dashboard-name {
   font-size: 1.5rem;
   color: var(--blue);
+  padding: 1rem 0 0.75rem 1rem;
+}
+
+.trip-empty {
+  color: var(--blue);
+  font-size: 5rem;
 }

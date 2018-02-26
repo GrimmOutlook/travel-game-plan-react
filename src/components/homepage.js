@@ -13,16 +13,17 @@ export default class Homepage extends React.Component {
           <header className="header">
             <div id="homepage-container">
               <h1 className="heading-primary">
+
+                <span className="homepage-logo"><img src="../images/logo-black.svg" alt="logo"/></span>
                 <span className="heading-primary--main">Travel Game Plan</span>
                 <span className="heading-primary--sub">Get Yourselves Together</span>
+
               </h1>
 
               <Button routePath="register" text="Signup" buttonColor="btn--blue"/>
               <Button routePath="login" text="Login" buttonColor="btn--green"/>
             </div>
           </header>
-          <img src="../images/travel-svgrepo-com.svg" alt="logo" className="logo"/>
-          <h6>TGP</h6>
           <FeatureBox features={FEATURES} />
         </div>
       );

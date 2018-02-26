@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
+// import {fetchProtectedData} from '../actions/protected-data';
 import {getTrips, addInviteTrip} from '../actions/index';
 
 import Button from './button';
@@ -16,27 +16,31 @@ export class ContainerDashboard extends React.Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchProtectedData());
+    // this.props.dispatch(fetchProtectedData());
     if (this.props.inviteUUIDInStore){
       this.props.dispatch(addInviteTrip(this.props.inviteUUIDInStore));
     }
   }
 
   render() {
-
-    return (
-      <div className="content-dashboard content__grid">
-        <div className="dashboard-username">
-          {this.props.username}
+    if(this.props.trips){
+      return (
+        <div className="content-dashboard content__grid">
+          <div className="dashboard-username">
+            {this.props.username}
+          </div>
+          <div className="dashboard-name">{this.props.name}</div>
+          {/* <div className="dashboard-protected-data">
+             Protected data: {this.props.protectedData}
+           </div> */}
+          <Button routePath="new-trip" text="Create New Trip" buttonColor="btn btn--blue" />
+          <TripSummary trips={this.props.trips} />
         </div>
-        <div className="dashboard-name">{this.props.name}</div>
-        <div className="dashboard-protected-data">
-          Protected data: {this.props.protectedData}
-        </div>
-        <Button routePath="new-trip" text="Create A New Trip" buttonColor="btn btn--blue" />
-        <TripSummary trips={this.props.trips} />
-      </div>
-    );
+      );
+    }
+    else{
+      return (<p className="trip-empty">Click on Create New Trip button to create your first trip!</p>)
+    }
   }
 
 }
@@ -46,7 +50,7 @@ const mapStateToProps = state => {
   return {
     username: state.auth.currentUser.username,
     name: `${currentUser.firstName} ${currentUser.lastName}`,
-    protectedData: state.protectedData.data,
+    // protectedData: state.protectedData.data,
     inviteUUIDInStore: state.inviteUUID.inviteUUID,
     trips: state.trip.trips
   };

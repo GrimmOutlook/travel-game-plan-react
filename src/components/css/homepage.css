@@ -42,10 +42,13 @@
   filter: blur(10px);
 }
 
-
 .heading-primary {
-  /*color: white;*/
   text-transform: uppercase;
+}
+
+.homepage-logo {
+  height: 80px;
+  /*z-index: 10;*/
 }
 
 .heading-primary--main {
@@ -59,7 +62,7 @@
   font-size: 5rem;
   font-weight: 500;
   letter-spacing: 1.25rem;
-  color: #007dff;
+  color: var(--blue);
   text-shadow: 0 0 3px white;
   /*border: 3px solid red;*/
 }
@@ -109,27 +112,27 @@
 }
 
 .homepage .btn--blue {
-  background-color: #007dff;
+  background-color: var(--blue);
   color: white;
   position: absolute;
-  left: 20%;
+  left: 10%;
   top: 85%;
 }
 
 .homepage .btn--blue::after {
-  background-color: #007dff;
+  background-color: var(--blue);
 }
 
 .homepage .btn--green {
-  background-color: #6dfd30;
+  background-color: var(--green);
   color: white;
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 85%;
 }
 
 .homepage .btn--green::after {
-  background-color: #6dfd30;
+  background-color: var(--green);
 }
 
 .homepage .btn::after {
@@ -143,10 +146,6 @@
   left: 0;
   z-index: -1;
   transition: all 1s;
-}
-
-.logo {
-  height: 50px;
 }
 
 ul {
@@ -205,12 +204,43 @@ ul {
   }
 
   #homepage-container {
-    width: 300px;
-    height: 500px;
+    width: 90%;
+    height: 90%;
     top: 5%;
     left: 5%;
     margin-left: -10px;
     margin-top: -20px;
+  }
+
+  .heading-primary--main {
+
+    width: 80%; /*700px;*/
+    /*left: 50%;
+    top: 30%;
+    transform: translate(-50%,-50%);
+    display: block;*/
+    font-size: 3.5rem;
+    /*font-weight: 400;*/
+    letter-spacing: 1rem;
+   /* color: var(--blue);
+    text-shadow: 0 0 3px white;*/
+    /*border: 3px solid red;*/
+  }
+
+  .heading-primary--sub {
+    /*text-align: center;
+    position: absolute;*/
+    width: 80%;
+   /* left: 50%;
+    top: 65%;*/
+    /*transform: translate(-50%,-50%);
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.75rem;
+    margin-bottom: 6rem;
+    color: black;*/
+    /*border: 3px solid red;*/
   }
 
   /*.feature-box-1, .feature-box-2, .feature-box-3 {
