@@ -11,11 +11,10 @@ export default class Homepage extends React.Component {
       return (
         <div className="homepage">
           <header className="header">
-            <img src="../images/logo-black.svg" alt="logo" className="homepage-logo"/>
             <div id="homepage-container">
               <h1 className="heading-primary">
+
                 <img src="../images/logo-black.svg" alt="logo" className="homepage-logo"/>
-                <span className="homepage-logo"><img src="../images/logo-black.svg" alt="logo"/></span>
                 <span className="heading-primary--main">Travel Game Plan</span>
                 <span className="heading-primary--sub">Get Yourselves Together</span>
 
