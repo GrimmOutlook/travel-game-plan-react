@@ -18,3 +18,13 @@
 .header-site-names h1, .header-site-names h2 {
   color: white;
 }
+
+@media screen and (max-width: 640px) {
+  .header-logo {
+    display: none;
+  }
+
+  .header-site-names h2 {
+    display: none;
+  }
+}

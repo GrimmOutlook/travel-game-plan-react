@@ -75,9 +75,9 @@ button.btn--logout {
 
   /*--- "Checkbox Hack" to slide menu out ---*/
   .menu-list li input[type=checkbox] {
-     position: absolute;
-     top: -9999px;
-     left: -9999px;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
 
   .menu-list li label {

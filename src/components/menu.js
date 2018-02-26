@@ -37,7 +37,7 @@ export class Menu extends React.Component {
 
           <li>
             <input id="button" type="checkbox" />
-            <label for="button" onclick="">
+            <label htmlFor="button" onClick="">
               <div className="burger"><span className="burger-line"></span><span className="burger-line"></span><span className="burger-line"></span></div>
             </label>
             <nav className="menu-mobile">

@@ -23,7 +23,10 @@ export class ContainerDashboard extends React.Component {
   }
 
   render() {
-    if(this.props.trips){
+    let tripCheck = <p className="trip-empty">Click on Create New Trip button to create your first trip!</p>;
+    if(this.props.trips.length){
+      tripCheck = <TripSummary trips={this.props.trips} />
+    }
       return (
         <div className="content-dashboard content__grid">
           <div className="dashboard-username">
@@ -34,13 +37,9 @@ export class ContainerDashboard extends React.Component {
              Protected data: {this.props.protectedData}
            </div> */}
           <Button routePath="new-trip" text="Create New Trip" buttonColor="btn btn--blue" />
-          <TripSummary trips={this.props.trips} />
+          {tripCheck}
         </div>
       );
-    }
-    else{
-      return (<p className="trip-empty">Click on Create New Trip button to create your first trip!</p>)
-    }
   }
 
 }

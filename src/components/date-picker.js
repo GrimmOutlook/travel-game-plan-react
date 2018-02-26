@@ -25,7 +25,8 @@ export class DatePicker extends React.Component {
   render() {
     const { selectedDay, isDisabled } = this.state;
     const today = new Date();
-    // const start = this.props.startDateProp;
+    const start = this.props.startDateProp;
+    console.log('start: ', start);
     return (
       <div>
         <p>
@@ -40,7 +41,7 @@ export class DatePicker extends React.Component {
           onDayChange={this.handleDayChange}
           dayPickerProps={{
             selectedDays: selectedDay,
-            disabledDays: { before: selectedDay || today }
+            disabledDays: { before: start || selectedDay || today }
           }}
         />
       </div>

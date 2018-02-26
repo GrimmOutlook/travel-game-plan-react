@@ -38,9 +38,9 @@
 @media screen and (max-width: 640px) {
     .grid-dashboard-main {
         grid-template-areas:
-          "m h h h"
-          "c c c c"
-          "f f f f";
+          "m m h h h"
+          "c c c c c"
+          "f f f f f";
     }
 
     .menu-mobile {
