@@ -8,6 +8,11 @@
   align-items: center;
 }
 
+button.btn--logout {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
 .iconDashboard {
   font-size: 4.5rem;
   height: 50%;
@@ -69,18 +74,18 @@
   }
 
   /*--- "Checkbox Hack" to slide menu out ---*/
-  input[type=checkbox] {
+  .menu-list li input[type=checkbox] {
      position: absolute;
      top: -9999px;
      left: -9999px;
   }
 
-  label {
+  .menu-list li label {
     cursor: pointer;
     user-select: none;
   }
 
-  input[type=checkbox]:checked ~ .menu-mobile ul {
+  .menu-list li input[type=checkbox]:checked ~ .menu-mobile ul {
     position: fixed;
     left: 0;
     top: 80px;

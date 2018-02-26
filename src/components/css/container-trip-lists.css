@@ -1,19 +1,57 @@
+/*----------------- GRID STYLES ------------------------ */
+
+.grid-trip-lists-content {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(2, 1fr);
+  /*grid-template-rows: 50px 80vh 50px;*/
+  grid-template-areas:
+    "name details"
+    "list-toggles list-toggles"
+    /*"btn-need btn-accounted"*/
+    /*". btn-filter"*/
+    /*"list-need list-accounted"*/;
+}
+
+.list-tripName {
+  grid-area: name;
+}
+
+.list-tripDetails {
+  grid-area: details;
+}
+
 .list-toggles {
-
+  grid-area: list-toggles;
 }
 
-.toggle-things-needed {
-
+.heading__needed {
+  float: left;
+  width: 50%;
+  font-size: 1.5rem;
 }
 
-.toggle-things-needed a {
-
+.heading__accounted {
+  float: left;
+  width: 50%;
+  font-size: 1.5rem;
 }
 
-.toggle-things-accounted {
-
+.tab-link-active {
+  background-color: white;
+  font-size: 2rem;
+  color: var(--green);
 }
 
-.toggle-things-accounted a {
-
+.tab-link-active:focus {
+  outline: 0;
 }
+
+.btn-item-filter:focus {
+  outline: 0;
+}
+
+.content-trip-lists {
+  background-color: var(--green);
+}
+

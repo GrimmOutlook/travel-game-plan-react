@@ -1,0 +1,36 @@
+/*----------------- GRID STYLES ------------------------ */
+
+.grid-trip-lists-main {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: 0.5fr 1.5fr 1.5fr 1.5fr;
+  grid-template-areas:
+    "h h h h"
+    "m c c c"
+    "f f f f";
+}
+
+.header {
+  grid-area: h;
+}
+
+.menu {
+  grid-area: m;
+}
+
+.content-trip-lists {
+  grid-area: c;
+}
+
+.footer {
+  grid-area: f;
+}
+
+@media screen and (max-width: 640px) {
+  .grid-trip-lists-main {
+    grid-template-areas:
+      "m h h h"
+      "c c c c"
+      "f f f f";
+  }
+}

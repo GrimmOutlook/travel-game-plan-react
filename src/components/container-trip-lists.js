@@ -109,18 +109,18 @@ export class ContainerTripLists extends React.Component {
             return item.userClaim.username === this.props.username;
           }) : accountedList;
 
-        display = (<div>
-          <h3 className="heading-primary">TRIP NAME & DETAILS</h3>
-          <h1>{this.props.currentTrip.tripName} and {this.props.currentTrip.tripDetails}</h1>
+        display = (<div className="grid-trip-lists-content">
+          <h1 className="list-tripName">{this.props.currentTrip.tripName}</h1>
+          <h4 className="list-tripDetails">{this.props.currentTrip.tripDetails}</h4>
 
-          <Tabs>
-            <TabLink to='tab-needed'>Things Needed</TabLink>
-            <TabLink to='tab-accounted'>Things Accounted For</TabLink>
+          <Tabs className="list-toggles">
+            <TabLink to='tab-needed' className="heading__needed">Things Needed</TabLink>
+            <TabLink to='tab-accounted' className="heading__accounted">Things Accounted For</TabLink>
 
             <TabContent for='tab-needed'>
-              <h3 className="heading__needed">Things Needed:</h3>
-              <a className="btn btn--green btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
+              <a className="btn btn--blue btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
+              <h3>Things Needed:</h3>
               <List classProp="needed__list" items={neededList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
                 updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
@@ -128,10 +128,10 @@ export class ContainerTripLists extends React.Component {
             </TabContent>
 
             <TabContent for='tab-accounted'>
-              <h3 className="heading__accounted">Things Accounted For:</h3>
-              <a className="btn btn--green btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
+              <a className="btn btn--blue btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
               <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
+              <h3>Things Accounted For:</h3>
               <List classProp="accounted__list"
                 items={filteredList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
@@ -143,7 +143,7 @@ export class ContainerTripLists extends React.Component {
       }
 
       return (
-        <div className="content-trip-lists grid-trip-lists-content">
+        <div className="content-trip-lists">
 
           { display }
 

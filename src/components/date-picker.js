@@ -25,7 +25,7 @@ export class DatePicker extends React.Component {
   render() {
     const { selectedDay, isDisabled } = this.state;
     const today = new Date();
-    const start = this.props.startDateProp;
+    // const start = this.props.startDateProp;
     return (
       <div>
         <p>

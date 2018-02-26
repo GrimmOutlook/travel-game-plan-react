@@ -1,0 +1,37 @@
+/*----------------- LIST ITEM STYLES ------------------------ */
+
+li.item {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.item .item-name {
+  font-size: 1.5rem;
+}
+
+.item .iconUpdate {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+
+.item .iconTrash {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 75%;
+}
+
+li.item {
+  padding: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 2px solid var(--blue);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  min-height: 6rem;
+  overflow: auto;
+  margin-bottom: 1.5rem;
+}

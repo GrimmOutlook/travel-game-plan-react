@@ -26,7 +26,7 @@ export class Menu extends React.Component {
       console.log('if statement in Menu comp. loggedIn is true');
       logOutButton = (
         <Link to="/">
-          <button onClick={() => this.logOut()} className="btn btn--green">Log out</button>
+          <button onClick={() => this.logOut()} className="btn btn--green btn--logout">Log out</button>
         </Link>
       );
     }
