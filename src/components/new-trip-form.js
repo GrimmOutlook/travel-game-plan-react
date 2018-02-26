@@ -23,7 +23,7 @@ export class NewTripForm extends React.Component {
             <Field type="text" placeholder="Trip Name" name="tripName" component="input" required />
 
             <label htmlFor="startDate">Start Date</label>
-            <Field type="text" placeholder="Start Date" name="startDate" component={DatePicker} change={change} required />
+            <Field type="text" placeholder="Start Date" name="startDate" /* startDateProp={this.props.form.tripForm.values.startDate} */ component={DatePicker} change={change} required />
 
             <label htmlFor="endDate">End Date</label>
             <Field type="text" placeholder="End Date" name="endDate" component={DatePicker} change={change} required />

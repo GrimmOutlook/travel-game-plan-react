@@ -13,6 +13,7 @@ export class DatePicker extends React.Component {
       isDisabled: false,
     };
   }
+
   handleDayChange(selectedDay, modifiers) {
     this.setState({
       selectedDay,
@@ -20,9 +21,11 @@ export class DatePicker extends React.Component {
     });
     this.props.input.onChange(selectedDay);
   }
+
   render() {
     const { selectedDay, isDisabled } = this.state;
     const today = new Date();
+    const start = this.props.startDateProp;
     return (
       <div>
         <p>
@@ -35,10 +38,9 @@ export class DatePicker extends React.Component {
         <DayPickerInput
           value={selectedDay}
           onDayChange={this.handleDayChange}
-          disabledDays={{ before: today }}
           dayPickerProps={{
             selectedDays: selectedDay,
-            disabledDays: { before: today }
+            disabledDays: { before: selectedDay || today }
           }}
         />
       </div>

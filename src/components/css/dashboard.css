@@ -42,4 +42,8 @@
           "c c c c"
           "f f f f";
     }
+
+    .menu-mobile {
+      grid-area: m;
+    }
 }
