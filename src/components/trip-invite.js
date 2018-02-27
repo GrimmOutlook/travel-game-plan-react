@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-// import Dashboard from './components/dashboard';
-// import LoginPage from './components/login-page';
 import {storeInviteUUID, fetchTripName} from '../actions/index';
 
+import HeaderNonLoggedIn from './header-non-loggedin'
 
 export class TripInvite extends React.Component {
   //local state, not Redux state:
@@ -30,13 +29,13 @@ export class TripInvite extends React.Component {
         )
       : (<Redirect to="/login" />)
     })
-
   }
 
   render() {
     return (
 
       <div>
+        <HeaderNonLoggedIn />
         {this.state.redirect}
 
           {/*ternary operator that renders conditionally if UUID was correct or if error occurred.*/}
@@ -53,7 +52,6 @@ export class TripInvite extends React.Component {
 
     )
   }
-
 }
 
 const mapStateToProps = state => ({

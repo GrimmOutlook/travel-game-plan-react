@@ -1,0 +1,68 @@
+/* ======================================
+  Sign-Up & Log-in Forms
+======================================== */
+
+.header-non-loggedin {
+  margin: 0;
+  padding: 0;
+  background-color: var(--blue);
+  border-bottom: 3px solid var(--green);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header-non-loggedin-menu-list {
+  position: relative;
+  height: 80px;
+  line-height: 80px;
+}
+
+.header-non-loggedin-logo-box {
+  flex: 1;
+  text-align: center;
+}
+
+.header-non-loggedin-logo {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  padding-bottom: 0.45rem;
+}
+
+.header-non-loggedin-text {
+  color: white;
+  font-size: 30px;
+  flex: 3;
+  margin-left: 30%;
+  text-align: left;
+}
+
+.logo-large {
+  height: 120px;
+}
+
+.logo-large img {
+  display: block;
+  height: 110px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 641px) {
+  .header-non-loggedin {
+    border-bottom: 5px solid var(--green);
+  }
+
+  .header-non-loggedin-text {
+    transform: none;
+    font-size: 40px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+}

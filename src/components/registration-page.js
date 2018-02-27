@@ -2,7 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
+import HeaderNonLoggedIn from './header-non-loggedin';
 import RegistrationForm from './registration-form';
+
+// import './css/registration-page.css';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -12,9 +15,11 @@ export function RegistrationPage(props) {
     }
     return (
         <div className="home">
-            <h2>Register for Foo App</h2>
-            <RegistrationForm />
-            <Link to="/login">Login</Link>
+          <HeaderNonLoggedIn />
+          <h2>Register for Travel Game Plan:</h2>
+          <RegistrationForm />
+          <h2>Already Have an Account?</h2>
+          <Link to="/login">Login Here!</Link>
         </div>
     );
 }
