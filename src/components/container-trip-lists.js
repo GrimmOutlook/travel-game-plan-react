@@ -112,6 +112,7 @@ export class ContainerTripLists extends React.Component {
         display = (<div className="grid-trip-lists-content">
           <h1 className="list-tripName">{this.props.currentTrip.tripName}</h1>
           <h4 className="list-tripDetails">{this.props.currentTrip.tripDetails}</h4>
+          <h3 className="list-users">{this.props.currentTrip.users.map(user => user.username + ' ')}</h3>
 
           <Tabs className="list-toggles">
             <TabLink to='tab-needed' className="heading__needed">Things Needed</TabLink>

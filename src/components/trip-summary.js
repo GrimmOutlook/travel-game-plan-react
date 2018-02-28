@@ -21,9 +21,10 @@ export default function TripSummary(props) {
         <h4 className="trip-details">{ trip.tripDetails }</h4>
 
         <FontAwesome
-          name="caret-square-down"
+          /*name="caret-square-down" why doesn't this work?*/
+          name="caret-down"
           className="icon-invite-caret"
-          aria-hidden="false"
+          border
         />
         <h4 className="trip-invite-link">www.travelgameplan.com/trip-invite/{ trip.tripUUID }</h4>
 

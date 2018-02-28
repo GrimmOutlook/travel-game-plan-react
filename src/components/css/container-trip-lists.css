@@ -6,7 +6,8 @@
   grid-template-columns: repeat(2, 1fr);
   /*grid-template-rows: 50px 80vh 50px;*/
   grid-template-areas:
-    "name details"
+    "name users"
+    "details ."
     "list-toggles list-toggles"
     /*"btn-need btn-accounted"*/
     /*". btn-filter"*/
@@ -19,6 +20,10 @@
 
 .list-tripDetails {
   grid-area: details;
+}
+
+.list-users {
+  grid-area: users;
 }
 
 .list-toggles {
