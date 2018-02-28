@@ -16,7 +16,7 @@ export default function HeaderNonLoggedIn() {
         <div class="header-non-loggedin-text">Travel Game Plan</div>
       </header>
       <div class="main-content-wrapper">
-        <div class="logo-large">
+        <div class="logo-large-container">
           <img src="../images/logo-color.svg" alt="logo" className="logo-large"/>
         </div>
       </div>

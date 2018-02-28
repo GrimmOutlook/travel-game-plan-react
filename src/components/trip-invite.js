@@ -34,20 +34,20 @@ export class TripInvite extends React.Component {
   render() {
     return (
 
-      <div>
+      <div className="invite-top-container">
         <HeaderNonLoggedIn />
         {this.state.redirect}
 
           {/*ternary operator that renders conditionally if UUID was correct or if error occurred.*/}
           { this.props.inviteTripName ?
-              <div>
-                <h2>Welcome!  You have received an invite for trip name: <span> {this.props.inviteTripName} </span></h2>
-                <h3>Click button below to add this trip to your dashboard:</h3>
-                <button onClick={(e) => this.changeUUIDState(e)}>Continue</button>
+              <div className="invite-success-container">
+                <h2 className="invite-greeting">Welcome!  You have received an invite for trip name: <span className="invite-trip-name"> {this.props.inviteTripName} </span></h2>
+                <h3 className="invite-instruction">Click button below to add this trip to your dashboard:</h3>
+                <button className="btn btn--green"onClick={(e) => this.changeUUIDState(e)}>Continue</button>
+                <h3 className="invite-friends">Invite more friends!  Share this link: <span className="invite-link">www.travelgameplan.com/trip-invite/{this.props.inviteUUIDInStore}</span></h3>
               </div>
-            : <h2> {this.props.inviteError.message} Check Link and Try Again.</h2> }
+            : <h2 className="invite-failure"> {this.props.inviteError.message} Check Link and Try Again.</h2> }
 
-        {<h5>inviteUUIDInStore: {this.props.inviteUUIDInStore}</h5>}
       </div>
 
     )

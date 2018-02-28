@@ -42,13 +42,13 @@
   text-align: left;
 }
 
-.logo-large {
-  height: 120px;
+.logo-large-container {
+  height: 150px;
 }
 
-.logo-large img {
+img.logo-large {
+  height: 130px;
   display: block;
-  height: 110px;
   max-width: 100%;
   margin: 0 auto;
 }

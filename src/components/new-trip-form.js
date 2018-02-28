@@ -55,13 +55,13 @@ const mapStateToProps = state => ({
     startDateTemp: state.startDateTemp
 });
 
-const form = reduxForm({
+let form = reduxForm({
   form: 'tripForm'
 })(NewTripForm);
 
 const selector = formValueSelector('tripForm');
 
-NewTripForm = connect(
+form = connect(
   state => {
     const startDateTemp = selector(state, 'startDate')
     console.log('Why doesnt this ever get called?  Same as the example in the docs!!');
@@ -69,14 +69,10 @@ NewTripForm = connect(
       startDateTemp
     }
   }
-)(NewTripForm)
+)(form)
 
 
 export default connect(mapStateToProps)(form);
-
-
-
-
 
 
 
