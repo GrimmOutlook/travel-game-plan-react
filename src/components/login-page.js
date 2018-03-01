@@ -18,7 +18,9 @@ export function LoginPage(props) {
       <HeaderNonLoggedIn />
       <h2>Travel Game Plan Login Page</h2>
       <LoginForm />
-      <Link to="/register">Register</Link>
+      <div className="for-centering">
+        <Link to="/register" className="login-register-text">New around here?  Register!</Link>
+      </div>
     </div>
   );
 }

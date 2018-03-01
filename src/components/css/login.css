@@ -1,75 +1,41 @@
 /* ======================================
-  Log-in Form
+  LoginPage Component
 ======================================== */
 
 .form-input #username {
-  font-size: 32px;
+  margin-bottom: 1rem;
 }
 
-.header-signup {
-  margin: 0;
-  padding: 0;
-  background-color: #DB631C;
-  border-bottom: 3px solid #FFB832;
-  width: 100%;
-  display: flex;
-  align-items: center;
+.form-input #password {
+  /*margin-top: 1rem;*/
 }
 
-.header-signup-menu-list {
-  position: relative;
-  height: 80px;
-  line-height: 80px;
-}
+/* ======================================
+  LoginPage Component
+======================================== */
 
-.header-signup-logo-box {
-  flex: 1;
+.for-centering {
   text-align: center;
 }
 
-.header-signup-logo {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 80px;
-  width: 80px;
-  cursor: pointer;
-}
-
-.header-signup-text {
-  color: white;
-  font-size: 30px;
-  flex: 3;
-  margin-left: 30%;
-  text-align: left;
-}
-
-@media only screen and (min-width: 451px) {
-  .header-signup {
-    border-bottom: 5px solid #FFB832;
-  }
-
-  .header-signup-text {
-    transform: none;
-    font-size: 40px;
-    margin-left: 0;
-    text-align: center;
-  }
-
-}
-
-.logo-large {
-  height: 220px;
-}
-
-/*.logo-large img {*/
 .login-wrapper h2 {
   text-align: center;
-  display: block;
-  height: 80px;
-  max-width: 100%;
-  margin: 0 auto;
+  height: 3rem;
+}
+
+.login-register-text {
+  text-align: center;
+  text-decoration: none;
+  color: var(--blue);
+  font-size: 1.5rem;
+}
+
+/* ======================================
+  LoginForm Component
+======================================== */
+
+#username, #password {
+  font-size: 1.75rem;
 }
 
 /*form always centered*/
@@ -101,7 +67,7 @@ form#login-form > div > input[type="text"],
 form#login-form > div > input[type="password"] {
   width: 100%;
   border: 0;
-  padding: 20px 20px 20px 50px;
+  padding: 0.6rem 1.25rem 0.6rem 1.5rem;
   background: #eee;
 }
 
@@ -176,49 +142,3 @@ form#login-form button {
   padding: 20px;
   font-size: 1.2em;
 }
-
-/*@keyframes moveInFromLeft {
-  0% {
-    opacity: 1;
-    width: 75%;
-    height: auto;
-  }
-
-  98% {
-    opacity: 1;
-    width: 75%;
-    height: auto;
-  }
-
-  100% {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-}
-
-p.message-error:empty {
-  display: none;
-}
-
-p.message-error {
-  font-size: 1.25em;
-  width: 40%;
-  color: #9B2B0D;
-  text-align: center;
-  margin: 1em auto;
-  background-color: yellow;
-  animation: moveInFromLeft 5s forwards;
-}
-
-.login-bottom p {
-  text-align: center;
-  font-size: 1.2em;
-}
-
-.login-bottom p a {
-  padding-left: 8px;
-  font-size: 1.4em;
-  color: #9B2B0D;
-}
-*/
