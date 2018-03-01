@@ -5,7 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import HeaderNonLoggedIn from './header-non-loggedin';
 import RegistrationForm from './registration-form';
 
-// import './css/registration-page.css';
+// import './css/registration.css';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -14,12 +14,13 @@ export function RegistrationPage(props) {
         return <Redirect to="/dashboard" />;
     }
     return (
-        <div className="home">
+        <div className="registration-wrapper">
           <HeaderNonLoggedIn />
           <h2>Register for Travel Game Plan:</h2>
           <RegistrationForm />
-          <h2>Already Have an Account?</h2>
-          <Link to="/login">Login Here!</Link>
+          <div className="for-centering">
+            <Link to="/login">Already Have an Account?  <span> Login Here!</span></Link>
+          </div>
         </div>
     );
 }

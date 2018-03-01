@@ -1,0 +1,93 @@
+
+
+form#registration-form #username,
+form#registration-form #password,
+form#registration-form #firstName,
+form#registration-form #lastName,
+form#registration-form #passwordConfirm {
+  font-size: 1.75rem;
+}
+
+.for-centering {
+  text-align: center;
+}
+
+.for-centering span {
+  font-size: 1.75rem;
+  color: var(--green);
+}
+.for-centering a {
+  text-decoration: none;
+  color: var(--blue);
+  padding-bottom: 2.5rem;
+}
+
+.registration-wrapper h2 {
+  text-align: center;
+  height: 3rem;
+}
+
+/*form always centered*/
+form#registration-form {
+  max-width: 450px;
+  margin: 0 auto 0;
+  padding: 0 10px;
+}
+
+form#registration-form label {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+form#registration-form > div {
+  position: relative;
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+
+/*just for the label placeholder text*/
+form#registration-form > div > label {
+  opacity: 0.3;
+  font-weight: bold;
+  position: absolute;
+  top: 22px;
+  left: 20px;
+}
+
+/*normal layout & styling of input fields*/
+form#registration-form > div > input[type="text"],
+form#registration-form > div > input[type="password"] {
+  width: 100%;
+  border: 0;
+  padding: 0.6rem 1.25rem 0.6rem 1.5rem;
+  background: #eee;
+}
+
+/* layout & styling of input fields when field is clicked on*/
+form#registration-form > div > input[type="text"]:focus,
+form#registration-form > div > input[type="password"]:focus {
+  outline: 0;
+  background: #eee;
+}
+
+/*labels containing placeholder text disappear when field is clicked on*/
+form#registration-form > div > input[type="text"]:focus + label,
+form#registration-form > div > input[type="password"]:focus + label {
+  opacity: 0;
+}
+
+form#registration-form button {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  background: #55e079;
+  color: white;
+  border: 0;
+  border-radius: 38px;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
+@media only screen and (min-width: 641px) {
+
+}

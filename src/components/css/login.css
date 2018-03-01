@@ -3,7 +3,7 @@
 ======================================== */
 
 .form-input #username {
-  margin-bottom: 1rem;
+  /*margin-bottom: 1rem;*/
 }
 
 .form-input #password {
@@ -36,6 +36,11 @@
 
 #username, #password {
   font-size: 1.75rem;
+}
+
+form#login-form label {
+  display: block;
+  margin-top: 0.85rem;
 }
 
 /*form always centered*/
