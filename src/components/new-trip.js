@@ -6,7 +6,7 @@ import ContainerNewTrip from './container-new-trip';
 import Footer from './footer';
 
 import './css/new-trip.css';
-import './css/button.css';
+// import './css/button.css';
 
 export default class NewTrip extends React.Component {
 

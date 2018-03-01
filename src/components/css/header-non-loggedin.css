@@ -38,7 +38,7 @@
   color: white;
   font-size: 30px;
   flex: 3;
-  margin-left: 30%;
+  margin-left: 25%;
   text-align: left;
 }
 
@@ -62,6 +62,7 @@ img.logo-large {
     transform: none;
     font-size: 40px;
     margin-left: 0;
+    margin-left: 30%;
     text-align: center;
   }
 

@@ -80,7 +80,7 @@ form#registration-form button {
   display: block;
   width: 80%;
   margin: 20px auto;
-  background: #55e079;
+  background: var(--green);
   color: white;
   border: 0;
   border-radius: 38px;
