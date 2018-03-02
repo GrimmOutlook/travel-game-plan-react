@@ -63,14 +63,14 @@ export class Menu extends React.Component {
             {logOutButton}
           </li>
 
-          <li>
+          <li className="laptop-dashboard">
             <Link to="/dashboard" className="linkDashboard hide">
               <FontAwesome name="home" className="iconDashboard hide" />
                 <div>Trip Dashboard</div>
             </Link>
           </li>
 
-          <li>
+          <li className="laptop-create-trip">
             <Link to="/new-trip" className="linkCreateTrip hide">
               <FontAwesome name="plus-square-o" className="iconCreateTrip hide" />
                 <div>Create New Trip</div>
