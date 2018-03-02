@@ -30,9 +30,14 @@
 
 @media screen and (max-width: 640px) {
   .grid-trip-lists-main {
+    grid-template-columns: repeat(4, 1fr);
     grid-template-areas:
       "m h h h"
       "c c c c"
       "f f f f";
   }
+
+  .menu-mobile {
+      grid-area: m;
+    }
 }

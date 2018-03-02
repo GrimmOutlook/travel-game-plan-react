@@ -36,14 +36,6 @@ button.btn--logout {
 }
 
 /*------------------------- Mobile Slide Out Menu ---------------------------------*/
-  /*--- CSS-Grid for mobile menu only ---*/
-  .menu-mobile {
-    display: grid;
-    grid-template-columns: 120px;
-    /*grid-template-rows: 400px;*/
-    grid-gap: 10px;
-  }
-
   /* Mobile menu off-screen to start */
   .menu-mobile ul {
     position: fixed;
@@ -78,7 +70,7 @@ button.btn--logout {
   .menu-list li input[type=checkbox]:checked ~ .menu-mobile ul {
     position: fixed;
     left: 0;
-    top: 80px;
+    top: 50px;
     width: 300px;
     z-index: 2;
   }
@@ -93,35 +85,19 @@ button.btn--logout {
   }
 
    div.burger {
-    position: absolute;
-    top: 9px;
-    padding-left: 2%;
-    padding-top: 1.5%;
+    margin: 0 auto;
   }
 
   span.burger-line {
     display: block;
     width: 33px;
     height: 4px;
-    margin-bottom: 5px;
     position: relative;
     background: var(--green);
     border-radius: 3px;
-    z-index: 1;
+    margin: 0 auto 5px;
+    /*z-index: 1;*/
   }
-
-  /*.menu-list {
-    color: white;
-    position: absolute;
-    top: 1px;
-    left: 25%;
-    text-align: center;
-    padding-left: 8%;
-    font-size: 2em;
-    height: 2em;
-    line-height: 40px;
-    padding-top: 20px;
-  }*/
 }
 
 @media screen and (min-width: 641px) {
