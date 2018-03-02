@@ -9,7 +9,7 @@ import './css/modal.css';
 
 const SuccessModalContent = modalContent(
   ModalSuccess,
-  "Success Text",
+  "You have successfully created a new trip!",
   toggleInfoModal
 );
 

@@ -1,17 +1,11 @@
-/*----------------- GRID STYLES ------------------------ */
-
 .grid-trip-lists-content {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(2, 1fr);
-  /*grid-template-rows: 50px 80vh 50px;*/
   grid-template-areas:
     "name users"
     "details ."
-    "list-toggles list-toggles"
-    /*"btn-need btn-accounted"*/
-    /*". btn-filter"*/
-    /*"list-need list-accounted"*/;
+    "list-toggles list-toggles";
 }
 
 .list-tripName {

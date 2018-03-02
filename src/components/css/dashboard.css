@@ -11,22 +11,20 @@
 
 .header {
   grid-area: h;
-  /*background-color: #6dfd30;*/
 }
 
 .menu {
   grid-area: m;
-  /*background-color: #6dfd9c;*/
+  background-color: var(--blue);
+  /*min-height: 80vh;*/
 }
 
 .content-dashboard {
   grid-area: c;
-  /*background-color: #007dff;*/
 }
 
 .footer {
   grid-area: f;
-  /*background-color: #6dfd30;*/
 }
 
 .add-trip-button {

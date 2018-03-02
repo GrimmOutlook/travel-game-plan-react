@@ -1,0 +1,17 @@
+.delete-item-container {
+  text-align: center;
+}
+
+.delete-item-container > * {
+  padding-bottom: 0.75rem;
+}
+
+.btn--delete {
+  margin-right: 1.25rem;
+}
+
+.btn--no-delete, .btn--delete {
+  width: 33%;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}

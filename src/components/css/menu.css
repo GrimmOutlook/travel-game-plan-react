@@ -95,8 +95,8 @@ button.btn--logout {
    div.burger {
     position: absolute;
     top: 9px;
-    padding-left: 8%;
-    padding-top: 20px;
+    padding-left: 2%;
+    padding-top: 1.5%;
   }
 
   span.burger-line {

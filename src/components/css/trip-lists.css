@@ -16,6 +16,8 @@
 
 .menu {
   grid-area: m;
+  background-color: var(--blue);
+  /*min-height: 80vh;*/
 }
 
 .content-trip-lists {
