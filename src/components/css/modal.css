@@ -17,6 +17,7 @@
 .modal-box {
   height: 90%;
   width: 90%;
+  overflow: scroll;
   position: relative;
   top: 50%;
   left: 50%;

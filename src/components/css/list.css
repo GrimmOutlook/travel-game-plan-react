@@ -1,26 +1,29 @@
-/*----------------- LIST ITEM STYLES ------------------------ */
-
-li.item {
+/*li.item {
   position: relative;
   margin-bottom: 1rem;
-}
+}*/
 
 .item .item-name {
   font-size: 1.5rem;
 }
 
-.item .iconUpdate {
+.item .item-name, .item .item-details {
+  max-width: 70%;
+}
+
+.item .iconUpdate, .item .iconTrash {
   font-size: 1.5rem;
   position: absolute;
   top: 0;
-  left: 50%;
+  padding: 5px;
+}
+
+.item .iconUpdate {
+  left: 75%;
 }
 
 .item .iconTrash {
-  font-size: 1.5rem;
-  position: absolute;
-  top: 0;
-  left: 75%;
+  left: 90%;
 }
 
 li.item {
