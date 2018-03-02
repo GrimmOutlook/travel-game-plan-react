@@ -18,3 +18,19 @@
   color: var(--blue);
   font-size: 1.25rem;
 }
+
+div.trip-button-container a.create-trip-button {
+  display: block;
+  max-width: 45%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  div.trip-button-container a.create-trip-button {
+    max-width: 75%;
+  }
+
+  div.trip-button-container a.btn {
+    width: 100%;
+  }
+}

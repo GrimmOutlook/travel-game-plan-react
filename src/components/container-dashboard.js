@@ -36,7 +36,7 @@ export class ContainerDashboard extends React.Component {
           {/* <div className="dashboard-protected-data">
              Protected data: {this.props.protectedData}
            </div> */}
-          <Button routePath="new-trip" text="Create New Trip" buttonColor="btn btn--blue" />
+          <Button routePath="new-trip" divClass="trip-button-container" extraButtonClass="create-trip-button" text="Create New Trip" buttonColor="btn--blue" />
           {tripCheck}
         </div>
       );

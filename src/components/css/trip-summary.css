@@ -26,30 +26,8 @@ li.trip {
   margin-top: 1rem;
 }
 
-.trip-number {
-  /*position: absolute;
-  top: 0.5rem;
-  left: 1rem;*/
-}
-
-.trip-name {
-  /*position: absolute;
-  top: 2.5rem;
-  left: 1rem;*/
-  flex-basis: auto;
-}
-
-.trip-address {
-  /*position: absolute;
-  top: 4rem;
-  left: 1rem;*/
-  flex-basis: auto;
-}
-
-.trip-details {
-  /*position: absolute;
-  top: 5rem;
-  left: 1rem;*/
+.trip-name, .trip-address, .trip-details {
+  margin-bottom: 0.65rem;
   flex-basis: auto;
 }
 
@@ -61,11 +39,8 @@ li.trip {
   padding-bottom: 0.5rem;
 }
 
-.icon-invite-caret {
-  font-size: 112.5rem;
-  /*position: absolute;
-  top: 6rem;
-  left: 0.75rem;*/
+.invite-link-label {
+  margin-top: 0.5rem;
 }
 
 .trip-date-label {
@@ -79,5 +54,29 @@ li.trip {
   font-size: 1.25rem;
   top: 2.5rem;
   right: 1rem;
+}
+
+@media screen and (max-width: 699px) and (min-width: 520px)
+ {
+  .trip-dates {
+    position: absolute;
+    font-size: 1.25rem;
+    max-width: 50%;
+    top: 2.5rem;
+  }
+
+  .trip-name {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .trip-name, .trip-address, .trip-dates {
+    max-width: 50%;
+  }
+
+  .trip-dates {
+    right: -3rem;
+  }
 }
 
