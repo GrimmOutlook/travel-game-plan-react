@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {createNewItem, toggleInfoModal} from '../actions/index';
 import {reduxForm, Field} from 'redux-form';
 
+import './css/modal-new-item.css';
+
 export class ModalNewItem extends React.Component {
 
   addItemFxn(values){
@@ -25,7 +27,7 @@ export class ModalNewItem extends React.Component {
 
           <label htmlFor="claimOrNot">Are you bringing this item?</label>
           <div>
-            <label><Field type="checkbox" value="Yes" name="claimOrNot" component="input" />Yes</label>
+            <label className="yes-check"><Field type="checkbox" value="Yes" name="claimOrNot" component="input" />Yes</label>
           </div>
           <button className="btn btn--green" type="submit" >Submit</button>
 

@@ -1,0 +1,115 @@
+.content-trip-lists div.modal-box {
+  height: 60%;
+}
+
+input {
+  display: block;
+}
+
+input[type="checkbox"] {
+  display: block;
+  height: 2.25rem;
+  width: 2.25rem;
+  margin: 0 auto;
+}
+
+.add-item-container {
+  font-size: 1.35rem;
+}
+
+form#form__add-item {
+  max-width: 450px;
+  margin: 0 auto 0;
+  padding: 0 10px;
+}
+
+form#form__add-item label {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+form#form__add-item label.yes-check {
+  text-align: center;
+}
+
+form#form__add-item > div {
+  width: 100%;
+}
+
+/*just for the label placeholder text*/
+form#form__add-item > label {
+  font-weight: bold;
+  top: 22px;
+  left: 20px;
+}
+
+/*normal layout & styling of input fields*/
+form#form__add-item > input[type="text"],
+form#form__add-item input[type="checkbox"] {
+  border: 0;
+  padding: 0.6rem 1.25rem 0.6rem 1.5rem;
+  background: #eee;
+}
+
+form#form__add-item > input[type="text"] {
+  width: 100%;
+  font-size: 1.15rem;
+}
+
+form#form__add-item input[type="checkbox"] {
+  width: 20%;
+}
+
+/* layout & styling of input fields when field is clicked on*/
+form#form__add-item > input[type="text"]:focus,
+form#form__add-item input[type="checkbox"]:focus {
+  outline: 0;
+  /*background: #eee;*/
+}
+
+form#form__add-item button {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  background: var(--green);
+  color: white;
+  border: 0;
+  border-radius: 38px;
+  padding: 15px;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .content-trip-lists div.modal-box {
+    height: 80%;
+    width: 85%;
+  }
+
+  form#form__add-item button {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+  .content-trip-lists div.modal-box {
+    height: 98%;
+    width: 65%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  .add-item-container {
+    font-size: 1.15rem;
+  }
+
+  input[type="checkbox"] {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  form#form__add-item button {
+    width: 80%;
+    margin-bottom: 0;
+  }
+}
+
