@@ -44,7 +44,7 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
   else if (action.type === UPDATE_ITEM_SUCCESS){
     const tripIndex = state.trips.findIndex(trip => trip._id === action.trip._id);
     state.trips.splice(tripIndex, 1, action.trip);
-
+    console.log('tripIndex in UPDATE_ITEM_SUCCESS: ', state.trips[tripIndex]);
     return Object.assign({}, state, {trips: [...state.trips], currentTrip: action.trip});
   }
 

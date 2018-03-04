@@ -135,7 +135,7 @@ export const updateItemSuccess = (trip) => ({
 })
 
 
-export const updateItem = (item_id, item, itemDetails, username, trip_id) => (dispatch, getState) => {
+export const updateItem = (item_id, item, itemDetails, claimOrNot, trip_id) => (dispatch, getState) => {
   console.log('item_id in updateItem action: ', item_id);
   console.log('trip_id in updateItem action: ', trip_id);
   const authToken = getState().auth.authToken;
@@ -150,7 +150,7 @@ export const updateItem = (item_id, item, itemDetails, username, trip_id) => (di
       item_id,
       item,
       itemDetails,
-      username
+      claimOrNot
     })
   })
   .then(res => normalizeResponseErrors(res))

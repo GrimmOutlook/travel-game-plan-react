@@ -97,11 +97,18 @@ export class ContainerTripLists extends React.Component {
        return <Redirect to='/dashboard' />
       }
 
+      let userList = [];
       let filteredList = [];
       let neededList = [];
       let accountedList = [];
       let display = "Loading ...";
       if(this.props.currentTrip){
+
+          console.log('currentTrip.users: ', this.props.currentTrip.users);
+          userList = this.props.currentTrip.users.map(user => {
+            console.log('each user in ContainerTripLists: ', user.username);
+            return user.username + ' ';})
+
           neededList = this.props.currentTrip.items.filter((item) => {return !item.userClaim});
           accountedList = this.props.currentTrip.items.filter((item) => {return item.userClaim});
 
@@ -112,9 +119,7 @@ export class ContainerTripLists extends React.Component {
         display = (<div className="grid-trip-lists-content">
           <h1 className="list-tripName">{this.props.currentTrip.tripName}</h1>
           <h4 className="list-tripDetails">{this.props.currentTrip.tripDetails}</h4>
-          <h3 className="list-users">{this.props.currentTrip.users.map(user => {
-            console.log('each user in ContainerTripLists: ', user.username);
-            return user.username + ' ';})}</h3>
+          <h3 className="list-users">{userList}</h3>
 
           <Tabs className="list-toggles">
             <TabLink to='tab-needed' className="heading__needed">Things Needed</TabLink>

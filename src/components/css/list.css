@@ -11,6 +11,20 @@
   max-width: 70%;
 }
 
+.item .item-details {
+  padding: 0.35rem 0 0.35rem 1rem;
+}
+
+.item .item-username {
+  font-size: 1.35rem;
+  color: var(--green);
+}
+
+.item .item-username span {
+  font-size: 1rem;
+  color: var(--blue);
+}
+
 .item .iconUpdate, .item .iconTrash {
   font-size: 1.5rem;
   position: absolute;
