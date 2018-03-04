@@ -20,7 +20,8 @@ export const tripReducer = (state=initialStateCreateTrip, action) => {
       address: action.address,
       tripDetails: action.tripDetails,
       tripUUID: action.tripUUID,
-      items: []
+      items: [],
+      users: action.users
     }
     return Object.assign({}, state, {trips: [...state.trips, newTrip], currentTrip: newTrip});
   }
