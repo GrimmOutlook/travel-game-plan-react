@@ -158,7 +158,6 @@ export const updateItem = (item_id, item, itemDetails, claimOrNot, trip_id) => (
   .then(res => res.json())
   .then(data => {
     console.log('data in updateItem action creator: ', data);
-    // What do I dispatch????  There's no item left
     dispatch(updateItemSuccess(data))
   });
 };
@@ -182,11 +181,7 @@ export const deleteItem = (trip_id, item_id) => (dispatch, getState) => {
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'
-    }  //,
-    // body: JSON.stringify({
-    //   trip_id,
-    //   item_id
-    // })
+    }
   })
   .then(res => normalizeResponseErrors(res))
   .then(res => res.json())

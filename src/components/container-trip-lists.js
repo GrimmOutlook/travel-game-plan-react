@@ -70,7 +70,7 @@ export class ContainerTripLists extends React.Component {
       )
     }
 
-    updateItemFxn(item_id, item, itemDetails, username){
+    updateItemFxn(item_id, item, itemDetails, claim){
       this.props.dispatch(toggleUpdateModal());
       console.log('currentTrip._id in updateItemFxn in ContainerTripLists: ', this.props.currentTrip._id);
       UpdateModalContent = modalContent(
@@ -81,10 +81,10 @@ export class ContainerTripLists extends React.Component {
           id: item_id,
           item: item,
           itemDetails: itemDetails,
-          username: username,
+          // username: username,
           tripLink: this.props.currentTrip._id,
           doUpdate: () => {
-            this.props.dispatch(updateItem(item_id, item, itemDetails, username, this.props.currentTrip._id));
+            this.props.dispatch(updateItem(item_id, item, itemDetails, claim, this.props.currentTrip._id));
             this.props.dispatch(toggleUpdateModal());
           }
         }
@@ -131,7 +131,7 @@ export class ContainerTripLists extends React.Component {
               <h3>Things Needed:</h3>
               <List classProp="needed__list" items={neededList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-                updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
+                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
               />
             </TabContent>
 
@@ -143,7 +143,7 @@ export class ContainerTripLists extends React.Component {
               <List classProp="accounted__list"
                 items={filteredList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-                updateStuff={(item_id, item, itemDetails, username) => this.updateItemFxn(item_id, item, itemDetails, username)}
+                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
               />
             </TabContent>
           </Tabs>

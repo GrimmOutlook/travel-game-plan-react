@@ -9,7 +9,7 @@ export default function List(props) {
 
         <h3 className="item-name">{ item.item }</h3>
 
-        <FontAwesome onClick={() => props.updateStuff(item._id, item.item, item.itemDetails, item.username)}
+        <FontAwesome onClick={() => props.updateStuff(item._id, item.item, item.itemDetails, item.userClaim)}
           name="pencil"
           className="iconUpdate"
         />
