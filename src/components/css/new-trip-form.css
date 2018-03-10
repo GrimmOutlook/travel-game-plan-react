@@ -69,9 +69,19 @@ form#form__new-trip > textarea[type="text"]:focus {
 }
 
 /*labels containing placeholder text disappear when field is clicked on*/
-form#form__new-trip > input[type="text"]:focus + label,
-form#form__new-trip > textarea[type="text"]:focus + label {
-  opacity: 0;
+form#form__new-trip > input[type="text"]:focus::-webkit-input-placeholder,
+form#form__new-trip > textarea[type="text"]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+form#form__new-trip > input[type="text"]:focus::-moz-placeholder,
+form#form__new-trip > textarea[type="text"]:focus::-moz-placeholder {
+  color: transparent;
+}
+
+form#form__new-trip > input[type="text"]:focus::-ms-input-placeholder,
+form#form__new-trip > textarea[type="text"]:focus::-ms-input-placeholder {
+  color: transparent;
 }
 
 form#form__new-trip button {

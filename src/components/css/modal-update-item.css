@@ -6,7 +6,7 @@ input {
   display: block;
 }
 
-input[type="checkbox"] {
+form#form__update-item input[type="checkbox"] {
   display: block;
   height: 2.25rem;
   width: 2.25rem;

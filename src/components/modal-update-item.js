@@ -30,7 +30,7 @@ export class ModalUpdateItem extends React.Component {
           <Field type="text" placeholder={this.props.itemDetails} name="itemDetails" component="input" />
 
          <div>
-            <label className="yes-check"><Field type="checkbox" value="Yes" name="claimOrNot" component="input" />Yes</label>
+            <label className="yes-check"><Field type="checkbox" value="Yes" name="claimOrNot" component="input" />Claim this item</label>
           </div>
 
           <button className="btn btn--blue" type="submit">Submit</button>
