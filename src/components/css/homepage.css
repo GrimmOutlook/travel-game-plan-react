@@ -25,7 +25,6 @@
   border-radius: 8px;
 }
 
-
 #homepage-container:before {
   width: 800px;
   height: 550px;
@@ -91,9 +90,7 @@ img.homepage-logo {
   display: inline-block;
   border-radius: 10rem;
   transition: all .2s;
-  /*position: absolute;
-  left: 40%;
-  top: 85%;*/
+  width: 35%;
   font-size: 1.6rem;
 }
 
@@ -129,7 +126,7 @@ img.homepage-logo {
   color: white;
   position: absolute;
   right: 10%;
-  top: 95%;
+  top: 85%;
 }
 
 .homepage .btn--green::after {
@@ -159,33 +156,11 @@ ul {
   grid-gap: 1%;
 }
 
-.feature-box-1 {
+.feature-box-1, .feature-box-2, .feature-box-3 {
   display: block;
   width: 100%;
   height: 350px;
-  /*width: 30%;*/
   border: 1px solid black;
-  /*float: left;*/
-  margin: 1rem 1.66%;
-}
-
-.feature-box-2 {
-  display: block;
-  width: 100%;
-  height: 350px;
-  /*width: 30%;*/
-  border: 1px solid black;
-  /*float: left;*/
-  margin: 1rem 1.66%;
-}
-
-.feature-box-3 {
-  display: block;
-  width: 100%;
-  height: 350px;
-  /*width: 30%;*/
-  border: 1px solid black;
-  /*float: left;*/
   margin: 1rem 1.66%;
 }
 
@@ -206,29 +181,49 @@ ul {
 
   #homepage-container {
     width: 90%;
-    height: 90%;
+    height: 93vh;
     top: 5%;
     left: 5%;
-    margin-left: -10px;
-    margin-top: -20px;
+    margin: 0 auto;
   }
 
-   #homepage-container:before {
+  #homepage-container:before {
     /*width: 90%;*/
-    height: 90%;
+    height: 97vh;
+  }
+
+  #homepage-container .btn {
+    transform: translateX(-50%);
+    left: 50%;
+    width: 50%;
+    text-align: center;
+  }
+
+  #homepage-container .btn--blue {
+    top: 77%;
+  }
+
+  #homepage-container .btn--green {
+    top: 89%;
   }
 
   .heading-primary--main {
     width: 80%;
     font-size: 3.5rem;
     letter-spacing: 1rem;
+    top: 38%;
   }
 
   .heading-primary--sub {
     width: 80%;
+    top: 66%;
+    word-wrap: break-word;
+    font-size: 1.75rem;
+    font-weight: 650;
+    letter-spacing: 0.5rem;
   }
 
-  /*.feature-box-1, .feature-box-2, .feature-box-3 {
+  .feature-box-1, .feature-box-2, .feature-box-3 {
     width: 95%;
-  }*/
+  }
 }
