@@ -199,6 +199,11 @@ export const myListFilter = () => ({
   type: MY_LIST_FILTER
 });
 
+export const CLEAR_LIST_FILTER = 'CLEAR_LIST_FILTER';
+export const clearListFilter = () => ({
+  type: CLEAR_LIST_FILTER
+});
+
 
 // --------------- Actions for Initial welcome screen upon arriving. ----------------------------
 

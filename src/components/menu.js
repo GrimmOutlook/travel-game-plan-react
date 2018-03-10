@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {clearAuth} from '../actions/auth';
-import {myListFilter} from '../actions/index';
+import {clearListFilter} from '../actions/index';
 import {clearAuthToken} from '../local-storage';
 
 import './css/menu.css';
@@ -13,7 +13,7 @@ export class Menu extends React.Component {
 
   logOut() {
     console.log('In the logOut fxn in the Menu component.  Should print everytime button is clicked dammit!');
-    this.props.dispatch(myListFilter());
+    this.props.dispatch(clearListFilter());
     this.props.dispatch(clearAuth());
     clearAuthToken();
   }
