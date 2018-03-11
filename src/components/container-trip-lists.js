@@ -16,17 +16,6 @@ let DeleteModalContent;
 let UpdateModalContent;
 
 export class ContainerTripLists extends React.Component {
-    // constructor(props){
-    //   super(props);
-      // console.log("this.props.tripId: ", this.props.tripId);
-
-      // const tripId = this.props.tripId;
-      // this.trip = this.props.trips.find(trip => tripId == trip._id);
-      // const theOnlyTripIWant = this.trip
-      // this.props.dispatch(setCurrentTrip(theOnlyTripIWant));
-
-      // console.log("this.trip: ", this.trip);
-    // }
 
     componentDidMount() {
       console.log("this.props.tripId: ", this.props.tripId);
@@ -105,9 +94,8 @@ export class ContainerTripLists extends React.Component {
       if(this.props.currentTrip){
 
           console.log('currentTrip.users: ', this.props.currentTrip.users);
-          userList = this.props.currentTrip.users.map(user => {
-            console.log('each user in ContainerTripLists: ', user.username);
-            return user.username + ' ';})
+          userList = this.props.currentTrip.users.map((user, index) => {
+            return <li key={ index + 1 }>{user.username + ' '}</li>;})
 
           neededList = this.props.currentTrip.items.filter((item) => {return !item.userClaim});
           accountedList = this.props.currentTrip.items.filter((item) => {return item.userClaim});
@@ -116,35 +104,47 @@ export class ContainerTripLists extends React.Component {
             return item.userClaim.username === this.props.username;
           }) : accountedList;
 
+
+          let itemNeedCheck = <p className="trip-empty">Click on Add an Item button to create your first item for this trip!</p>;
+          if(neededList.length){
+            itemNeedCheck = <List classProp="needed__list" items={neededList}
+                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
+                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
+              />
+          }
+
+          let itemAccountedCheck = <p className="trip-empty">Claim an existing item from Items Needed list or click Add an Item button and create and claim a new item!</p>;
+          if(accountedList.length){
+            itemAccountedCheck = <List classProp="accounted__list"
+                items={filteredList}
+                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
+                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
+              />
+          }
+
         display = (<div className="grid-trip-lists-content">
           <h1 className="list-tripName">{this.props.currentTrip.tripName}</h1>
           <h4 className="list-tripDetails">{this.props.currentTrip.tripDetails}</h4>
-          <h3 className="list-users">{userList}</h3>
+          <ul className="list-users">Friends on this trip: {userList}</ul>
 
           <Tabs className="list-toggles">
-            <TabLink to='tab-needed' className="heading__needed">Things Needed</TabLink>
-            <TabLink to='tab-accounted' className="heading__accounted">Things Accounted For</TabLink>
+            <TabLink to='tab-needed' className="heading__needed">Items Needed</TabLink>
+            <TabLink to='tab-accounted' className="heading__accounted">Items Accounted For</TabLink>
 
             <TabContent for='tab-needed'>
               <a className="btn btn--blue btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
-              <h3>Things Needed:</h3>
-              <List classProp="needed__list" items={neededList}
-                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
-              />
+              <h3>Items Needed:</h3>
+              <h4>To claim an item, click Edit button, then check 'Claim this item'</h4>
+              {itemNeedCheck}
             </TabContent>
 
             <TabContent for='tab-accounted'>
               <a className="btn btn--blue btn-add__accounted" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
               <button className="btn btn--white btn-item-filter" onClick={e => this.filterFxn(e)}>My List</button>
-              <h3>Things Accounted For:</h3>
-              <List classProp="accounted__list"
-                items={filteredList}
-                deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
-                updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
-              />
+              <h3>Items Accounted For:</h3>
+              {itemAccountedCheck}
             </TabContent>
           </Tabs>
         </div>)

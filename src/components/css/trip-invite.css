@@ -14,6 +14,7 @@
 .invite-success-container > button {
   display: block;
   max-width: 100%;
+  width: 25%;
   height: auto;
   margin: 0 auto;
 }
@@ -31,4 +32,16 @@
   text-align: center;
   font-size: 2.75rem;
   transform: translateY(50%);
+}
+
+@media only screen and (max-width: 640px) {
+  .invite-success-container > button {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+  .invite-success-container > button {
+    width: 33%;
+  }
 }
