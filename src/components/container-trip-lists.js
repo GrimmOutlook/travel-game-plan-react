@@ -107,15 +107,19 @@ export class ContainerTripLists extends React.Component {
 
           let itemNeedCheck = <p className="trip-empty">Click on Add an Item button to create your first item for this trip!</p>;
           if(neededList.length){
-            itemNeedCheck = <List classProp="needed__list" items={neededList}
+            itemNeedCheck = <div className="enclosing-tag">
+              <h4>To claim an item, click Edit button, then check 'Claim this item'</h4>
+              <List classProp="needed__list" items={neededList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
                 updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
               />
+            </div>
           }
 
           let itemAccountedCheck = <p className="trip-empty">Claim an existing item from Items Needed list or click Add an Item button and create and claim a new item!</p>;
           if(accountedList.length){
-            itemAccountedCheck = <List classProp="accounted__list"
+            itemAccountedCheck =
+              <List classProp="accounted__list"
                 items={filteredList}
                 deleteStuff={(item_id, item) => this.deleteItemFxn(item_id, item)}
                 updateStuff={(item_id, item, itemDetails, claim) => this.updateItemFxn(item_id, item, itemDetails, claim)}
@@ -135,7 +139,7 @@ export class ContainerTripLists extends React.Component {
               <a className="btn btn--blue btn-add__needed" onClick={e => this.modalAdd(e)}>Add An Item</a>
 
               <h3>Items Needed:</h3>
-              <h4>To claim an item, click Edit button, then check 'Claim this item'</h4>
+
               {itemNeedCheck}
             </TabContent>
 
