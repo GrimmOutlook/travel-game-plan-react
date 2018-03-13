@@ -4,50 +4,50 @@ http://travelgameplan.com/
 <!-- [![Build Status](https://travis-ci.org/GrimmOutlook/whiskey-social.svg?branch=master)](https://travis-ci.org/GrimmOutlook/whiskey-social)
 [![GitHub last commit](https://img.shields.io/github/last-commit/google/skia.svg)]() -->
 # Summary
-Whiskey Social allows you to keep track of all the different whiskeys you've tried.  You can also rate them, keep track of your favorites, and make notes on each whiskey in your collection.
+Going on vacation?  A business trip?  Organizing a trip with friends?  Keep track of them all with Travel Game Plan!  Coordinate your trip with friends and keep track of who's bringing what.
 
 # Features
 
-### Profile Page:
-Your Profile Page shows a number for:
-  - **My Posts** - The total number of whiskeys that you have tasted.
-  - **My Unique Posts** - The number of different whiskeys that you have tasted.
-  - **My Favorites** - The number of whiskeys you have designated as a favorite.
+### Trip Dashboard Page:
+Your Trip Dashboard Page shows:
+  - A list of all trips that you are tracking.
+  - The details of each trip, including: trip name, dates, destination address, and trip description.
+  - A link to send to your friends to invite them to collaborate with you on what to bring and hwo will bring it.
 
-Just click on the number and you'll be redirected to a list of whiskeys in the corresponding category.  The list will show the name, photo, and rating of your whiskey, along with a blue-ribbon favorite designation for those you have favorited.
+Just click on the trip and you will be redirected to the Game Plan lists.
 
-### Whiskey Search:
-- Search the database of over 1,700 whiskeys, bourbons, and scotches from around the world.
-- A short description and an image of the bottle are shown for each result.
+### Game Plan Lists Page:
+- Items for your trip are split into 'Items Needed' and 'Items Accounted For' lists.
+- You can add a new item to either list.
+- You can edit or delete an item from either list.
+- To move an item from the 'Items Needed' list to the 'Items Accounted For' list, click the edit button, then click the 'Claim this item' checkbox.
+- To filter the 'Items Accounted For' list to show only items that you are bringing, click the 'My List' button.
 
-### Add notes to each of your posted whiskeys:
-- Click on any whiskey on any of the 3 'posts' pages and you'll be able to see any comments you've made associated with that whiskey, along with the ability to add other comments.
+### Create New Trip Page:
+- A form where the trip name, dates, destination address, and trip details are entered.
+- After successfully completing the form, the user is given a randomly-generated link to send to friends to invite them to collaborate on the trip.
 
 # Screenshots
-<!-- #### Profile Page:
-<img src="public/images/readme-profile.png" alt="Profile Page preview" width="600">
+#### Trip Dashboard Page:
+<img src="public/images/readme-profile.png" alt="Trip Dashboard Page preview" width="600">
 
-#### Posts Page:
-<img src="public/images/readme-posts.png" alt="Posts Page preview" width="600">
+#### Create New Trip Page:
+<img src="public/images/readme-posts.png" alt="Create New Trip Page preview" width="600">
 
-#### My Favorites Page:
-<img src="public/images/readme-favorites.png" alt="My Favorites Page preview" width="600">
+#### Game Plan List - Items Needed Page:
+<img src="public/images/readme-favorites.png" alt="Game Plan List - Items Needed Page preview" width="600">
 
-#### Single Post Page:
-<img src="public/images/readme-single-post.png" alt="Single Post Page preview" width="600">
+#### Game Plan List - Items Accounted For Page:
+<img src="public/images/readme-single-post.png" alt="Game Plan List - Items Accounted For Page preview" width="600">
 
-#### Whiskey Search Page:
-<img src="public/images/readme-search.png" alt="Whiskey Search preview" width="600">
+#### Trip Invite Link Page:
+<img src="public/images/readme-search.png" alt="Trip Invite Link preview" width="600">
 
-#### Whiskey Profile Page:
-<img src="public/images/readme-whiskey-profile.png" alt="Whiskey Profile preview" width="600">
-
-#### Whiskey Post Page:
-<img src="public/images/readme-whiskey-post.png" alt="Whiskey Post preview" width="600"> -->
 
 # Tech Stack
 
 - React
+- Redux / Redux Form / Redux Thunk
 - HTML5
 - CSS3
 - JavaScript / ES6
