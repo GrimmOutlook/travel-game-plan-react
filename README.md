@@ -29,19 +29,19 @@ Just click on the trip and you will be redirected to the Game Plan lists.
 
 # Screenshots
 #### Trip Dashboard Page:
-<img src="public/images/readme-profile.png" alt="Trip Dashboard Page preview" width="600">
+<img src="public/images/dashboard.png" alt="Trip Dashboard Page preview" width="600">
 
 #### Create New Trip Page:
-<img src="public/images/readme-posts.png" alt="Create New Trip Page preview" width="600">
+<img src="public/images/create-trip.png" alt="Create New Trip Page preview" width="600">
 
 #### Game Plan List - Items Needed Page:
-<img src="public/images/readme-favorites.png" alt="Game Plan List - Items Needed Page preview" width="600">
+<img src="public/images/items-needed.png" alt="Game Plan List - Items Needed Page preview" width="600">
 
 #### Game Plan List - Items Accounted For Page:
-<img src="public/images/readme-single-post.png" alt="Game Plan List - Items Accounted For Page preview" width="600">
+<img src="public/images/items-accounted.png" alt="Game Plan List - Items Accounted For Page preview" width="600">
 
 #### Trip Invite Link Page:
-<img src="public/images/readme-search.png" alt="Trip Invite Link preview" width="600">
+<img src="public/images/trip-invite.png" alt="Trip Invite Link preview" width="600">
 
 
 # Tech Stack
