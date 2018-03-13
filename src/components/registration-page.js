@@ -5,7 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import HeaderNonLoggedIn from './header-non-loggedin';
 import RegistrationForm from './registration-form';
 
-// import './css/registration.css';
+import './css/registration.css';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration

@@ -4,7 +4,7 @@ import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../validators';
 
-import './css/login.css';
+// import './css/login.css';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {

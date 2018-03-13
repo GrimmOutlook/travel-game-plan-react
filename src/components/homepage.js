@@ -32,9 +32,15 @@ export default class Homepage extends React.Component {
 }
 
 const FEATURES = [
-  {feature_id: 1, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, cum, dolore officia fugiat mollitia, obcaecati quibusdam ea quis iure dolor error, magni incidunt laboriosam. Omnis saepe optio aliquid voluptatibus esse."},
-  {feature_id: 2, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde iusto sint sit fuga libero explicabo dignissimos placeat iure non, est ut inventore, odio voluptatem ea quod assumenda, cumque aut dolor!"},
-  {feature_id: 3, description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima corporis maxime rerum fugiat doloremque nemo id adipisci inventore excepturi sint."}
+  {feature_id: 1, description: "Going on vacation?  A business trip?  Organizing a trip with friends?  Keep track of them all with Travel Game Plan!", icon: "../images/camping-trip.svg", alt: "", classProp: ""},
+
+  {feature_id: 2, description: "Collaborate with your travelmates on what to bring along and who will bring it.  No more long e-mail chains needed to organize a trip among many people!", icon: "../images/collab.svg", alt: "", classProp: ""},
+
+  {feature_id: 3, description: "When you create a trip, you will be given a link to send to your travelmates so that everyone can help plan the trip.", icon: "../images/invite.svg", alt: "", classProp: ""},
+
+  {feature_id: 4, description: "Fill in the details and dates of your trip.  Your trip dashboard will display the details and dates for every one of your trips in chronological order.", icon: "../images/beach-trip.svg", alt: "", classProp: ""},
+
+  {feature_id: 5, description: "For each trip, make a list of 'Items Needed.'  Someone can then claim that item to bring, which moves that item to the 'Items Accounted For' list.  You can also filter the list to show only the items you signed up to bring.", icon: "../images/checklist.svg", alt: "", classProp: ""}
 ];
 
 
