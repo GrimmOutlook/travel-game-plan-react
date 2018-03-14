@@ -21,6 +21,7 @@ form#form__new-trip {
 form#form__new-trip label {
   display: block;
   margin-top: 0.85rem;
+  margin-bottom: 0.25rem;
 }
 
 .DayPickerInput input {
@@ -30,6 +31,10 @@ form#form__new-trip label {
   padding: 0.6rem 1.25rem 0.6rem 1.5rem;
   background: #eee;
   font-size: 1.75rem;
+}
+
+form#form__new-trip div p {
+  margin-bottom: 0.25rem;
 }
 
 form#form__new-trip > div {
@@ -86,14 +91,14 @@ form#form__new-trip > textarea[type="text"]:focus::-ms-input-placeholder {
 
 form#form__new-trip button {
   display: block;
-  width: 80%;
+  width: 50%;
   margin: 20px auto;
   background: var(--blue);
   color: white;
   border: 0;
   border-radius: 38px;
   padding: 20px;
-  font-size: 1.2em;
+  font-size: 1.6rem;
 }
 
 
