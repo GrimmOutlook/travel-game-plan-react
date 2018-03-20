@@ -2,12 +2,16 @@
   background-color: var(--blue);
   display: flex;
   justify-content: center;
+  min-height: 4rem;
 }
 
 .footer-name {
   color: white;
+  margin: auto 0;
 }
 
 .footer-copy {
   color: white;
+  margin: auto 0;
+  padding-left: 2rem;
 }
