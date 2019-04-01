@@ -66,6 +66,7 @@ export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails
   const authToken = getState().auth.authToken;
   fetch(`${API_BASE_URL}/trip`, {
     method: 'POST',
+    mode: 'no-cors',
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'

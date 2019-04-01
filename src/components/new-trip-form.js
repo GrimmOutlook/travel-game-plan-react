@@ -64,7 +64,6 @@ const selector = formValueSelector('tripForm');
 form = connect(
   state => {
     const startDateTemp = selector(state, 'startDate')
-    console.log('Why doesnt this ever get called?  Same as the example in the docs!!');
     return {
       startDateTemp
     }
