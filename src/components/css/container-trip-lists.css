@@ -30,6 +30,7 @@
   width: 50%;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .heading__accounted {
@@ -37,6 +38,7 @@
   width: 50%;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 div.tab-content a.btn,

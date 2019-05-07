@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import {setAuthToken, refreshAuthToken} from './actions/auth';
@@ -9,7 +9,7 @@ import rootReducer from './reducers/index';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(
-  applyMiddleware(thunk, logger)
+  applyMiddleware(thunk)
 ));
 
 // const store = createStore(
@@ -21,6 +21,7 @@ const store = createStore(rootReducer, composeEnhancers(
 
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
+console.log('authToken in store: ', authToken);
 if (authToken) {
     const token = authToken;
     store.dispatch(setAuthToken(token));

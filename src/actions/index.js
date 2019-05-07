@@ -64,9 +64,11 @@ export const createNewTripSuccess = (id, tripName, dateStart, dateEnd, address, 
 
 export const createNewTrip = (tripName, dateStart, dateEnd, address, tripDetails) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
+  console.log('authToken in createNewTrip action: ', authToken);
+
   fetch(`${API_BASE_URL}/trip`, {
     method: 'POST',
-    mode: 'no-cors',
+    // mode: 'no-cors',
     headers: {
       Authorization: `Bearer ${authToken}`,
       'Content-Type': 'application/json'

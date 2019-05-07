@@ -10,6 +10,7 @@ export const normalizeResponseErrors = res => {
             res.headers.get('content-type').startsWith('application/json')
         ) {
             // It's a nice JSON error returned by us, so decode it
+            console.log('res.json in utils: ', res.json);
             return res.json().then(err => Promise.reject(err));
         }
         // It's a less informative error returned by express
